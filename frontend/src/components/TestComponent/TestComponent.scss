@@ -1,0 +1,14 @@
+.TestComponent {
+
+    .TestComponent-Problem {
+        position: relative;
+
+        .PDFButtons {
+            width: 100%;
+            display: flex;
+            position: absolute;
+            bottom: 10%;
+            justify-content: center;
+        }
+    }
+}

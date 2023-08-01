@@ -1,0 +1,25 @@
+.AnswersBox {
+    position: fixed !important;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    .AnswersText {
+        text-align: center;
+    }
+
+    .Answer-Sheet {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: gray;
+        border-radius: 10px;
+        border: 1px solid black;
+
+        .Answer-Radio-Tag {
+            justify-content: center;
+        }
+    }
+
+}

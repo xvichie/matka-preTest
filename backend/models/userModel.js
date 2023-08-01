@@ -7,21 +7,27 @@ const problemSchema = mongoose.Schema({
     version: { type: Number },
     problem: { type: Number }
 })
-const answersSchema = mongoose.Schema({
-    answer: { type: String }
-})
 const similarSchema = mongoose.Schema({
     similar: { type: [String] }
 })
 const testSchema = mongoose.Schema({
     problems: {
-        type: [problemSchema]
+        type: [Object]
     },
     answers: {
-        type: [answersSchema]
+        type: [String]
     },
     similars: {
-        type: [similarSchema]
+        type: [Array]
+    },
+    chosenAnswers: {
+        type: [String]
+    },
+    score: {
+        type: Number
+    },
+    time: {
+        type: Number
     }
 })
 

@@ -1,0 +1,34 @@
+.AnswerSheet-Answer {
+    display: flex;
+    flex-direction: column;
+
+    // justify-content: space-evenly;
+
+    .Answer-Radio-Tag {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .Answer-Radio-Tag-Label {
+        text-align: center;
+    }
+
+    .AnswerSheet-Letters {
+        height: 85px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .Answer-Radio-Tag-Startup {
+            text-align: center;
+            height: 14px;
+
+            // h6 {
+            //     height: 100%;
+            //     max-height: 100% !important;
+            //     //padding: 0;
+            //     margin: 2px 5px;
+            // }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+.MyTests {
+    .MyTests-TestViewer {
+        .MyTests-TestViewer-Tests {
+            height: 700px;
+            overflow: scroll;
+
+            .MyTests-TestViewer-Test {
+                position: relative;
+
+                .PDFButtons {
+                    width: 100%;
+                    display: flex;
+                    position: absolute;
+                    bottom: 10%;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

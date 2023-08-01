@@ -1,0 +1,13 @@
+.Score {
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+
+    .Score-Stats {
+        width: 100px;
+        display: flex;
+        justify-content: space-around;
+    }
+}

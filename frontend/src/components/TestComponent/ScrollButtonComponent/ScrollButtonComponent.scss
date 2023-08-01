@@ -1,0 +1,52 @@
+.ScrollButtons {
+    position: fixed;
+    right: 10px;
+    // top: 0;
+    justify-content: center;
+    opacity: 0.6;
+
+    overflow: scroll;
+    max-height: 100%;
+
+
+    .ScrollButtons-Div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .ScrollButtons-Button {
+            width: 20px !important;
+            height: 40px !important;
+        }
+    }
+}
+
+.ScrollButtons::-webkit-scrollbar {
+    width: 4px;
+}
+
+.ScrollButtons::-webkit-scrollbar-thumb {
+    background: gray;
+}
+
+@media only screen and (max-width: 1000px) {
+    .ScrollButtons-Button {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.ScrollButtons:hover {
+    opacity: 1;
+    animation: AnimateOpacity 0.15s;
+}
+
+@keyframes AnimateOpacity {
+    from {
+        opacity: 0.6;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

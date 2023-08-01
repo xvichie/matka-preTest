@@ -1,0 +1,45 @@
+.TheoryScreen {
+
+    .TheoryScreen-Search {
+        height: 100px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+
+        .SearchBar {
+            display: flex;
+            justify-content: center;
+        }
+
+        .Search-Dropdown {
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    .TheoryScreen-Label {
+        text-align: center;
+    }
+
+    .TheoryScreen-Choose {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 700px;
+
+        Button {
+            height: 200px;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            text-decoration: none !important;
+
+            .ChooseIcon {
+                font-size: 128px;
+            }
+        }
+    }
+}

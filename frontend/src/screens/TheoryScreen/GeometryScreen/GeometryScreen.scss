@@ -1,0 +1,13 @@
+.GeometryScreen {
+    .TheoryScreen-Geometry-Search {
+        height: 100px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+
+        .SearchBar {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
