@@ -8,7 +8,8 @@ const initialState = {
     score: 0,
     time: 0,
     componentOrder: 'Start',
-    testHasStarted: false
+    testHasStarted: false,
+    testType: ''
 }
 
 
@@ -42,10 +43,13 @@ const testSlice = createSlice({
         },
         setTestHasStarted: (state, action) => {
             state.testHasStarted = action.payload;
+        },
+        setTestType: (state, action) => {
+            state.testType = action.payload;
         }
     },
 });
 
-export const { setProblems, setSimilars, setAnswers, setChosenAnswers, setScore, setTime, setComponentOrder, resetChosenAnswers, setTestHasStarted } = testSlice.actions;
+export const { setProblems, setSimilars, setAnswers, setChosenAnswers, setScore, setTime, setComponentOrder, resetChosenAnswers, setTestHasStarted, setTestType } = testSlice.actions;
 
 export default testSlice.reducer;
