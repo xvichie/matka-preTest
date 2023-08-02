@@ -78,6 +78,7 @@ function ScoreComponent(props) {
         }
         dispatch(setComponentOrder('Done'));
         dispatch(setTestHasStarted(false));
+        localStorage.setItem('TestHasStarted', false);
     }
 
     //console.log(problems['0']);

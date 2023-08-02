@@ -9,7 +9,11 @@ const initialState = {
     time: 0,
     componentOrder: 'Start',
     testHasStarted: false,
-    testType: ''
+    testType: 'Erovnuli',
+    erovnuli: {
+        Year: 0,
+        Version: 0
+    }
 }
 
 
@@ -46,10 +50,13 @@ const testSlice = createSlice({
         },
         setTestType: (state, action) => {
             state.testType = action.payload;
+        },
+        setErovnuli: (state, action) => {
+            state.erovnuli = action.payload
         }
     },
 });
 
-export const { setProblems, setSimilars, setAnswers, setChosenAnswers, setScore, setTime, setComponentOrder, resetChosenAnswers, setTestHasStarted, setTestType } = testSlice.actions;
+export const { setProblems, setSimilars, setAnswers, setChosenAnswers, setScore, setTime, setComponentOrder, resetChosenAnswers, setTestHasStarted, setTestType, setErovnuli } = testSlice.actions;
 
 export default testSlice.reducer;

@@ -76,7 +76,7 @@ export default function SimilarModalComponent({ index, ButtonIcon, currentTest, 
     let Problems = useSelector((state) => {
         if (ViewedIn == 'MyTests') {
             const test = state.userTests.tests[currentTest].test[0];
-            console.log(test.similars[index])
+            //console.log(test.similars[index])
             if (test.similars) {
                 //console.log('shemovida');
                 return test.similars[index]
@@ -86,7 +86,7 @@ export default function SimilarModalComponent({ index, ButtonIcon, currentTest, 
         }
         else if (ViewedIn == 'Test') {
             const test = state.test;
-            console.log(test.similars[index])
+            //console.log(test.similars[index])
             if (test.similars) {
                 //console.log('shemovida');
                 return test.similars[index];
@@ -100,7 +100,7 @@ export default function SimilarModalComponent({ index, ButtonIcon, currentTest, 
         if (Problems) {
             let objectProblems = [];
             Problems.forEach((Problem) => {
-                console.log(Problem);
+                //console.log(Problem);
                 let split = Problem.split('-');
                 const ProblemObject = {
                     Year: parseInt(split[0]),
@@ -133,7 +133,7 @@ export default function SimilarModalComponent({ index, ButtonIcon, currentTest, 
                 <Fade in={open}>
                     <Box sx={style}>
                         {objectProblems !== null && objectProblems !== undefined && objectProblems.map((problem, index) => {
-                            console.log(problem)
+                            //console.log(problem)
                             return (<PDFViewer id={'problem-' + index} key={'problem- ' + index} Problem={problem}></PDFViewer>)
                         })}
                     </Box>

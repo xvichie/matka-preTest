@@ -35,7 +35,7 @@ function ScrollButtonComponent({ problems }) {
         const headerHeight = document.querySelector('header').offsetHeight;
 
         // Check the scroll position
-        console.log(window.scrollY, ' ', headerHeight - 2)
+        //console.log(window.scrollY, ' ', headerHeight - 2)
         if (window.scrollY > headerHeight - 3) {
             setHasScrolled(true);
         } else {

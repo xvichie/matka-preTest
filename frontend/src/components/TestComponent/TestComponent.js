@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import PDFViewer from '../TestComponent/ProblemComponent/PDFViewer';
+
 import AnswersJSON from '../../assets/AnswersForEveryTest.json';
 import SimilarJSON from '../../assets/SimilarsForEveryTest.json';
+
 import AnswersComponent from './AnswersComponent/AnswersComponent';
 import ScrollButtonComponent from './ScrollButtonComponent/ScrollButtonComponent';
 
@@ -17,8 +19,6 @@ import SimilarModalComponent from '../Profile/MyTestsComponent/SimilarModalCompo
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
-import { StickyContainer, Sticky } from 'react-sticky';
-
 import './TestComponent.scss';
 
 function TestComponent() {
@@ -32,6 +32,8 @@ function TestComponent() {
     const similars = useSelector((state) => state.test.similars);
 
     const testHasStarted = useSelector((state) => state.test.testHasStarted);
+    const testType = useSelector((state) => state.test.testType);
+    const erovnuli = useSelector((state) => state.test.erovnuli)
 
     const availableYears = Object.entries(AnswersJSON).map((AnswerJson, indxe) => parseInt(AnswerJson[0]));
     console.log(availableYears)
@@ -140,46 +142,69 @@ function TestComponent() {
         }
     }
 
+    const generateErovnuli = (Year, Version) => {
+
+        const VersionInfoJSON = require('../../assets/' + Year + '/info.json');
+
+        const NumberOf1PointProblems = VersionInfoJSON['NumberOf1PointProblems'];
+        const NumberOf2PointProblems = VersionInfoJSON['NumberOf2PointProblems'];
+        const NumberOf3PointProblems = VersionInfoJSON['NumberOf3PointProblems'];
+        const NumberOf4PointProblems = VersionInfoJSON['NumberOf4PointProblems'];
+
+        let GeneratedProblems = 0;
+
+        const generatedProblems = [];
+        const generatedAnswers = [];
+        const generatedSimilars = [];
+
+        const Used = Array.from({ length: 2025 }, () =>
+            Array.from({ length: 4 }, () => Array.from({ length: 43 }, () => false))
+        );
+
+        while (GeneratedProblems < NumberOf1PointProblems + NumberOf2PointProblems + NumberOf3PointProblems + NumberOf4PointProblems) {
+            const ProblemObject = {
+                Year: Year,
+                Version: Version,
+                Problem: GeneratedProblems + 1
+            };
+            generatedProblems.push(ProblemObject);
+            generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem])
+            generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
+            GeneratedProblems += 1;
+        }
+
+        // console.log(generatedProblems);
+        // console.log(generatedAnswers);
+        // console.log(generatedSimilars);
+        return {
+            Problems: generatedProblems,
+            Answers: generatedAnswers,
+            Similars: generatedSimilars
+        }
+    }
 
 
     useEffect(() => {
         dispatch(setComponentOrder('Start'));
         setIsLoading(false);
-        //console.log(localStorage.getItem('TestObject'));
-        if (localStorage.getItem('TestObject') !== null && testHasStarted) {
-            //console.log(localStorage.getItem('TestObject'));
-            dispatch(setComponentOrder('Test'));
-            //console.log('TestObject Arsebobs anu ukve');
-        }
-
-        //console.log('shemovida');
-        const localStorageTestObject = localStorage.getItem('TestObject');
-        if (!localStorageTestObject) {
-
-            const generatedData = generateProblems();
-            console.log(generatedData);
-            dispatch(setProblems(generatedData.Problems));
-            dispatch(setAnswers(generatedData.Answers));
-            dispatch(setSimilars(generatedData.Similars));
-            localStorage.setItem('TestObject', JSON.stringify({
-                Problems: generatedData.Problems,
-                Answers: generatedData.Answers,
-                Similars: generatedData.Similars
-            }))
-        } else {
-            const parsedTestObject = JSON.parse(localStorageTestObject);
+        console.log(localStorage.getItem('TestHasStarted'));
+        console.log(localStorage.getItem('TestObject'));
+        if (localStorage.getItem('TestObject') !== null && localStorage.getItem('TestHasStarted') == 'true') {
+            const parsedTestObject = JSON.parse(localStorage.getItem('TestObject'));
             dispatch(setProblems(parsedTestObject.Problems));
             dispatch(setAnswers(parsedTestObject.Answers));
             dispatch(setSimilars(parsedTestObject.Similars));
+            dispatch(setComponentOrder('Test'));
         }
         setIsLoading(false) // Set isLoading to false once the data is loaded
-        //console.log(isLoading);
 
     }, []);
 
     useEffect(() => {
         setIsLoading(false);
     }, [isLoading]);
+
+
 
     return (
         <div className='TestComponent'>
