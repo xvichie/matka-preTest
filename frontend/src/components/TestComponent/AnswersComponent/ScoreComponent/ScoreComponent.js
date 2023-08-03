@@ -4,13 +4,15 @@ import axios from 'axios';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button } from '@mui/material';
+import { Button, Fab } from '@mui/material';
 
 import { setComponentOrder, setScore, setTestHasStarted, setTime } from '../../../../slices/TestSlice';
 
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 import './ScoreComponent.scss';
 
-function ScoreComponent(props) {
+function ScoreComponent() {
 
     const { user } = useAuth0();
     const dispatch = useDispatch();
@@ -22,7 +24,7 @@ function ScoreComponent(props) {
 
     const score = useSelector(state => state.test.score);
     const Overalltime = useSelector((state) => state.test.time)
-
+    const maxScore = useSelector((state) => state.test.maxScore);
 
     const MAX_TIME_LIMIT = 120; //MINUTES
     const MAX_TIME_LIMIT_IN_SECONDS = 60 * MAX_TIME_LIMIT;
@@ -61,7 +63,8 @@ function ScoreComponent(props) {
                     similars: similars,
                     chosenAnswers: chosenAnswers,
                     score: score,
-                    time: secondsTime
+                    time: secondsTime,
+                    maxScore: maxScore
                 }
             }
             console.log(data);
@@ -71,16 +74,15 @@ function ScoreComponent(props) {
                 },
 
             })
-                .then(() => {
-                    localStorage.clear('TestObject');
-                })
                 .catch(err => console.error(err));
         }
         dispatch(setComponentOrder('Done'));
         dispatch(setTestHasStarted(false));
         localStorage.setItem('TestHasStarted', false);
-    }
+        localStorage.clear('TestObject');
 
+
+    }
     //console.log(problems['0']);
 
     // state to check stopwatch running or not
@@ -107,16 +109,6 @@ function ScoreComponent(props) {
         return () => clearInterval(intervalId);
     }, [isRunning, secondsTime]);
 
-    // useEffect(() => {
-    //     if (secondsTime % 600 == 0) {
-    //         dispatch(setTime(secondsTime));
-    //         console.log('Time Set In Redux');
-    //     }
-    //     return () => {
-    //         // Code to run on component unmount (optional)
-    //     };
-    // }, [secondsTime])
-
     useEffect(() => {
         dispatch(setScore(score));
     }, [score])
@@ -136,16 +128,33 @@ function ScoreComponent(props) {
     };
     return (
         <div className='Score'>
-            <Button variant='contained' onClick={handleFinish}>დასრულება</Button>
             <div className='Score-Stats'>
                 <div className='Score-Score'>
-                    {score}/37
+                    <div className="Score-Score-Label">
+                        ქულა
+                    </div>
+                    <div className="Score-Score-Score">
+                        {score}/{maxScore}
+                    </div>
                 </div>
                 <div className="Score-Time">
-                    {hours}:{minutes.toString().padStart(2, "0")}:
-                    {seconds.toString().padStart(2, "0")}
+                    <div className="Score-Time-Label">
+                        დრო
+                    </div>
+                    <div className="Score-Time-Time">
+                        {hours}:{minutes.toString().padStart(2, "0")}:
+                        {seconds.toString().padStart(2, "0")}
+                    </div>
                 </div>
             </div>
+            <Fab
+                style={{ borderTopRightRadius: '50px', borderBottomRightRadius: '50px', borderBottomLeftRadius: '0', borderTopLeftRadius: '0' }}
+                onClick={handleFinish}
+                variant="extended"
+                color='primary'
+            >
+                დასრულება <CheckCircleIcon sx={{ ml: 1 }} ></CheckCircleIcon>
+            </Fab>
         </div>
     )
 }

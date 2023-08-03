@@ -7,8 +7,10 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 import { BsNewspaper } from 'react-icons/bs';
 import Dropdown from 'react-bootstrap/Dropdown';
+
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -50,6 +52,11 @@ function Header() {
                     <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
                     <Navbar.Collapse id='basic-navbar-nav'>
                         <Nav className="ms-auto">
+                            <LinkContainer to={'/teachers'}>
+                                <Nav.Link>
+                                    <CoPresentIcon></CoPresentIcon>რეპეტიტორები
+                                </Nav.Link>
+                            </LinkContainer>
                             <LinkContainer to={'/theory'}>
                                 <Nav.Link>
                                     <AutoStoriesIcon></AutoStoriesIcon>თეორია

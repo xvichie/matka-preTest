@@ -3,6 +3,17 @@
     .TestComponent-Problem {
         position: relative;
 
+        .ProblemLabel {
+            position: absolute;
+            top: 6.4%;
+            left: 4.25%;
+            z-index: 1;
+
+            h3 {
+                font-size: 28px;
+            }
+        }
+
         .PDFButtons {
             width: 100%;
             display: flex;
@@ -10,5 +21,54 @@
             bottom: 10%;
             justify-content: center;
         }
+    }
+
+    .AnswersButton {
+        position: fixed;
+        bottom: 30px;
+        right: 90px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .ProblemLabel {
+        top: 6.25% !important;
+        left: 4.5% !important;
+
+        h3 {
+            font-size: 22px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .ProblemLabel {
+        left: 4.75% !important;
+
+        h3 {
+            font-size: 16px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .ProblemLabel {
+        left: 5.25% !important;
+
+        h3 {
+            font-size: 12px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ProblemLabel {
+        top: 6% !important;
+        left: 5.25% !important;
+
+        h3 {
+            font-size: 10px !important;
+        }
+
     }
 }

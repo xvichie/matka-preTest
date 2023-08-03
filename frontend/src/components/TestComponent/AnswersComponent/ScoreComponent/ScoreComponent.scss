@@ -1,13 +1,29 @@
 .Score {
     margin-top: 10px;
+    position: fixed;
+    bottom: 30px;
+    width: 70%;
+    background-color: grey;
+    z-index: 500;
+    border-radius: 50px;
 
     display: flex;
     flex-direction: row;
     justify-content: space-between !important;
 
     .Score-Stats {
-        width: 100px;
+        margin-left: 20px;
+        width: 200px;
         display: flex;
         justify-content: space-around;
+        align-items: center;
+
+        .Score-Score {
+            display: flex;
+        }
+
+        .Score-Time {
+            display: flex;
+        }
     }
 }

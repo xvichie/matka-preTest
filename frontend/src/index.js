@@ -17,6 +17,7 @@ import GeometryScreen from './screens/TheoryScreen/GeometryScreen/GeometryScreen
 import AlgebraScreen from './screens/TheoryScreen/AlgebraScreen/AlgebraScreen';
 import TheoremComponent from './components/TheoremComponent/TheoremComponent';
 import ThesisScreen from './screens/TheoryScreen/ThesisScreen/ThesisScreen';
+import TeachersScreen from './screens/TeachersScreen/TeachersScreen';
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<App />}>
@@ -37,6 +38,9 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route index={true} element={<ThesisScreen />}></Route>
         <Route path=":TheoremId" element={<TheoremComponent TheoremAlgGeo={'Thesis'} />} />
       </Route>
+    </Route>
+    <Route path='teachers'>
+      <Route index={true} element={<TeachersScreen />}></Route>
     </Route>
   </Route>
 ))

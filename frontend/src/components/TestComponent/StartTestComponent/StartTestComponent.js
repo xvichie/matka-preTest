@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { setAnswers, setComponentOrder, setErovnuli, setIsLoading, setProblems, setScore, setSimilars, setTestHasStarted, setTestIsDone, setTestType, setTime } from '../../../slices/TestSlice';
+import { setAnswers, setComponentOrder, setErovnuli, setIsLoading, setMaxScore, setProblems, setScore, setSimilars, setTestHasStarted, setTestIsDone, setTestType, setTime } from '../../../slices/TestSlice';
 import { FormControl, InputLabel, MenuItem, Select, Tab, Tabs } from '@mui/material';
 import SwipeableViews from 'react-swipeable-views';
 
@@ -21,6 +21,8 @@ function StartTestComponent({ isLoadingSetter }) {
         const NumberOf1PointProblems = 37;
         const NumberOf3PointProblems = 2;
         const NumberOf4PointProblems = 2;
+
+        dispatch(setMaxScore(NumberOf1PointProblems + (NumberOf3PointProblems * 3) + (NumberOf4PointProblems * 4)))
 
         let Generated1PointProblems = 0;
         let Generated3PointProblems = 0;
@@ -127,6 +129,8 @@ function StartTestComponent({ isLoadingSetter }) {
         const NumberOf3PointProblems = VersionInfoJSON['NumberOf3PointProblems'];
         const NumberOf4PointProblems = VersionInfoJSON['NumberOf4PointProblems'];
 
+        dispatch(setMaxScore(NumberOf1PointProblems + (NumberOf2PointProblems * 2) + (NumberOf3PointProblems * 3) + (NumberOf4PointProblems * 4)))
+
         let GeneratedProblems = 0;
 
         const generatedProblems = [];
@@ -212,7 +216,7 @@ function StartTestComponent({ isLoadingSetter }) {
         isLoadingSetter(true);
     }
 
-    const [year, setYear] = useState(2022);
+    const [year, setYear] = useState(2023);
     const [version, setVersion] = useState(1);
 
     const [value, setValue] = useState(0);
@@ -233,6 +237,12 @@ function StartTestComponent({ isLoadingSetter }) {
         console.log(version);
     };
     console.log(value);
+
+    const getVersions = (Year) => {
+        const VersionInfoJSON = require('../../../assets/' + Year + '/info.json');
+        return Array.from({ length: VersionInfoJSON['NumberOfVersionsInThatYear'] }, (_, i) => i + 1)
+    }
+
     return (
         <>
             <div className="StartTestComponent">
@@ -250,11 +260,12 @@ function StartTestComponent({ isLoadingSetter }) {
                             <FormControl fullWidth>
                                 <InputLabel id="demo-simple-select-label">წელი</InputLabel>
                                 <Select
-                                    defaultValue={2022}
+                                    defaultValue={2023}
                                     value={year}
                                     label="Year"
                                     onChange={handleYearChange}
                                 >
+                                    <MenuItem value={2023}>2023</MenuItem>
                                     <MenuItem value={2022}>2022</MenuItem>
                                     <MenuItem value={2021}>2021</MenuItem>
                                 </Select>
@@ -267,8 +278,9 @@ function StartTestComponent({ isLoadingSetter }) {
                                     label="Version"
                                     onChange={handleVersionChange}
                                 >
-                                    <MenuItem value={1}>I ვარიანტი</MenuItem>
-                                    <MenuItem value={2}>II ვარიანტი</MenuItem>
+                                    {getVersions(year).map((Version, index) => {
+                                        return (<MenuItem value={Version}>{Version == 1 ? 'I' : Version == 2 ? 'II' : 'III'} ვარიანტი</MenuItem>)
+                                    })}
                                 </Select>
                             </FormControl>
                         </div>

@@ -13,7 +13,8 @@ const initialState = {
     erovnuli: {
         Year: 0,
         Version: 0
-    }
+    },
+    maxScore: 0
 }
 
 
@@ -53,10 +54,13 @@ const testSlice = createSlice({
         },
         setErovnuli: (state, action) => {
             state.erovnuli = action.payload
+        },
+        setMaxScore: (state, action) => {
+            state.maxScore = action.payload;
         }
     },
 });
 
-export const { setProblems, setSimilars, setAnswers, setChosenAnswers, setScore, setTime, setComponentOrder, resetChosenAnswers, setTestHasStarted, setTestType, setErovnuli } = testSlice.actions;
+export const { setProblems, setSimilars, setAnswers, setChosenAnswers, setScore, setTime, setComponentOrder, resetChosenAnswers, setTestHasStarted, setTestType, setErovnuli, setMaxScore } = testSlice.actions;
 
 export default testSlice.reducer;

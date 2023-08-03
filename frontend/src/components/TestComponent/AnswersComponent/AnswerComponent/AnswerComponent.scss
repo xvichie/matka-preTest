@@ -1,25 +1,21 @@
-.AnswersBox {
-    position: fixed !important;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+.AnswerSheet-Answer {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-around;
 
+    // justify-content: space-evenly;
+    .Answer-CorrectnessIcon {
+        margin-right: 10px;
+    }
 
-    .AnswersText {
+    div {
+        width: 20px;
+    }
+
+    .AnswerSheet-Letters {
+        display: flex;
+        width: 125px;
+        justify-content: space-between;
         text-align: center;
     }
-
-    .Answer-Sheet {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        background-color: gray;
-        border-radius: 10px;
-        border: 1px solid black;
-
-        .Answer-Radio-Tag {
-            justify-content: center;
-        }
-    }
-
 }

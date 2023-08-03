@@ -43,9 +43,6 @@ export default function AnswersComponent(props) {
                         <div className='Answer-CorrectnessIcon'>
 
                         </div>
-                        <div className='Answer-SolutionIcon'>
-
-                        </div>
                     </>}
                 </div>
                 {props.AnswersSheet.map((Answer, index) => {
@@ -54,7 +51,7 @@ export default function AnswersComponent(props) {
                 })}
             </div>
             <div>
-                <ScoreComponent Problems={props.Problems} Similars={props.SimilarsSheet} Answers={props.AnswerSheet}></ScoreComponent>
+                {/* <ScoreComponent Problems={props.Problems} Similars={props.SimilarsSheet} Answers={props.AnswerSheet}></ScoreComponent> */}
             </div>
         </div>
     )

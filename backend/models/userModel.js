@@ -28,6 +28,9 @@ const testSchema = mongoose.Schema({
     },
     time: {
         type: Number
+    },
+    maxScore: {
+        type: Number
     }
 })
 
