@@ -18,6 +18,7 @@ import { setCredentials, logoutUser } from '../../slices/authSlice.js';
 
 
 import './Header.scss';
+import { useTheme } from '@emotion/react';
 
 function Header() {
     const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -37,12 +38,12 @@ function Header() {
     // }
 
     const dispatch = useDispatch();
-
+    const theme = useTheme();
 
 
     return (
         <header>
-            <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
+            <Navbar style={{ backgroundColor: theme.palette.primary.main }} expand='lg' collapseOnSelect>
                 <Container>
                     <LinkContainer to='/'>
                         <Nav.Link active>
@@ -54,17 +55,17 @@ function Header() {
                         <Nav className="ms-auto">
                             <LinkContainer to={'/teachers'}>
                                 <Nav.Link>
-                                    <CoPresentIcon></CoPresentIcon>რეპეტიტორები
+                                    <CoPresentIcon sx={{ mr: 0.5 }}></CoPresentIcon>რეპეტიტორები
                                 </Nav.Link>
                             </LinkContainer>
                             <LinkContainer to={'/theory'}>
                                 <Nav.Link>
-                                    <AutoStoriesIcon></AutoStoriesIcon>თეორია
+                                    <AutoStoriesIcon sx={{ mr: 0.5 }}></AutoStoriesIcon>თეორია
                                 </Nav.Link>
                             </LinkContainer>
                             <LinkContainer to={'/test'}>
                                 <Nav.Link>
-                                    <BsNewspaper></BsNewspaper> ტესტი
+                                    <BsNewspaper sx={{ mr: 0.5 }}></BsNewspaper> ტესტი
                                 </Nav.Link>
                             </LinkContainer>
                             {isAuthenticated == false ?

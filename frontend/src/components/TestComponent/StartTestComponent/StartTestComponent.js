@@ -23,6 +23,7 @@ function StartTestComponent({ isLoadingSetter }) {
         const NumberOf4PointProblems = 2;
 
         dispatch(setMaxScore(NumberOf1PointProblems + (NumberOf3PointProblems * 3) + (NumberOf4PointProblems * 4)))
+        localStorage.setItem('MaxScore', NumberOf1PointProblems + (NumberOf3PointProblems * 3) + (NumberOf4PointProblems * 4));
 
         let Generated1PointProblems = 0;
         let Generated3PointProblems = 0;
@@ -130,6 +131,8 @@ function StartTestComponent({ isLoadingSetter }) {
         const NumberOf4PointProblems = VersionInfoJSON['NumberOf4PointProblems'];
 
         dispatch(setMaxScore(NumberOf1PointProblems + (NumberOf2PointProblems * 2) + (NumberOf3PointProblems * 3) + (NumberOf4PointProblems * 4)))
+        localStorage.setItem('MaxScore', NumberOf1PointProblems + (NumberOf2PointProblems * 2) + (NumberOf3PointProblems * 3) + (NumberOf4PointProblems * 4));
+
 
         let GeneratedProblems = 0;
 

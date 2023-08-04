@@ -132,7 +132,7 @@ function TestComponent() {
                         variant="extended"
                         onClick={toggleDrawer("left", true)}
                         className='AnswersButton'
-                        color='primary'
+                        color='secondary'
                     >
                         <ArticleIcon sx={{ mr: 1 }} />
                         პასუხები

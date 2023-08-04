@@ -3,7 +3,7 @@
     right: 10px;
     // top: 0;
     justify-content: center;
-    opacity: 0.6;
+    opacity: 0.6 !important;
 
     overflow: scroll;
     max-height: 100%;
@@ -37,7 +37,7 @@
 }
 
 .ScrollButtons:hover {
-    opacity: 1;
+    opacity: 1 !important;
     animation: AnimateOpacity 0.15s;
 }
 

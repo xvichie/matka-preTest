@@ -6,9 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Button, Fab } from '@mui/material';
 
-import { setComponentOrder, setScore, setTestHasStarted, setTime } from '../../../../slices/TestSlice';
+import { resetChosenAnswers, setComponentOrder, setScore, setTestHasStarted, setTime } from '../../../../slices/TestSlice';
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ReplayIcon from '@mui/icons-material/Replay';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import SportsScoreIcon from '@mui/icons-material/SportsScore';
+import CreditScoreIcon from '@mui/icons-material/CreditScore';
 
 import './ScoreComponent.scss';
 
@@ -83,6 +87,14 @@ function ScoreComponent() {
 
 
     }
+    const handleStartOver = async () => {
+        startAndStop();
+        dispatch(setComponentOrder('Start'));
+        dispatch(setTestHasStarted(false));
+        dispatch(resetChosenAnswers());
+        localStorage.setItem('TestHasStarted', false);
+        localStorage.clear('TestObject');
+    }
     //console.log(problems['0']);
 
     // state to check stopwatch running or not
@@ -128,18 +140,26 @@ function ScoreComponent() {
     };
     return (
         <div className='Score'>
-            <div className='Score-Stats'>
+            <Fab
+                color='secondary'
+                style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px', borderBottomRightRadius: '0', borderTopRightRadius: '0' }}
+                onClick={handleStartOver}
+                variant="extended"
+            >
+                <ReplayIcon></ReplayIcon>
+                ახლიდან დაწყება
+            </Fab><div className='Score-Stats'>
                 <div className='Score-Score'>
                     <div className="Score-Score-Label">
-                        ქულა
+                        <CreditScoreIcon sx={{ mr: 1 }}></CreditScoreIcon>
                     </div>
                     <div className="Score-Score-Score">
-                        {score}/{maxScore}
+                        {score}/{localStorage.getItem('MaxScore')}
                     </div>
                 </div>
                 <div className="Score-Time">
                     <div className="Score-Time-Label">
-                        დრო
+                        <AccessTimeIcon sx={{ mr: 1 }}></AccessTimeIcon>
                     </div>
                     <div className="Score-Time-Time">
                         {hours}:{minutes.toString().padStart(2, "0")}:
@@ -153,7 +173,7 @@ function ScoreComponent() {
                 variant="extended"
                 color='primary'
             >
-                დასრულება <CheckCircleIcon sx={{ ml: 1 }} ></CheckCircleIcon>
+                დასრულება <SportsScoreIcon sx={{ ml: 1 }} ></SportsScoreIcon>
             </Fab>
         </div>
     )

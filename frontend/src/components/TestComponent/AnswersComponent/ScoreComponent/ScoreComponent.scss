@@ -2,28 +2,51 @@
     margin-top: 10px;
     position: fixed;
     bottom: 30px;
-    width: 70%;
-    background-color: grey;
+    width: fit-content;
+    background-color: #4153af;
     z-index: 500;
     border-radius: 50px;
+    color: white;
+
+    transform: translateX(50%);
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between !important;
+    justify-content: center !important;
+
 
     .Score-Stats {
-        margin-left: 20px;
-        width: 200px;
+        // width: 200px;
         display: flex;
         justify-content: space-around;
         align-items: center;
 
         .Score-Score {
+            border: 1px solid black;
             display: flex;
+            justify-content: center;
+            width: 150px;
+            height: 100%;
+            align-items: center;
+
+            .Score-Score-Score {
+                font-size: 28px;
+            }
         }
 
         .Score-Time {
             display: flex;
+            width: 150px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            width: 150px;
+            height: 100%;
+            align-items: center;
+
+            .Score-Time-Time {
+                font-size: 28px;
+            }
         }
     }
 }

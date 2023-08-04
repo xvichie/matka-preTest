@@ -140,8 +140,8 @@ function AnswerComponent(props) {
                 </div>
                 <div className='Answer-CorrectnessIcon'>
                     {answer != 'Correct' && answer != 'Incorrect' && <RadioButtonUncheckedIcon></RadioButtonUncheckedIcon>}
-                    {answer == 'Incorrect' && <CancelIcon style={{ color: 'red', outlineColor: 'black' }}></CancelIcon>}
-                    {answer == 'Correct' && <CheckCircleIcon style={{ color: 'green', outlineColor: 'black' }}></CheckCircleIcon>}
+                    {answer == 'Incorrect' && <CancelIcon color='secondary'></CancelIcon>}
+                    {answer == 'Correct' && <CheckCircleIcon color='success'></CheckCircleIcon>}
                 </div>
             </>}
         </FormGroup>

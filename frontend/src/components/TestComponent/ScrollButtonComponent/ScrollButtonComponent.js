@@ -53,25 +53,32 @@ function ScrollButtonComponent({ problems }) {
         };
     }, []);
 
+
     return (
         <div style={{ top: hasScrolled ? '0px' : '60px' }} className='ScrollButtons' ref={containerRef}>
             <div className='ScrollButtons-Div'>
-                {problems.map((problem, index) => (
-                    <Button
-                        style={{ backgroundColor: (chosenAnswers[index] !== '') ? ((chosenAnswers[index] !== translateAnswer(answers[index])) ? 'red' : 'green') : 'none' }}
-                        className='ScrollButtons-Button'
-                        variant='outlined'
-                        key={index}
-                        onClick={() => {
-                            const element = document.getElementById(`problem-${index}`);
-                            if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' });
+                {problems.map((problem, index) => {
+                    console.log('chosenAnswers ', index, '-', chosenAnswers[index]);
+                    console.log(translateAnswer(answers[index]));
+                    return (
+                        <Button
+                            color={
+                                (chosenAnswers[index] !== '') ? chosenAnswers[index] === translateAnswer(answers[index]) ? 'success' : 'secondary' : 'primary'
                             }
-                        }}
-                    >
-                        {index + 1}
-                    </Button>
-                ))}
+                            className='ScrollButtons-Button'
+                            variant={(chosenAnswers[index] !== '') ? 'contained' : 'outlined'}
+                            key={index}
+                            onClick={() => {
+                                const element = document.getElementById(`problem-${index}`);
+                                if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
+                        >
+                            {index + 1}
+                        </Button>
+                    )
+                })}
             </div>
         </div >
     );
