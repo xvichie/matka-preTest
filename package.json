@@ -32,6 +32,6 @@
     "jwks-rsa": "^3.0.1",
     "mongoose": "^7.4.0",
     "nodemon": "^3.0.1",
-    "react-bootstrap": "^2.8.0"
+    "stripe": "^12.17.0"
   }
 }

@@ -5,6 +5,7 @@ import axios from 'axios';
 import UserInfoComponent from '../../components/Profile/UserInfoComponent/UserInfoComponent';
 import './ProfileScreen.scss';
 import MyTestsComponent from '../../components/Profile/MyTestsComponent/MyTestsComponent';
+import CheckoutComponent from '../../components/CheckoutComponent/CheckoutComponent';
 
 
 
@@ -39,6 +40,7 @@ function ProfileScreen() {
             <>
                 {!isLoading && isAuthenticated &&
                     <>
+                        <CheckoutComponent></CheckoutComponent>
                         <UserInfoComponent user={user}></UserInfoComponent>
                         <MyTestsComponent></MyTestsComponent>
                     </>

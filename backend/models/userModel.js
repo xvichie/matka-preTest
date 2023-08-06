@@ -1,15 +1,6 @@
 const mongoose = require('mongoose');
 
 
-
-const problemSchema = mongoose.Schema({
-    year: { type: Number },
-    version: { type: Number },
-    problem: { type: Number }
-})
-const similarSchema = mongoose.Schema({
-    similar: { type: [String] }
-})
 const testSchema = mongoose.Schema({
     problems: {
         type: [Object]

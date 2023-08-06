@@ -7,6 +7,7 @@ const axios = require('axios');
 
 const connection = require('./config/db.js');
 const userTests = require('./routes/userTests.js')
+const payment = require('./routes/payment.js');
 
 const app = express()
 app.use(cors());
@@ -15,6 +16,7 @@ app.use(express.json());
 connection();
 
 app.use('/api/userTests', userTests);
+app.use('/api/payment',payment);
 
 const jwtCheck = jwt({
     secret: jwks.expressJwtSecret({
