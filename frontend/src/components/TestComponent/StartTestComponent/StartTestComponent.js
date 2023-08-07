@@ -44,7 +44,7 @@ function StartTestComponent({ isLoadingSetter }) {
             const VersionInfoJSON = require('../../../assets/' + Year + '/info.json');
 
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
-            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf1PointProblems']) + 1;
+            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf1PointProblems']) ;
 
             const ProblemObject = {
                 Year: Year,
@@ -69,7 +69,7 @@ function StartTestComponent({ isLoadingSetter }) {
 
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
 
-            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf3PointProblems']) + 1 + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'];
+            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf3PointProblems']) + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'];
 
             const ProblemObject = {
                 Year: Year,
@@ -95,7 +95,7 @@ function StartTestComponent({ isLoadingSetter }) {
 
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
 
-            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf4PointProblems']) + 1 + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'] + VersionInfoJSON['NumberOf3PointProblems'];
+            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf4PointProblems'])  + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'] + VersionInfoJSON['NumberOf3PointProblems'];
 
             const ProblemObject = {
                 Year: Year,
