@@ -246,6 +246,8 @@ function StartTestComponent({ isLoadingSetter }) {
         return Array.from({ length: VersionInfoJSON['NumberOfVersionsInThatYear'] }, (_, i) => i + 1)
     }
 
+    console.log(useSelector((state) => state.test.problems))
+
     return (
         <>
             <div className="StartTestComponent">
@@ -276,6 +278,11 @@ function StartTestComponent({ isLoadingSetter }) {
                                     <MenuItem value={2018}>2018</MenuItem>
                                     <MenuItem value={2017}>2017</MenuItem>
                                     <MenuItem value={2016}>2016</MenuItem>
+                                    <MenuItem value={2015}>2015</MenuItem>
+                                    <MenuItem value={2014}>2014</MenuItem>
+                                    <MenuItem value={2013}>2013</MenuItem>
+                                    <MenuItem value={2012}>2012</MenuItem>
+                                    <MenuItem value={2011}>2011</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>
