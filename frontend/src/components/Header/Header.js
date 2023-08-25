@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import Toggle from "react-toggle";
+
+import { Navbar, Nav, NavLink, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 import { BsNewspaper } from 'react-icons/bs';
@@ -19,23 +21,11 @@ import { setCredentials, logoutUser } from '../../slices/authSlice.js';
 
 import './Header.scss';
 import { useTheme } from '@emotion/react';
+import MuiSwitch from './HeaderComponents/MuiSwitch.jsx';
 
 function Header() {
     const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-
-    // const callProtectedApi = async () => {
-    //     try {
-    //         const token = await getAccessTokenSilently();
-    //         const res = await axios.get('http://localhost:' + "5000" + '/protected', {
-    //             headers: {
-    //                 Authorization: `Bearer ${token}`
-    //             }
-    //         })
-    //         console.log(res);
-    //     } catch (err) {
-    //         console.error(err)
-    //     }
-    // }
+    const [isDark, setIsDark] = useState(false);
 
     const dispatch = useDispatch();
     const theme = useTheme();
@@ -43,41 +33,44 @@ function Header() {
 
     return (
         <header>
-            <Navbar style={{ backgroundColor: theme.palette.primary.main }} expand='lg' collapseOnSelect>
+            <Navbar expand='lg' collapseOnSelect>
                 <Container>
                     <LinkContainer to='/'>
-                        <Nav.Link active>
-                            <Navbar.Brand>Matka.ge</Navbar.Brand>
-                        </Nav.Link>
+                        <NavLink activeClassName="active">
+                            <Navbar.Brand style={{ color: theme.palette.primary.main, fontWeight: 'bold', fontSize: '1.5rem', alignItems: 'center' }}>Matka.ge</Navbar.Brand>
+                        </NavLink>
                     </LinkContainer>
                     <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
                     <Navbar.Collapse id='basic-navbar-nav'>
                         <Nav className="ms-auto">
+
+                            <MuiSwitch></MuiSwitch>
+
                             <LinkContainer to={'/teachers'}>
-                                <Nav.Link>
+                                <NavLink activeClassName="active">
                                     <CoPresentIcon sx={{ mr: 0.5 }}></CoPresentIcon>რეპეტიტორები
-                                </Nav.Link>
+                                </NavLink>
                             </LinkContainer>
                             <LinkContainer to={'/theory'}>
-                                <Nav.Link>
+                                <NavLink activeClassName="active">
                                     <AutoStoriesIcon sx={{ mr: 0.5 }}></AutoStoriesIcon>თეორია
-                                </Nav.Link>
+                                </NavLink>
                             </LinkContainer>
                             <LinkContainer to={'/test'}>
-                                <Nav.Link>
+                                <NavLink activeClassName="active">
                                     <BsNewspaper sx={{ mr: 0.5 }}></BsNewspaper> ტესტი
-                                </Nav.Link>
+                                </NavLink>
                             </LinkContainer>
                             {isAuthenticated == false ?
-                                <LinkContainer onClick={loginWithPopup} to={'/'}>
-                                    <Nav.Link>
-                                        <FaSignInAlt></FaSignInAlt>
+                                <LinkContainer onClick={loginWithPopup} to={'/'} style={{ color: theme.palette.primary.main, fontWeight: 'bold' }}>
+                                    <NavLink>
+                                        <FaSignInAlt style={{ marginRight: '3px' }}></FaSignInAlt>
                                         შესვლა
-                                    </Nav.Link>
+                                    </NavLink>
                                 </LinkContainer>
                                 :
                                 <Dropdown>
-                                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                    <Dropdown.Toggle style={{ backgroundColor: theme.palette.primary.main }} variant="success" id="dropdown-basic">
                                         <AccountCircleIcon></AccountCircleIcon> {user && user.name}
                                     </Dropdown.Toggle>
 

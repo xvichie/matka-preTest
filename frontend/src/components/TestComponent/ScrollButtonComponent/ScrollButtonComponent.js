@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import './ScrollButtonComponent.scss';
 import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
+import { useTheme } from '@emotion/react';
 
 function ScrollButtonComponent({ problems }) {
     const containerRef = useRef(null);
@@ -53,20 +54,23 @@ function ScrollButtonComponent({ problems }) {
         };
     }, []);
 
+    const theme = useTheme()
 
     return (
         <div style={{ top: hasScrolled ? '0px' : '60px' }} className='ScrollButtons' ref={containerRef}>
             <div className='ScrollButtons-Div'>
                 {problems.map((problem, index) => {
-                    console.log('chosenAnswers ', index, '-', chosenAnswers[index]);
-                    console.log(translateAnswer(answers[index]));
+                    // console.log('chosenAnswers ', index, '-', chosenAnswers[index]);
+                    // console.log(translateAnswer(answers[index]));
                     return (
                         <Button
                             color={
-                                (chosenAnswers[index] !== '') ? chosenAnswers[index] === translateAnswer(answers[index]) ? 'success' : 'secondary' : 'primary'
+                                (chosenAnswers[index] !== '') ? (translateAnswer(answers[index]) !== '' ? (chosenAnswers[index] === translateAnswer(answers[index]) ? 'success' : 'error') : 'success') : 'custom_gray'
                             }
+                            style={{ border: '1.5px solid', fontWeight: 'bold' }}
                             className='ScrollButtons-Button'
-                            variant={(chosenAnswers[index] !== '') ? 'contained' : 'outlined'}
+                            // variant={(chosenAnswers[index] !== '') ? 'contained' : 'outlined'}
+                            variant='outlined'
                             key={index}
                             onClick={() => {
                                 const element = document.getElementById(`problem-${index}`);

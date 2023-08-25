@@ -4,6 +4,8 @@ import PDFViewer from '../TestComponent/ProblemComponent/PDFViewer';
 import AnswersJSON from '../../assets/AnswersForEveryTest.json';
 import SimilarJSON from '../../assets/SimilarsForEveryTest.json';
 
+import { updateSimilars } from '../../services/UpdateSimilars';
+
 import AnswersComponent from './AnswersComponent/AnswersComponent';
 import ScrollButtonComponent from './ScrollButtonComponent/ScrollButtonComponent';
 
@@ -38,7 +40,7 @@ function TestComponent() {
     const erovnuli = useSelector((state) => state.test.erovnuli)
 
     const availableYears = Object.entries(AnswersJSON).map((AnswerJson, indxe) => parseInt(AnswerJson[0]));
-    console.log(availableYears)
+    //console.log(availableYears)
 
     const componentOrder = useSelector((state) => state.test.componentOrder)
 
@@ -47,8 +49,8 @@ function TestComponent() {
     useEffect(() => {
         dispatch(setComponentOrder('Start'));
         setIsLoading(false);
-        console.log(localStorage.getItem('TestHasStarted'));
-        console.log(localStorage.getItem('TestObject'));
+        // console.log(localStorage.getItem('TestHasStarted'));
+        // console.log(localStorage.getItem('TestObject'));
         if (localStorage.getItem('TestObject') !== null && localStorage.getItem('TestHasStarted') == 'true') {
             const parsedTestObject = JSON.parse(localStorage.getItem('TestObject'));
             dispatch(setProblems(parsedTestObject.Problems));
@@ -82,10 +84,13 @@ function TestComponent() {
     const list = (anchor) => (
         <Box
             sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 220 }}
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
         >
-            <AnswersComponent SimilarsSheet={similars} Problems={problems} AnswersSheet={answers} />
+            <div
+                onClick={(e) => e.stopPropagation()}
+                onKeyDown={(e) => e.stopPropagation()}
+            >
+                <AnswersComponent SimilarsSheet={similars} Problems={problems} AnswersSheet={answers} />
+            </div>
         </Box>
     );
 
@@ -99,6 +104,10 @@ function TestComponent() {
         window.addEventListener("resize", updateMedia);
         return () => window.removeEventListener("resize", updateMedia);
     });
+
+    useEffect(() => {
+        updateSimilars();
+    }, [])
 
     return (
         <div className='TestComponent'>
@@ -115,14 +124,23 @@ function TestComponent() {
                             <div key={'problem-div-' + index} className='TestComponent-Problem'>
                                 <div className='ProblemLabel'>
                                     <h3>
-                                        {index <= 36 ? "(1)" : (index > 36 && index <= 38) ? "(3)" : "(4)"}{(index + 1)}
+                                        {index <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 ? "(1)"
+                                            :
+                                            index <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems']
+                                                ? "(2)"
+                                                :
+                                                index <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']
+                                                    ? "(3)"
+                                                    :
+                                                    "(4)"}{(index + 1)
+                                        }
                                     </h3>
                                 </div>
                                 <PDFViewer id={'problem-' + index} key={'problem-' + index} Problem={problem} />
                                 <div key={'problem-button' + index} className="PDFButtons">
                                     <ButtonGroup variant="outlined" aria-label="outlined primary button group">
-                                        <Button variant='outlined' className='Test-SolutionButton' style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}><EmojiObjectsIcon></EmojiObjectsIcon>ამოხსნა</Button>
-                                        <SimilarModalComponent ButtonIcon={ContentCopyIcon} index={index} ViewedIn={'Test'}></SimilarModalComponent>
+                                        <Button variant='outlined' color='secondary' className='Test-SolutionButton' style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}><EmojiObjectsIcon></EmojiObjectsIcon>ამოხსნა</Button>
+                                        <SimilarModalComponent color='secondary' ButtonIcon={ContentCopyIcon} index={index} ViewedIn={'Test'}></SimilarModalComponent>
                                     </ButtonGroup>
                                 </div>
                             </div>)
@@ -138,7 +156,7 @@ function TestComponent() {
                         პასუხები
                     </Fab>
                     <Drawer
-                        onRequestChange={toggleDrawer("left", false)}
+                        onRequestChange={(open) => toggleDrawer("left", open)}
                         anchor={"left"}
                         open={state["left"]}
                         onClose={toggleDrawer("left", false)}

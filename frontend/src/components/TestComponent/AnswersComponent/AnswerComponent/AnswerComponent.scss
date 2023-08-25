@@ -18,4 +18,23 @@
         justify-content: space-between;
         text-align: center;
     }
+
+    .Answer-Custom {
+        display: flex;
+        height: 50px;
+        justify-content: space-around !important;
+        width: 100%;
+        align-items: center;
+
+        .Answer-Choose-Photo {
+            align-items: center;
+            width: 80%;
+            display: flex;
+            justify-content: right;
+
+            h6 {
+                font-size: 12px;
+            }
+        }
+    }
 }

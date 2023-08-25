@@ -20,27 +20,12 @@ function ProfileScreen() {
         }
     }
 
-    //const callProtectedApi = async () => {
-    //     try {
-    //         const token = await getAccessTokenSilently();
-    //         const res = await axios.get('http://localhost:' + "5000" + '/protected', {
-    //             headers: {
-    //                 Authorization: `Bearer ${token}`
-    //             }
-    //         })
-    //         console.log(res);
-    //     } catch (err) {
-    //         console.error(err)
-    //     }
-    // }
-
-
     return (
         <div className='ProfileScreen'>
             <>
                 {!isLoading && isAuthenticated &&
                     <>
-                        <CheckoutComponent></CheckoutComponent>
+                        {/* <CheckoutComponent></CheckoutComponent> */}
                         <UserInfoComponent user={user}></UserInfoComponent>
                         <MyTestsComponent></MyTestsComponent>
                     </>

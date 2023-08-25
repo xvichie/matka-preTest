@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './AnswerComponent.scss';
 
-import CropSquareIcon from '@mui/icons-material/CropSquare';
 import CancelIcon from '@mui/icons-material/Cancel';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
-import BlurCircularIcon from '@mui/icons-material/BlurCircular';
-import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
-import { Checkbox, FormGroup, IconButton } from '@mui/material';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
 
-import ModalComponent from '../../../ModalComponent/ModalComponent';
-import SimilarProblemComponent from '../../SimilarProblemComponent/SimilarProblemComponent';
+import { Button, Checkbox, FormGroup, IconButton } from '@mui/material';
+
+import { toast } from 'react-toastify';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { setChosenAnswers, setScore } from '../../../../slices/TestSlice';
@@ -65,10 +63,8 @@ function AnswerComponent(props) {
         let NewValue = { [event.target.value]: true };
         setUsed(prev => ({ ...prev, ...NewValue }));
 
-        let copy = [...chosenAnswers]; // Create a copy of the array
-        console.log(translateAnswer(event.target.value))
+        let copy = [...chosenAnswers];
         copy[props.NumberOfAProblem] = translateAnswer(event.target.value);
-        console.log(copy);
         dispatch(setChosenAnswers(copy)); // Dispatch the action with the updated copy
 
         if (event.target.value == props.CorrectAnswer) {
@@ -80,6 +76,7 @@ function AnswerComponent(props) {
             setAnswer('Incorrect');
         }
     }
+
 
     useEffect(() => {
         SetCurrentAnswer(chosenAnswers[props.NumberOfAProblem]);
@@ -95,55 +92,111 @@ function AnswerComponent(props) {
         }
     }, [chosenAnswers])
 
-    //console.log(answer);
+    const [selectedImage, setSelectedImage] = useState([]);
+
+    const handleImageChange = async (event) => {
+        const img = {
+            preview: URL.createObjectURL(event.target.files[0]),
+            data: event.target.files[0],
+        };
+        setSelectedImage(img);
+
+        let formData = new FormData();
+        formData.append("file", selectedImage.data);
+        try {
+            const response = await fetch("http://localhost:5000/api/upload-file-to-cloud-storage", {
+                method: "POST",
+                body: formData,
+            });
+            const responseWithBody = await response.json();
+            console.log(response.status)
+            if (response.ok) {
+                console.log(responseWithBody.publicUrl)
+
+                let copy = [...chosenAnswers];
+                const localImageUrl = responseWithBody.publicUrl;
+                copy[props.NumberOfAProblem] = localImageUrl;
+                dispatch(setChosenAnswers(copy));
+
+                toast.success('🦄 სურათი ატვირთულია!', {
+                    position: "bottom-left",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        } catch (err) {
+            console.log('shemovida qvemot');
+            toast.error('შეცდომაა, სურათი არ დამახსოვრა', {
+                position: "bottom-left",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+    };
+    console.log(chosenAnswers[props.NumberOfAProblem])
     return (
-        // <div className='AnswerSheet-Answer'>
-        //     {props.CorrectAnswer != "Custom" && <>
-        //         <div className='Answer-Radio-Tag-Label'>{props.NumberOfAProblem + 1}</div>
-        //         <div className='Answer-Radio-Tag'>
-        //             <input type="radio" onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'a'} disabled={(used['ა'] == true && currentAnswer != 'ა') || correctAnswerHasBeenFound} value="ა" name={props.NumberOfAProblem} />
-        //         </div>
-        //         <div className='Answer-Radio-Tag'>
-        //             <input type="radio" onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'b'} disabled={(used['ბ'] == true && currentAnswer != 'ბ') || correctAnswerHasBeenFound} value="ბ" name={props.NumberOfAProblem} />
-        //         </div>
-        //         <div className='Answer-Radio-Tag'>
-        //             <input type="radio" onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'c'} disabled={(used['გ'] == true && currentAnswer != 'გ') || correctAnswerHasBeenFound} value="გ" name={props.NumberOfAProblem} />
-        //         </div>
-        //         <div className='Answer-Radio-Tag'>
-        //             <input type="radio" onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'd'} disabled={(used['დ'] == true && currentAnswer != 'დ') || correctAnswerHasBeenFound} value="დ" name={props.NumberOfAProblem} />
-        //         </div>
-        //         <div className='Answer-CorrectnessIcon'>
-        //             {answer != 'Correct' && answer != 'Incorrect' && <RadioButtonUncheckedIcon></RadioButtonUncheckedIcon>}
-        //             {answer == 'Incorrect' && <CancelIcon style={{ color: 'red', outlineColor: 'black' }}></CancelIcon>}
-        //             {answer == 'Correct' && <CheckCircleIcon style={{ color: 'green', outlineColor: 'black' }}></CheckCircleIcon>}
-        //         </div>
-        //     </>}
-        // </div>
         <FormGroup className='AnswerSheet-Answer'>
-            {props.CorrectAnswer != "Custom" && <>
-                <div className='Answer-Radio-Tag-Label'>{props.NumberOfAProblem + 1}</div>
-                <div className='Answer-Radio-Tag'>
-                    {/* <input type="radio" onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'a'} disabled={(used['ა'] == true && currentAnswer != 'ა') || correctAnswerHasBeenFound} value="ა" name={props.NumberOfAProblem} /> */}
-                    <Checkbox style={{ margin: 0, padding: 0 }} onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'a'} disabled={(used['ა'] == true && currentAnswer != 'ა') || correctAnswerHasBeenFound} value={"ა"} name={props.NumberOfAProblem}></Checkbox>
-                </div>
-                <div className='Answer-Radio-Tag'>
-                    {/* <input type="radio" onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'b'} disabled={(used['ბ'] == true && currentAnswer != 'ბ') || correctAnswerHasBeenFound} value="ბ" name={props.NumberOfAProblem} /> */}
-                    <Checkbox style={{ margin: 0, padding: 0 }} onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'b'} disabled={(used['ბ'] == true && currentAnswer != 'ბ') || correctAnswerHasBeenFound} value="ბ" name={props.NumberOfAProblem} ></Checkbox>
-                </div>
-                <div className='Answer-Radio-Tag'>
-                    {/* <input type="radio" onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'c'} disabled={(used['გ'] == true && currentAnswer != 'გ') || correctAnswerHasBeenFound} value="გ" name={props.NumberOfAProblem} /> */}
-                    <Checkbox style={{ margin: 0, padding: 0 }} onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'c'} disabled={(used['გ'] == true && currentAnswer != 'გ') || correctAnswerHasBeenFound} value="გ" name={props.NumberOfAProblem} ></Checkbox>
-                </div>
-                <div className='Answer-Radio-Tag'>
-                    {/* <input type="radio" onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'd'} disabled={(used['დ'] == true && currentAnswer != 'დ') || correctAnswerHasBeenFound} value="დ" name={props.NumberOfAProblem} /> */}
-                    <Checkbox style={{ margin: 0, padding: 0 }} onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'd'} disabled={(used['დ'] == true && currentAnswer != 'დ') || correctAnswerHasBeenFound} value="დ" name={props.NumberOfAProblem}></Checkbox>
-                </div>
-                <div className='Answer-CorrectnessIcon'>
-                    {answer != 'Correct' && answer != 'Incorrect' && <RadioButtonUncheckedIcon></RadioButtonUncheckedIcon>}
-                    {answer == 'Incorrect' && <CancelIcon color='secondary'></CancelIcon>}
-                    {answer == 'Correct' && <CheckCircleIcon color='success'></CheckCircleIcon>}
-                </div>
-            </>}
+            {props.CorrectAnswer != "Custom" ?
+                <>
+                    <div className='Answer-Radio-Tag-Label'>{props.NumberOfAProblem + 1}</div>
+                    <div className='Answer-Radio-Tag'>
+                        <Checkbox color='primary' style={{ margin: 0, padding: 0 }} onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'a'} disabled={(used['ა'] == true && currentAnswer != 'a') || correctAnswerHasBeenFound} value={"ა"} name={props.NumberOfAProblem}></Checkbox>
+                    </div>
+                    <div className='Answer-Radio-Tag'>
+                        <Checkbox color='primary' style={{ margin: 0, padding: 0 }} onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'b'} disabled={(used['ბ'] == true && currentAnswer != 'b') || correctAnswerHasBeenFound} value="ბ" name={props.NumberOfAProblem} ></Checkbox>
+                    </div>
+                    <div className='Answer-Radio-Tag'>
+                        <Checkbox color='primary' style={{ margin: 0, padding: 0 }} onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'c'} disabled={(used['გ'] == true && currentAnswer != 'c') || correctAnswerHasBeenFound} value="გ" name={props.NumberOfAProblem} ></Checkbox>
+                    </div>
+                    <div className='Answer-Radio-Tag'>
+                        <Checkbox color='primary' style={{ margin: 0, padding: 0 }} onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'd'} disabled={(used['დ'] == true && currentAnswer != 'd') || correctAnswerHasBeenFound} value="დ" name={props.NumberOfAProblem}></Checkbox>
+                    </div>
+                    <div className='Answer-CorrectnessIcon'>
+                        {answer != 'Correct' && answer != 'Incorrect' && <RadioButtonUncheckedIcon></RadioButtonUncheckedIcon>}
+                        {answer == 'Incorrect' && <CancelIcon color='primary'></CancelIcon>}
+                        {answer == 'Correct' && <CheckCircleIcon color='success'></CheckCircleIcon>}
+                    </div>
+                </>
+                :
+                <>
+                    <div className="Answer-Custom">
+                        <div className='Answer-Radio-Tag-Label'>{props.NumberOfAProblem + 1}</div>
+                        <div className="Answer-Choose-Photo">
+                            {chosenAnswers[props.NumberOfAProblem].length === 0
+                                ?
+                                <h6>ატვირთე ამოხსნის სურათი</h6>
+                                :
+                                <h6>სურათი ატვირთულია!</h6>
+                            }
+                            <input
+                                type="file"
+                                id={"inputId-" + props.NumberOfAProblem}
+                                className="hidden"
+                                hidden
+                                onClick={(e) => e.target.value = ''}
+                                onChange={handleImageChange}
+                                accept=".jpg,.jpeg,.png,.doc,.docx,.pdf"
+                            />
+                            <label htmlFor={"inputId-" + props.NumberOfAProblem}>
+                                <IconButton component="span">
+                                    <CameraAltIcon color={chosenAnswers[props.NumberOfAProblem].length === 0 ? 'primary' : 'success'} />
+                                </IconButton>
+                            </label>
+                        </div>
+                    </div>
+                </>
+            }
+
         </FormGroup>
     )
 }

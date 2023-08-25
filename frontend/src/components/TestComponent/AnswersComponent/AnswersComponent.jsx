@@ -20,7 +20,7 @@ export default function AnswersComponent(props) {
     return (
         <div className="AnswersBox">
             <div className="AnswersText">
-                <h2>პასუხები</h2>
+                <h2 style={{ margin: '10px' }}>პასუხები</h2>
             </div>
             <div className='Answer-Sheet'>
                 <div className='AnswerSheet-Answer'>
@@ -46,8 +46,10 @@ export default function AnswersComponent(props) {
                     </>}
                 </div>
                 {props.AnswersSheet.map((Answer, index) => {
-                    //console.log(props.SimilarsSheet[index]);
-                    return (<AnswerComponent key={index} NumberOfAProblem={index} SimilarProblem={props.SimilarsSheet[index]} CorrectAnswer={Answer}></AnswerComponent>);
+                    if (props.AnswersSheet[index]) {
+                        //console.log(props.SimilarsSheet[index]);
+                        return (<AnswerComponent key={index} NumberOfAProblem={index} SimilarProblem={props.SimilarsSheet[index]} CorrectAnswer={Answer}></AnswerComponent>);
+                    }
                 })}
             </div>
             <div>

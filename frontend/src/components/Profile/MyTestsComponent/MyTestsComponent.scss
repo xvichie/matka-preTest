@@ -3,9 +3,21 @@
         .MyTests-TestViewer-Tests {
             height: 700px;
             overflow: scroll;
+            position: relative;
 
             .MyTests-TestViewer-Test {
                 position: relative;
+
+                .ProblemLabel {
+                    position: absolute;
+                    top: 6.4%;
+                    left: 4.25%;
+                    z-index: 1;
+
+                    h3 {
+                        font-size: 28px;
+                    }
+                }
 
                 .PDFButtons {
                     width: 100%;
@@ -14,6 +26,11 @@
                     bottom: 10%;
                     justify-content: center;
                 }
+            }
+
+            .Open-AnswerSheet-Button {
+                position: absolute;
+                top: 0;
             }
         }
     }
