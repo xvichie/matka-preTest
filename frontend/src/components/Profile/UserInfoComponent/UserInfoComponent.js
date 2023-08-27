@@ -40,6 +40,22 @@ function UserInfoComponent() {
         return average;
     }
 
+    const getHighScores = (tests) => {
+        let scores = [];
+        tests.forEach((test) => {
+            scores.push(test['test'][0]['score'])
+        });
+
+        scores.sort(function (a, b) { return b - a });
+
+        if (scores.length >= 3) {
+            return [scores[0], scores[1], scores[2]];
+        } else if (scores.length == 2) {
+            return [scores[0], scores[1]];
+        } else {
+            return [scores[0]];
+        }
+    }
 
     return (
         <>
@@ -69,6 +85,11 @@ function UserInfoComponent() {
                                 <div className='UserInfo-Header-Right-Middle-Stats-AvgTime'>
                                     <h3><strong>{(calculateAverage(getTimeArray(tests)) / 100 / 60).toFixed(0)} წ</strong> საშუალო დრო</h3>
                                 </div>
+                                {getHighScores(tests)[0] != undefined &&
+                                    <div className="UserInfo-Header-Right-Middle-Stats-HighScore">
+                                        <h3><strong>{getHighScores(tests)[0]}</strong> მაქს. ქულა</h3>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>

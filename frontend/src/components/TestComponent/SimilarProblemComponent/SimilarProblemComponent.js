@@ -18,7 +18,7 @@ function SimilarProblemComponent({ ButtonIcon, problemStringArray }) {
                 const ProblemObject = {
                     Year: parseInt(splitProblemString[0]),
                     Version: parseInt(splitProblemString[1]),
-                    Problem: parseInt(splitProblemString[2])
+                    Problem: parseInt(splitProblemString[2]) - 1
                 }
 
                 //COULDN'T FIND THE BUG :D :D :D

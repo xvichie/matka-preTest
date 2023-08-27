@@ -8,6 +8,7 @@ const axios = require('axios');
 const connection = require('./config/db.js');
 const userTests = require('./routes/userTests.js')
 const payment = require('./routes/payment.js');
+const uploadImage = require('./routes/uploadImage.js');
 
 const app = express()
 app.use(cors());
@@ -16,7 +17,8 @@ app.use(express.json());
 connection();
 
 app.use('/api/userTests', userTests);
-app.use('/api/payment',payment);
+app.use('/api/payment', payment);
+app.use('/api/upload-file-to-cloud-storage', uploadImage)
 
 const jwtCheck = jwt({
     secret: jwks.expressJwtSecret({

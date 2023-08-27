@@ -12,7 +12,14 @@ const testSchema = mongoose.Schema({
         type: [Array]
     },
     chosenAnswers: {
-        type: [String]
+        type: [mongoose.Schema.Types.Mixed], // Allow an array of mixed types
+        validate: {
+            validator: function (value) {
+                // Validate that each item in the array is either a string or an array of strings
+                return value.every(item => typeof item === 'string' || (Array.isArray(item) && item.every(subItem => typeof subItem === 'string')));
+            },
+            message: 'Invalid data structure for chosenAnswers'
+        }
     },
     score: {
         type: Number

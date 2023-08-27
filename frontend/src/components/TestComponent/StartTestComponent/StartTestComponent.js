@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { setAnswers, setComponentOrder, setErovnuli, setIsLoading, setMaxScore, setProblems, setScore, setSimilars, setTestHasStarted, setTestIsDone, setTestType, setTime } from '../../../slices/TestSlice';
-import { FormControl, InputLabel, MenuItem, Select, Tab, Tabs } from '@mui/material';
+import { Button, FormControl, InputLabel, MenuItem, Select, Tab, Tabs } from '@mui/material';
 import SwipeableViews from 'react-swipeable-views';
 
 import AnswersJSON from '../../../assets/AnswersForEveryTest.json';
 import SimilarJSON from '../../../assets/SimilarsForEveryTest.json';
 
+import './StartTestComponent.scss';
 
 function StartTestComponent({ isLoadingSetter }) {
     const dispatch = useDispatch();
@@ -22,8 +23,8 @@ function StartTestComponent({ isLoadingSetter }) {
         const NumberOf3PointProblems = 2;
         const NumberOf4PointProblems = 2;
 
-        dispatch(setMaxScore(NumberOf1PointProblems + (NumberOf3PointProblems * 3) + (NumberOf4PointProblems * 4)))
-        localStorage.setItem('MaxScore', NumberOf1PointProblems + (NumberOf3PointProblems * 3) + (NumberOf4PointProblems * 4));
+        dispatch(setMaxScore(NumberOf1PointProblems));
+        localStorage.setItem('MaxScore', NumberOf1PointProblems);
 
         let Generated1PointProblems = 0;
         let Generated3PointProblems = 0;
@@ -44,7 +45,7 @@ function StartTestComponent({ isLoadingSetter }) {
             const VersionInfoJSON = require('../../../assets/' + Year + '/info.json');
 
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
-            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf1PointProblems']) ;
+            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf1PointProblems']);
 
             const ProblemObject = {
                 Year: Year,
@@ -95,7 +96,7 @@ function StartTestComponent({ isLoadingSetter }) {
 
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
 
-            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf4PointProblems'])  + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'] + VersionInfoJSON['NumberOf3PointProblems'];
+            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf4PointProblems']) + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'] + VersionInfoJSON['NumberOf3PointProblems'];
 
             const ProblemObject = {
                 Year: Year,
@@ -130,8 +131,8 @@ function StartTestComponent({ isLoadingSetter }) {
         const NumberOf3PointProblems = VersionInfoJSON['NumberOf3PointProblems'];
         const NumberOf4PointProblems = VersionInfoJSON['NumberOf4PointProblems'];
 
-        dispatch(setMaxScore(NumberOf1PointProblems + (NumberOf2PointProblems * 2) + (NumberOf3PointProblems * 3) + (NumberOf4PointProblems * 4)))
-        localStorage.setItem('MaxScore', NumberOf1PointProblems + (NumberOf2PointProblems * 2) + (NumberOf3PointProblems * 3) + (NumberOf4PointProblems * 4));
+        dispatch(setMaxScore(NumberOf1PointProblems))
+        localStorage.setItem('MaxScore', NumberOf1PointProblems);
 
 
         let GeneratedProblems = 0;
@@ -151,8 +152,8 @@ function StartTestComponent({ isLoadingSetter }) {
                 Problem: GeneratedProblems
             };
             generatedProblems.push(ProblemObject);
-            generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1])
-            generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1]);
+            generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem + 1])
+            generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem + 1]);
             GeneratedProblems += 1;
         }
 
@@ -258,7 +259,17 @@ function StartTestComponent({ isLoadingSetter }) {
                     </Tabs>
                     <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
                         <div className='StartTest-TestGenerator' value={value} index={0}>
-                            sex
+                            <div className="TestGenerator-Label">
+                                ტესტის გენერატორი
+                            </div>
+                            <div>
+                                <div className="TestGenerator-Content-Left">
+
+                                </div>
+                                <div className="TestGenerator-Content-Right">
+
+                                </div>
+                            </div>
                         </div>
                         <div className='StartTest-Erovnuli' value={value} index={1}>
                             <h2>ეროვნული გამოცდები</h2>
@@ -283,6 +294,9 @@ function StartTestComponent({ isLoadingSetter }) {
                                     <MenuItem value={2013}>2013</MenuItem>
                                     <MenuItem value={2012}>2012</MenuItem>
                                     <MenuItem value={2011}>2011</MenuItem>
+                                    <MenuItem value={2010}>2010</MenuItem>
+                                    <MenuItem value={2009}>2009</MenuItem>
+                                    <MenuItem value={2008}>2008</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>
@@ -302,8 +316,8 @@ function StartTestComponent({ isLoadingSetter }) {
                     </SwipeableViews>
                 </div>
                 <div className="StartTest-Button">
-                    <div>Daiwye testi tu tesli xar, yo</div>
-                    <button onClick={handleStart}>dawyeba bozi viyo</button>
+                    <div>*დრო ჩაირთვება ტესტის ეკრანზე ჩატვირთვისთანავე</div>
+                    <Button variant='contained' color='primary' style={{ color: 'white' }} onClick={handleStart}>dawyeba bozi viyo</Button>
                 </div>
             </div>
         </>

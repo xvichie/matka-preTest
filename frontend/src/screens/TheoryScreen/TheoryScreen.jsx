@@ -56,33 +56,57 @@ function TheoryScreen() {
             </div>
             <div className="TheoryScreen-Choose">
                 <div>
-                    <Link style={{ textDecoration: 'none' }} to={'algebra'} >
+                    <Link style={{ textDecoration: 'none' }} to={'algebra'} className='Choose-Tab' >
                         <Button variant='outlined' className='Choose-Algebra'>
                             <CalculateIcon className='ChooseIcon'></CalculateIcon>
                             <h2>
                                 ალგებრა
                             </h2>
                         </Button>
+                        <div className="Choose-Right-Side">
+                            <div className="Right-Side-Top">
+                                ალგებრა. რიცხვები და გამოთვლები n shit.
+                            </div>
+                            <div className="Right-Side-Bottom">
+                                ალგებრა მაგარი პონტია ტო.
+                            </div>
+                        </div>
                     </Link>
                 </div>
                 <div>
-                    <Link style={{ textDecoration: 'none' }} to={'geometry'}>
+                    <Link style={{ textDecoration: 'none' }} to={'geometry'} className='Choose-Tab'>
                         <Button variant='outlined' className="Choose-Geometry">
                             <InterestsIcon className='ChooseIcon'></InterestsIcon>
                             <h2>
                                 გეომეტრია
                             </h2>
                         </Button>
+                        <div className="Choose-Right-Side">
+                            <div className="Right-Side-Top">
+                                გეომეტრია. ფიგურები, 3D, წარმოსახვა.
+                            </div>
+                            <div className="Right-Side-Bottom">
+                                ბავშვებს უფრო ევასებათ. ცვეტში მაგარი პონტია.
+                            </div>
+                        </div>
                     </Link>
                 </div>
                 <div>
-                    <Link style={{ textDecoration: 'none' }} to={'thesis'}>
+                    <Link style={{ textDecoration: 'none' }} to={'thesis'} className='Choose-Tab'>
                         <Button variant='outlined' className="Choose-Short">
                             <SummarizeIcon className='ChooseIcon'></SummarizeIcon>
                             <h2>
-                                ანდრიას თეზისები
+                                თეზისები
                             </h2>
                         </Button>
+                        <div className="Choose-Right-Side">
+                            <div className="Right-Side-Top">
+                                თეზისები. ხელით ამოკრეფილი ფორმულები, ამოხსნის გზები და პატარა შპარგალკა.
+                            </div>
+                            <div className="Right-Side-Bottom">
+                                როცა ბევრი ძებნა გეზარება.
+                            </div>
+                        </div>
                     </Link>
                 </div>
             </div>

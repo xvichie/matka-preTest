@@ -15,6 +15,7 @@ import SportsScoreIcon from '@mui/icons-material/SportsScore';
 import CreditScoreIcon from '@mui/icons-material/CreditScore';
 
 import './ScoreComponent.scss';
+import { useTheme } from '@emotion/react';
 
 function ScoreComponent() {
 
@@ -138,6 +139,8 @@ function ScoreComponent() {
     const startAndStop = () => {
         setIsRunning(!isRunning);
     };
+
+    const theme = useTheme()
     return (
         <div className='Score'>
             <Fab
@@ -148,8 +151,9 @@ function ScoreComponent() {
             >
                 <ReplayIcon></ReplayIcon>
                 ახლიდან დაწყება
-            </Fab><div className='Score-Stats'>
-                <div className='Score-Score'>
+            </Fab>
+            <div className='Score-Stats'>
+                <div className='Score-Score' style={{ backgroundColor: theme.palette.secondary.main }}>
                     <div className="Score-Score-Label">
                         <CreditScoreIcon sx={{ mr: 1 }}></CreditScoreIcon>
                     </div>
@@ -157,7 +161,7 @@ function ScoreComponent() {
                         {score}/{localStorage.getItem('MaxScore')}
                     </div>
                 </div>
-                <div className="Score-Time">
+                <div className="Score-Time" style={{ backgroundColor: theme.palette.secondary.main }}>
                     <div className="Score-Time-Label">
                         <AccessTimeIcon sx={{ mr: 1 }}></AccessTimeIcon>
                     </div>
@@ -168,7 +172,7 @@ function ScoreComponent() {
                 </div>
             </div>
             <Fab
-                style={{ borderTopRightRadius: '50px', borderBottomRightRadius: '50px', borderBottomLeftRadius: '0', borderTopLeftRadius: '0' }}
+                style={{ color: 'white', borderTopRightRadius: '50px', borderBottomRightRadius: '50px', borderBottomLeftRadius: '0', borderTopLeftRadius: '0' }}
                 onClick={handleFinish}
                 variant="extended"
                 color='primary'
