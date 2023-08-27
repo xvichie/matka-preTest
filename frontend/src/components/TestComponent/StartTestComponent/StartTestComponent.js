@@ -295,9 +295,12 @@ function StartTestComponent({ isLoadingSetter }) {
                                     <MenuItem value={2012}>2012</MenuItem>
                                     <MenuItem value={2011}>2011</MenuItem>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <MenuItem value={2010}>2010</MenuItem>
                                     <MenuItem value={2009}>2009</MenuItem>
                                     <MenuItem value={2008}>2008</MenuItem>
+=======
+>>>>>>> 87703d4714225357517bcf8f40b3cf2b2d6581ec
 =======
 >>>>>>> 87703d4714225357517bcf8f40b3cf2b2d6581ec
                                 </Select>
