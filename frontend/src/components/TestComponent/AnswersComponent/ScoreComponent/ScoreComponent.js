@@ -52,6 +52,8 @@ function ScoreComponent() {
                 translated.push('c')
             } else if (answer === 'დ') {
                 translated.push('d');
+            } else if (answer === 'Custom'){
+                translated.push('Custom');
             }
         })
         return translated;

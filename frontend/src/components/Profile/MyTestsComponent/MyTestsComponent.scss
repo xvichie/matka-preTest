@@ -1,4 +1,10 @@
 .MyTests {
+    .MyTests-Dropdown{
+        display: flex;
+        flex-direction: row;
+        width: 450px;
+        justify-content: space-between;
+    }
     .MyTests-TestViewer {
         .MyTests-TestViewer-Tests {
             height: 700px;

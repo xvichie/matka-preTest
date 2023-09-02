@@ -17,6 +17,7 @@ import SimilarProblemModalComponent from '../../TestComponent/SimilarProblemComp
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import SimilarModalComponent from './SimilarModalComponent/SimilarModalComponent';
 import { useTheme } from '@emotion/react';
+import AnswerSheetModalComponent from './AnswerSheetModalComponent/AnswerSheetModalComponent';
 
 function MyTestsComponent() {
 
@@ -87,6 +88,12 @@ function MyTestsComponent() {
                         ))}
                     </Dropdown.Menu>
                 </Dropdown>
+                {currentTest !== null && tests.length > 0 &&
+                <AnswerSheetModalComponent 
+                    ButtonIcon={ReceiptIcon} 
+                    currentTest={currentTest}
+                >
+                </AnswerSheetModalComponent>}
             </div>
             {currentTest !== null && tests.length > 0 ? ( // Conditional rendering based on currentTest and tests length
                 <div className="MyTests-TestViewer">
@@ -121,10 +128,6 @@ function MyTestsComponent() {
                                         </ButtonGroup>
                                     </div>
                                 </div>
-                                <Button variant='outlined' className='Open-AnswerSheet-Button'>
-                                    პასუხების ფურცელი
-                                    <ReceiptIcon></ReceiptIcon>
-                                </Button>
                             </>
                         ))}
                     </div>

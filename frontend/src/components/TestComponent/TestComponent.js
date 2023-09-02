@@ -3,6 +3,7 @@ import PDFViewer from '../TestComponent/ProblemComponent/PDFViewer';
 
 import AnswersJSON from '../../assets/AnswersForEveryTest.json';
 import SimilarJSON from '../../assets/SimilarsForEveryTest.json';
+import SolutionsJSON from '../../assets/SolutionURLsForEveryTest.json';
 
 import { updateSimilars } from '../../services/UpdateSimilars';
 
@@ -18,12 +19,14 @@ import StartTestComponent from './StartTestComponent/StartTestComponent';
 import { Box, Button, ButtonGroup, Drawer, Fab, List } from '@mui/material';
 import SimilarModalComponent from '../Profile/MyTestsComponent/SimilarModalComponent/SimilarModalComponent';
 
+
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ArticleIcon from '@mui/icons-material/Article';
 
 import './TestComponent.scss';
 import ScoreComponent from './AnswersComponent/ScoreComponent/ScoreComponent';
+import SolutionComponent from './SolutionComponent/SolutionComponent';
 
 function TestComponent() {
 
@@ -120,6 +123,7 @@ function TestComponent() {
             ) : componentOrder === 'Test' ? (
                 <>
                     {problems.map((problem, index) => {
+                        //console.log(SolutionsJSON[problem.Year][problem.Version][problem.Problem+1]);
                         return (
                             <div key={'problem-div-' + index} className='TestComponent-Problem'>
                                 <div className='ProblemLabel'>
@@ -139,7 +143,8 @@ function TestComponent() {
                                 <PDFViewer id={'problem-' + index} key={'problem-' + index} Problem={problem} />
                                 <div key={'problem-button' + index} className="PDFButtons">
                                     <ButtonGroup variant="outlined" aria-label="outlined primary button group">
-                                        <Button variant='outlined' color='secondary' className='Test-SolutionButton' style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}><EmojiObjectsIcon></EmojiObjectsIcon>ამოხსნა</Button>
+                                        {/* <Button variant='outlined' color='secondary' className='Test-SolutionButton' style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}><EmojiObjectsIcon></EmojiObjectsIcon>ამოხსნა</Button> */}
+                                        <SolutionComponent color='secondary' ViewedIn={'Test'} index={index} ButtonIcon={EmojiObjectsIcon} VideoURL={SolutionsJSON[problem.Year][problem.Version][problem.Problem+1]} ></SolutionComponent>
                                         <SimilarModalComponent color='secondary' ButtonIcon={ContentCopyIcon} index={index} ViewedIn={'Test'}></SimilarModalComponent>
                                     </ButtonGroup>
                                 </div>

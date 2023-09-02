@@ -6,6 +6,8 @@ import './PDFViewer.scss';
 import packageJson from '../../../../package.json';
 const pdfjsVersion = packageJson.dependencies['pdfjs-dist'];
 
+console.log(pdfjsVersion);
+
 
 
 export default function PDFViewer(props) {

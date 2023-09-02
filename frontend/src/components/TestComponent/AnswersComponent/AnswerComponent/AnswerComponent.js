@@ -6,9 +6,14 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 
+import { storage } from '../../../../services/firebase/firebase';
+import { getDownloadURL, ref,uploadBytes  } from 'firebase/storage';
+
 import { Button, Checkbox, FormGroup, IconButton } from '@mui/material';
 
 import { toast } from 'react-toastify';
+
+import {v4} from 'uuid';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { setChosenAnswers, setScore } from '../../../../slices/TestSlice';
@@ -92,29 +97,20 @@ function AnswerComponent(props) {
         }
     }, [chosenAnswers])
 
-    const [selectedImage, setSelectedImage] = useState([]);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const handleImageChange = async (event) => {
-        const img = {
-            preview: URL.createObjectURL(event.target.files[0]),
-            data: event.target.files[0],
-        };
-        setSelectedImage(img);
+        setSelectedImage(event.target.files[0]);
 
-        let formData = new FormData();
-        formData.append("file", selectedImage.data);
-        try {
-            const response = await fetch("http://localhost:5000/api/upload-file-to-cloud-storage", {
-                method: "POST",
-                body: formData,
-            });
-            const responseWithBody = await response.json();
-            console.log(response.status)
-            if (response.ok) {
-                console.log(responseWithBody.publicUrl)
+        if(selectedImage == null) return;
 
+        const imageRef = ref(storage,`images/${selectedImage.name + v4()}`)
+        uploadBytes(imageRef, selectedImage)
+        .then((snapshot) => {
+          getDownloadURL(snapshot.ref)
+            .then((url) => {
                 let copy = [...chosenAnswers];
-                const localImageUrl = responseWithBody.publicUrl;
+                const localImageUrl = url;
                 copy[props.NumberOfAProblem] = localImageUrl;
                 dispatch(setChosenAnswers(copy));
 
@@ -128,9 +124,21 @@ function AnswerComponent(props) {
                     progress: undefined,
                     theme: "light",
                 });
-            }
-        } catch (err) {
-            console.log('shemovida qvemot');
+            })
+            .catch((error) => {
+                toast.error('შეცდომაა, სურათი არ დამახსოვრა', {
+                    position: "bottom-left",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            });
+        })
+        .catch((error) => {
             toast.error('შეცდომაა, სურათი არ დამახსოვრა', {
                 position: "bottom-left",
                 autoClose: 3000,
@@ -141,7 +149,7 @@ function AnswerComponent(props) {
                 progress: undefined,
                 theme: "light",
             });
-        }
+        });
     };
     console.log(chosenAnswers[props.NumberOfAProblem])
     return (
