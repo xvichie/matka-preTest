@@ -69,7 +69,7 @@ export default function SolutionComponent({ ButtonIcon, VideoURL }) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    console.log(VideoURL);
+    //console.log(VideoURL);
     return (
         <div>
             {/* <Button onClick={handleOpen}><ButtonIcon /></Button> */}
