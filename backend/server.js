@@ -6,6 +6,7 @@ const jwks = require('jwks-rsa');
 const axios = require('axios');
 
 const connection = require('./config/db.js');
+const updateSimilars = require('./config/updateSimilars.js');
 const userTests = require('./routes/userTests.js')
 const payment = require('./routes/payment.js');
 const uploadImage = require('./routes/uploadImage.js');
@@ -15,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 connection();
+//updateSimilars();
 
 app.use('/api/userTests', userTests);
 app.use('/api/payment', payment);

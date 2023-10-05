@@ -126,6 +126,7 @@ function AnswerComponent(props) {
                 });
             })
             .catch((error) => {
+                console.error(error);
                 toast.error('შეცდომაა, სურათი არ დამახსოვრა', {
                     position: "bottom-left",
                     autoClose: 3000,
