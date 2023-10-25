@@ -297,6 +297,7 @@ function StartTestComponent({ isLoadingSetter }) {
                                     <MenuItem value={2010}>2010</MenuItem>
                                     <MenuItem value={2009}>2009</MenuItem>
                                     <MenuItem value={2008}>2008</MenuItem>
+                                    <MenuItem value={1999}>მარგველაშვილი ტესტი #8</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>
