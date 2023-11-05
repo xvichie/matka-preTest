@@ -9,12 +9,15 @@ import SimilarJSON from '../../../assets/SimilarsForEveryTest.json';
 
 import './StartTestComponent.scss';
 
+console.log(SimilarJSON);
+
 function StartTestComponent({ isLoadingSetter }) {
     const dispatch = useDispatch();
 
     const testType = useSelector((state) => state.test.testType);
 
     const availableYears = Object.entries(AnswersJSON).map((AnswerJson, indxe) => parseInt(AnswerJson[0]));
+    //const availableYears = [2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010]; 
     console.log(availableYears)
 
     const generateProblems = () => {
@@ -56,7 +59,8 @@ function StartTestComponent({ isLoadingSetter }) {
 
                 generatedProblems.push(ProblemObject);
                 Used[Year][Version][Problem] = true;
-                generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem])
+                generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
+                console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem);
                 generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
                 Generated1PointProblems += 1;
             }
@@ -297,7 +301,18 @@ function StartTestComponent({ isLoadingSetter }) {
                                     <MenuItem value={2010}>2010</MenuItem>
                                     <MenuItem value={2009}>2009</MenuItem>
                                     <MenuItem value={2008}>2008</MenuItem>
-                                    <MenuItem value={1999}>მარგველაშვილი ტესტი #8</MenuItem>
+                                    {/* <MenuItem value={2007}>2007</MenuItem> */}
+                                    {/* <MenuItem value={2006}>2006</MenuItem> */}
+                                    {/* <MenuItem value={2005}>2005</MenuItem> */}
+                                    {/* <MenuItem value={2004}>2023 მარგველაშვილი ტესტი #1</MenuItem> */}
+                                    {/* <MenuItem value={2003}>2023 მარგველაშვილი ტესტი #2</MenuItem> */}
+                                    <MenuItem value={2002}>2023 მარგველაშვილი ტესტი #3</MenuItem>
+                                    <MenuItem value={2001}>2023 მარგველაშვილი ტესტი #4</MenuItem>
+                                    <MenuItem value={2000}>2023 მარგველაშვილი ტესტი #5</MenuItem>
+                                    <MenuItem value={1999}>2023 მარგველაშვილი ტესტი #6</MenuItem>
+                                    <MenuItem value={1998}>2023 მარგველაშვილი ტესტი #7</MenuItem>
+                                    <MenuItem value={1997}>2023 მარგველაშვილი ტესტი #8</MenuItem>
+                                    {/* <MenuItem value={1996}>2023 მარგველაშვილი ტესტი #9</MenuItem> */}
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>
