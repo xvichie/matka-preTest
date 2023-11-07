@@ -312,7 +312,19 @@ function StartTestComponent({ isLoadingSetter }) {
                                     <MenuItem value={1999}>2023 მარგველაშვილი ტესტი #6</MenuItem>
                                     <MenuItem value={1998}>2023 მარგველაშვილი ტესტი #7</MenuItem>
                                     <MenuItem value={1997}>2023 მარგველაშვილი ტესტი #8</MenuItem>
-                                    {/* <MenuItem value={1996}>2023 მარგველაშვილი ტესტი #9</MenuItem> */}
+                                    <MenuItem value={1996}>2023 მარგველაშვილი ტესტი #9</MenuItem>
+                                    <MenuItem value={1995}>2023 მარგველაშვილი ტესტი #10</MenuItem>
+                                    <MenuItem value={1994}>2023 მარგველაშვილი ტესტი #11</MenuItem>
+                                    <MenuItem value={1993}>2023 მარგველაშვილი ტესტი #12</MenuItem>
+                                    <MenuItem value={1992}>2023 მარგველაშვილი ტესტი #13</MenuItem>
+                                    <MenuItem value={1991}>2023 მარგველაშვილი ტესტი #14</MenuItem>
+                                    {/* <MenuItem value={1990}>2023 მარგველაშვილი ტესტი #15</MenuItem>
+                                    <MenuItem value={1989}>2023 მარგველაშვილი ტესტი #16</MenuItem>
+                                    <MenuItem value={1988}>2023 მარგველაშვილი ტესტი #17</MenuItem> */}
+                                    {/* <MenuItem value={1987}>2023 მარგველაშვილი ტესტი #18</MenuItem>
+                                    <MenuItem value={1986}>2023 მარგველაშვილი ტესტი #19</MenuItem>
+                                    <MenuItem value={1985}>2023 მარგველაშვილი ტესტი #20</MenuItem>
+                                    <MenuItem value={1984}>2023 მარგველაშვილი ტესტი #21</MenuItem> */}
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>
