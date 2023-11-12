@@ -1,0 +1,22 @@
+.SolutionOuterBox{
+    display: flex;
+    justify-content: center;
+    .SolutionBox{
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+        width: 100%;
+        .SolutionBox-VideoPlayer{
+            width: 100% !important;
+            height: 80% !important;
+        }
+        .SolutionBox-Bottom{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

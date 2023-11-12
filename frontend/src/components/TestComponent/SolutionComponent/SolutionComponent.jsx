@@ -6,8 +6,15 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useSpring, animated } from '@react-spring/web';
-import { IconButton } from '@mui/material';
+import { IconButton, Link } from '@mui/material';
 import ReactPlayer from 'react-player';
+
+import "./SolutionComponent.scss";
+import { LinkContainer } from 'react-router-bootstrap';
+import { NavLink } from 'react-bootstrap';
+import { useTheme } from '@emotion/react';
+import useWindowDimensions from '../../../hooks/useWindowDimensions';
+
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
@@ -55,8 +62,8 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 1000,
-    height: '90%',
+    width: "90%",
+    height: "90%",
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -69,6 +76,10 @@ export default function SolutionComponent({ ButtonIcon, VideoURL }) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const theme = useTheme();
+    const { height, width } = useWindowDimensions();
+
+    style.height = height*90/100;
     //console.log(VideoURL);
     return (
         <div>
@@ -88,12 +99,31 @@ export default function SolutionComponent({ ButtonIcon, VideoURL }) {
                 }}
             >
                 <Fade in={open}>
-                    <Box sx={style}>
-                        <ReactPlayer
-                        style={{height:'90%'}} 
-                        url={VideoURL}
-                        controls
-                        ></ReactPlayer>
+                    <Box sx={style} className="SolutionOuterBox">
+                        <div className="SolutionBox">
+                            <div className="SolutionBox-Title">
+                                <h1>
+                                    ამოხსნა
+                                </h1>
+                            </div>
+                            <ReactPlayer
+                            className="SolutionBox-VideoPlayer"
+                            url={VideoURL}
+                            controls
+                            ></ReactPlayer>
+                            <div className="SolutionBox-Bottom">
+                                <h5>
+                                    თეორია გაინტერესებს?
+                                    {" "}
+                                    <a style={{color: theme.palette.primary}} href='/theory' target="_blank">
+                                        გადადი თეორიების გვერდზე
+                                    </a>
+                                </h5>
+                                <Button variant='contained' onClick={handleClose}>
+                                    დახურვა
+                                </Button>
+                            </div>
+                        </div>
                     </Box>
                 </Fade>
             </Modal>
