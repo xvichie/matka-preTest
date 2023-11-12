@@ -304,27 +304,32 @@ function StartTestComponent({ isLoadingSetter }) {
                                     {/* <MenuItem value={2007}>2007</MenuItem> */}
                                     {/* <MenuItem value={2006}>2006</MenuItem> */}
                                     {/* <MenuItem value={2005}>2005</MenuItem> */}
-                                    {/* <MenuItem value={2004}>2023 მარგველაშვილი ტესტი #1</MenuItem> */}
-                                    {/* <MenuItem value={2003}>2023 მარგველაშვილი ტესტი #2</MenuItem> */}
-                                    <MenuItem value={2002}>2023 მარგველაშვილი ტესტი #3</MenuItem>
-                                    <MenuItem value={2001}>2023 მარგველაშვილი ტესტი #4</MenuItem>
-                                    <MenuItem value={2000}>2023 მარგველაშვილი ტესტი #5</MenuItem>
-                                    <MenuItem value={1999}>2023 მარგველაშვილი ტესტი #6</MenuItem>
-                                    <MenuItem value={1998}>2023 მარგველაშვილი ტესტი #7</MenuItem>
-                                    <MenuItem value={1997}>2023 მარგველაშვილი ტესტი #8</MenuItem>
-                                    <MenuItem value={1996}>2023 მარგველაშვილი ტესტი #9</MenuItem>
-                                    <MenuItem value={1995}>2023 მარგველაშვილი ტესტი #10</MenuItem>
-                                    <MenuItem value={1994}>2023 მარგველაშვილი ტესტი #11</MenuItem>
-                                    <MenuItem value={1993}>2023 მარგველაშვილი ტესტი #12</MenuItem>
-                                    <MenuItem value={1992}>2023 მარგველაშვილი ტესტი #13</MenuItem>
-                                    <MenuItem value={1991}>2023 მარგველაშვილი ტესტი #14</MenuItem>
-                                    {/* <MenuItem value={1990}>2023 მარგველაშვილი ტესტი #15</MenuItem>
-                                    <MenuItem value={1989}>2023 მარგველაშვილი ტესტი #16</MenuItem>
-                                    <MenuItem value={1988}>2023 მარგველაშვილი ტესტი #17</MenuItem> */}
-                                    {/* <MenuItem value={1987}>2023 მარგველაშვილი ტესტი #18</MenuItem>
-                                    <MenuItem value={1986}>2023 მარგველაშვილი ტესტი #19</MenuItem>
-                                    <MenuItem value={1985}>2023 მარგველაშვილი ტესტი #20</MenuItem>
-                                    <MenuItem value={1984}>2023 მარგველაშვილი ტესტი #21</MenuItem> */}
+                                    <MenuItem value={2004}>2023 მაჭარაშვილი ტესტი #1</MenuItem>
+                                    <MenuItem value={2003}>2023 მაჭარაშვილი ტესტი #2</MenuItem>
+                                    <MenuItem value={2002}>2023 მაჭარაშვილი ტესტი #3</MenuItem>
+                                    <MenuItem value={2001}>2023 მაჭარაშვილი ტესტი #4</MenuItem>
+                                    <MenuItem value={2000}>2023 მაჭარაშვილი ტესტი #5</MenuItem>
+                                    <MenuItem value={1999}>2023 მაჭარაშვილი ტესტი #6</MenuItem>
+                                    <MenuItem value={1998}>2023 მაჭარაშვილი ტესტი #7</MenuItem>
+                                    <MenuItem value={1997}>2023 მაჭარაშვილი ტესტი #8</MenuItem>
+                                    <MenuItem value={1996}>2023 მაჭარაშვილი ტესტი #9</MenuItem>
+                                    <MenuItem value={1995}>2023 მაჭარაშვილი ტესტი #10</MenuItem>
+                                    <MenuItem value={1994}>2023 მაჭარაშვილი ტესტი #11</MenuItem>
+                                    <MenuItem value={1993}>2023 მაჭარაშვილი ტესტი #12</MenuItem>
+                                    <MenuItem value={1992}>2023 მაჭარაშვილი ტესტი #13</MenuItem>
+                                    <MenuItem value={1991}>2023 მაჭარაშვილი ტესტი #14</MenuItem>
+                                    <MenuItem value={1990}>2023 მაჭარაშვილი ტესტი #15</MenuItem>
+                                    <MenuItem value={1989}>2023 მაჭარაშვილი ტესტი #16</MenuItem>
+                                    <MenuItem value={1988}>2023 მაჭარაშვილი ტესტი #17</MenuItem>
+
+                                    {/* <MenuItem value={1987}>2023 მაჭარაშვილი ტესტი #18</MenuItem>
+                                    <MenuItem value={1986}>2023 მაჭარაშვილი ტესტი #19</MenuItem>
+                                    <MenuItem value={1985}>2023 მაჭარაშვილი ტესტი #20</MenuItem>
+                                    <MenuItem value={1984}>2023 მაჭარაშვილი ტესტი #21</MenuItem>
+                                    <MenuItem value={1983}>2023 მაჭარაშვილი ტესტი #22</MenuItem>
+                                    <MenuItem value={1982}>2023 მაჭარაშვილი ტესტი #23</MenuItem>
+                                    <MenuItem value={1981}>2023 მაჭარაშვილი ტესტი #24</MenuItem>
+                                    <MenuItem value={1980}>2023 მაჭარაშვილი ტესტი #25</MenuItem> */}
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>
