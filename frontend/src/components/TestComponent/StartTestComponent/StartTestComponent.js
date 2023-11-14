@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { setAnswers, setComponentOrder, setErovnuli, setIsLoading, setMaxScore, setProblems, setScore, setSimilars, setTestHasStarted, setTestIsDone, setTestType, setTime } from '../../../slices/TestSlice';
-import { Button, FormControl, InputLabel, MenuItem, Select, Tab, Tabs } from '@mui/material';
+import { Button, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select, Tab, Tabs } from '@mui/material';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import SwipeableViews from 'react-swipeable-views';
 
 import AnswersJSON from '../../../assets/AnswersForEveryTest.json';
@@ -14,9 +15,31 @@ console.log(SimilarJSON);
 function StartTestComponent({ isLoadingSetter }) {
     const dispatch = useDispatch();
 
+    const [ErovnuliChechbox,setErovnuliCheckbox] = useState(true);
+    const [TestChechbox,setTestCheckbox] = useState(true);
+
     const testType = useSelector((state) => state.test.testType);
 
-    const availableYears = Object.entries(AnswersJSON).map((AnswerJson, indxe) => parseInt(AnswerJson[0]));
+    const EROVNULI_BORDER = {"LEFT":2023,"RIGHT":2008};
+    const TEST_BORDER = {"LEFT":2004,"RIGHT":1980};
+
+    let availableYears = [];
+    if(ErovnuliChechbox){
+        // availableYears = Object.entries(AnswersJSON).filter((AnswerJson, indxe) => {
+        // });
+        for(let i = EROVNULI_BORDER.LEFT;i>=EROVNULI_BORDER.RIGHT;i--)
+        {
+            availableYears.push(i);
+        }
+    }
+
+    if(TestChechbox){
+        for(let i = TEST_BORDER.LEFT;i>=TEST_BORDER.RIGHT;i--)
+        {
+            availableYears.push(i);
+        }
+    }
+
     //const availableYears = [2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010]; 
     console.log(availableYears)
 
@@ -253,6 +276,8 @@ function StartTestComponent({ isLoadingSetter }) {
 
     console.log(useSelector((state) => state.test.problems))
 
+
+
     return (
         <>
             <div className="StartTestComponent">
@@ -266,6 +291,22 @@ function StartTestComponent({ isLoadingSetter }) {
                             <div className="TestGenerator-Label">
                                 ტესტის გენერატორი
                             </div>
+                            <div className='StartTest-Configuration'>
+                            <div className='StartTest-Configuration-Problems'>
+                                <FormControl className='StartTest-Configuration-Problems-Checkboxs'>
+                                    <FormControlLabel checked={ErovnuliChechbox} control={<Checkbox onClick={
+                                        () => {
+                                            setErovnuliCheckbox(!ErovnuliChechbox);
+                                        }
+                                    } checkedIcon={<CheckBoxIcon />} defaultChecked />} label="ეროვნულები" />
+                                    <FormControlLabel control={<Checkbox checked={TestChechbox} onClick={
+                                        () => {
+                                            setTestCheckbox(!TestChechbox);
+                                        }
+                                    } checkedIcon={<CheckBoxIcon />} defaultChecked />} label="მაჭარაშვილის ტესტები" />
+                                </FormControl>
+                            </div>
+                        </div>
                             <div>
                                 <div className="TestGenerator-Content-Left">
 
@@ -320,16 +361,16 @@ function StartTestComponent({ isLoadingSetter }) {
                                     <MenuItem value={1991}>2023 მაჭარაშვილი ტესტი #14</MenuItem>
                                     <MenuItem value={1990}>2023 მაჭარაშვილი ტესტი #15</MenuItem>
                                     <MenuItem value={1989}>2023 მაჭარაშვილი ტესტი #16</MenuItem>
-                                    <MenuItem value={1988}>2023 მაჭარაშვილი ტესტი #17</MenuItem>
 
-                                    {/* <MenuItem value={1987}>2023 მაჭარაშვილი ტესტი #18</MenuItem>
+                                    <MenuItem value={1988}>2023 მაჭარაშვილი ტესტი #17</MenuItem>
+                                    <MenuItem value={1987}>2023 მაჭარაშვილი ტესტი #18</MenuItem>
                                     <MenuItem value={1986}>2023 მაჭარაშვილი ტესტი #19</MenuItem>
                                     <MenuItem value={1985}>2023 მაჭარაშვილი ტესტი #20</MenuItem>
                                     <MenuItem value={1984}>2023 მაჭარაშვილი ტესტი #21</MenuItem>
                                     <MenuItem value={1983}>2023 მაჭარაშვილი ტესტი #22</MenuItem>
                                     <MenuItem value={1982}>2023 მაჭარაშვილი ტესტი #23</MenuItem>
                                     <MenuItem value={1981}>2023 მაჭარაშვილი ტესტი #24</MenuItem>
-                                    <MenuItem value={1980}>2023 მაჭარაშვილი ტესტი #25</MenuItem> */}
+                                    <MenuItem value={1980}>2023 მაჭარაშვილი ტესტი #25</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>

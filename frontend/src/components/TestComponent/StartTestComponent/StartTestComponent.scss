@@ -7,4 +7,14 @@
             font-weight: bold;
         }
     }
+    .StartTest-Configuration {
+        width: 100%;
+        .StartTest-Configuration-Problems {
+            .StartTest-Configuration-Problems-Checkboxs {
+                width: 100% !important;
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    }
 }
