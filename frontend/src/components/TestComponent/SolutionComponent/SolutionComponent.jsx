@@ -13,7 +13,7 @@ import "./SolutionComponent.scss";
 import { LinkContainer } from 'react-router-bootstrap';
 import { NavLink } from 'react-bootstrap';
 import { useTheme } from '@emotion/react';
-import useWindowDimensions from '../../../hooks/useWindowDimensions';
+import useWindowDimensions from '../../../services/hooks/useWindowDimensions';
 
 
 const Fade = React.forwardRef(function Fade(props, ref) {
