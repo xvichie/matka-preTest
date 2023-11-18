@@ -8,6 +8,8 @@ import SwipeableViews from 'react-swipeable-views';
 import AnswersJSON from '../../../assets/AnswersForEveryTest.json';
 import SimilarJSON from '../../../assets/SimilarsForEveryTest.json';
 
+import TestGenConfig from '../../../config/Test/TestGeneratationConfig.json';
+
 import './StartTestComponent.scss';
 
 console.log(SimilarJSON);
@@ -43,6 +45,43 @@ function StartTestComponent({ isLoadingSetter }) {
     //const availableYears = [2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010]; 
     console.log(availableYears)
 
+    const findProblemRange = (k,n) => {
+        if(k==1){
+            if (n >= 1 && n <= 1) {
+                return 1;
+            } else if (n>=2 && n<=5) {
+            return 2;
+            } else if (n>=6 && n<=9) {
+                return 3;
+            } else if (n>=10 && n<=16) {
+                return 4;
+            } else if (n>=17 && n<=23) {
+                return 5;
+            } else if (n>=24 && n<=29) {
+                return 6;
+            } else if (n>=30 && n<=33) {
+                return 7;
+            } else if (n>=34 && n<=37) {
+                return 8;
+            }
+        }
+        else if(k==3){
+            if(n>=38 && n<=39)
+            {
+                return 1;
+            }
+        }
+        else if(k==4){
+            if(n>=40 && n<=40){
+                return 1;
+            }
+            else if(n>=41 && n<=41){
+                return 2;
+            }
+        }
+    };
+    
+
     const generateProblems = () => {
 
         const NumberOf1PointProblems = 37;
@@ -67,37 +106,94 @@ function StartTestComponent({ isLoadingSetter }) {
         //GENERATE 1 POINT PROBLEMS
         while (Generated1PointProblems != NumberOf1PointProblems) {
 
+            console.log("==== GENERATING AMOCANA #",Generated1PointProblems+1," ====");
+
             const Year = availableYears[Math.floor(Math.random() * availableYears.length)];
             const VersionInfoJSON = require('../../../assets/' + Year + '/info.json');
+            const NumberOfAllProblems = VersionInfoJSON['NumberOf1PointProblems']+VersionInfoJSON['NumberOf2PointProblems']+
+            VersionInfoJSON['NumberOf3PointProblems']+VersionInfoJSON['NumberOf4PointProblems'];
 
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
-            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf1PointProblems']);
 
-            const ProblemObject = {
-                Year: Year,
-                Version: Version,
-                Problem: Problem
-            };
-            if (Used[Year][Version][Problem] == false) {
+            console.log("Year:",Year, "Version", Version);
 
-                generatedProblems.push(ProblemObject);
-                Used[Year][Version][Problem] = true;
-                generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
-                console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem);
-                generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
-                Generated1PointProblems += 1;
+            let ProblemRange = findProblemRange(1,Generated1PointProblems+1);
+            console.log("ProblemRange",ProblemRange);
+
+            //console.log(TestGenConfig);
+
+            console.log("NumberOfAllProblems",NumberOfAllProblems);
+            console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
+
+            let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["1"][ProblemRange];
+            let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["1"][ProblemRange+1];
+
+            if(TestRightBorder == undefined){
+                if(TestGenConfig["Ranges"][NumberOfAllProblems]["2"]["1"] === -1){
+                    TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"]["1"]-1;
+                }
+                else TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["2"]["1"]-1;
             }
+
+            console.log("Borders: ",TestLeftBorder,TestRightBorder);
+
+            const Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
+
+                const ProblemObject = {
+                    Year: Year,
+                    Version: Version,
+                    Problem: Problem
+                };
+                if (Used[Year][Version][Problem] == false) {
+    
+                    generatedProblems.push(ProblemObject);
+                    Used[Year][Version][Problem] = true;
+                    generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
+                    console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem+1);
+                    generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
+                    Generated1PointProblems += 1;
+    
+                    console.log("==== MORCHA GENERATING AMOCANA #",Generated1PointProblems+1," ====");
+    
+                }
         }
 
         //GENERATE 3 POINT PROBLEMS
         while (Generated3PointProblems != NumberOf3PointProblems) {
 
+            console.log("==== GENERATING AMOCANA #",Generated1PointProblems+Generated3PointProblems+1," ====")
+
+
             const Year = availableYears[Math.floor(Math.random() * availableYears.length)];
             const VersionInfoJSON = require('../../../assets/' + Year + '/info.json');
 
+            const NumberOfAllProblems = VersionInfoJSON['NumberOf1PointProblems']+VersionInfoJSON['NumberOf2PointProblems']+
+            VersionInfoJSON['NumberOf3PointProblems']+VersionInfoJSON['NumberOf4PointProblems'];
+
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
 
-            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf3PointProblems']) + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'];
+
+            let ProblemRange = findProblemRange(3,Generated1PointProblems+Generated3PointProblems+1);
+            console.log("ProblemRange",ProblemRange);
+
+            //console.log(TestGenConfig);
+
+            console.log("NumberOfAllProblems",NumberOfAllProblems);
+            console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
+
+            let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"][ProblemRange];
+            let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"][ProblemRange+1];
+
+            if(TestRightBorder == undefined){
+                TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"]["1"]-1;
+            }
+
+            console.log("Borders: ",TestLeftBorder,TestRightBorder);
+
+            const Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
+
+
+            //const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf3PointProblems']) + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'];
 
             const ProblemObject = {
                 Year: Year,
@@ -106,12 +202,20 @@ function StartTestComponent({ isLoadingSetter }) {
             };
             if (Used[Year][Version][Problem] == false) {
 
+                console.log("==== MORCHA GENERATING AMOCANA #",Generated1PointProblems+Generated3PointProblems+1," ====")
+
+
                 generatedProblems.push(ProblemObject)
                 Used[Year][Version][Problem] = true;
+
+                console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem+1);
+
 
                 generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem])
                 generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
                 Generated3PointProblems += 1;
+
+                
             }
         }
 
@@ -121,9 +225,33 @@ function StartTestComponent({ isLoadingSetter }) {
             const Year = availableYears[Math.floor(Math.random() * availableYears.length)];
             const VersionInfoJSON = require('../../../assets/' + Year + '/info.json');
 
+            const NumberOfAllProblems = VersionInfoJSON['NumberOf1PointProblems']+VersionInfoJSON['NumberOf2PointProblems']+
+            VersionInfoJSON['NumberOf3PointProblems']+VersionInfoJSON['NumberOf4PointProblems'];
+
+
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
 
-            const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf4PointProblems']) + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'] + VersionInfoJSON['NumberOf3PointProblems'];
+            //const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf4PointProblems']) + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'] + VersionInfoJSON['NumberOf3PointProblems'];
+
+            let ProblemRange = findProblemRange(4,Generated1PointProblems+Generated3PointProblems+Generated4PointProblems+1);
+            console.log("ProblemRange",ProblemRange);
+
+            //console.log(TestGenConfig);
+
+            console.log("NumberOfAllProblems",NumberOfAllProblems);
+            console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
+
+            let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"][ProblemRange];
+            let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"][ProblemRange+1];
+
+            if(TestRightBorder == undefined){
+                TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"]["2"]+1;
+            }
+
+            console.log("Borders: ",TestLeftBorder,TestRightBorder);
+
+            const Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
+
 
             const ProblemObject = {
                 Year: Year,
@@ -134,14 +262,16 @@ function StartTestComponent({ isLoadingSetter }) {
 
                 generatedProblems.push(ProblemObject)
                 Used[Year][Version][Problem] = true;
+                console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem+1);
+
                 generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem])
                 generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
                 Generated4PointProblems += 1;
             }
         }
-        // console.log(generatedProblems);
-        // console.log(generatedAnswers);
-        // console.log(generatedSimilars);
+        console.log(generatedProblems);
+        console.log(generatedAnswers);
+        console.log(generatedSimilars);
         return {
             Problems: generatedProblems,
             Answers: generatedAnswers,
@@ -193,7 +323,7 @@ function StartTestComponent({ isLoadingSetter }) {
             Similars: generatedSimilars
         }
     }
-
+    
     const handleStart = () => {
         if (value == 0) {
             const localStorageTestObject = localStorage.getItem('TestObject');
@@ -298,12 +428,12 @@ function StartTestComponent({ isLoadingSetter }) {
                                         () => {
                                             setErovnuliCheckbox(!ErovnuliChechbox);
                                         }
-                                    } checkedIcon={<CheckBoxIcon />} defaultChecked />} label="ეროვნულები" />
+                                    } checkedIcon={<CheckBoxIcon />}  />} label="ეროვნულები" />
                                     <FormControlLabel control={<Checkbox checked={TestChechbox} onClick={
                                         () => {
                                             setTestCheckbox(!TestChechbox);
                                         }
-                                    } checkedIcon={<CheckBoxIcon />} defaultChecked />} label="მაჭარაშვილის ტესტები" />
+                                    } checkedIcon={<CheckBoxIcon />}  />} label="მაჭარაშვილის ტესტები" />
                                 </FormControl>
                             </div>
                         </div>
@@ -361,7 +491,6 @@ function StartTestComponent({ isLoadingSetter }) {
                                     <MenuItem value={1991}>2023 მაჭარაშვილი ტესტი #14</MenuItem>
                                     <MenuItem value={1990}>2023 მაჭარაშვილი ტესტი #15</MenuItem>
                                     <MenuItem value={1989}>2023 მაჭარაშვილი ტესტი #16</MenuItem>
-
                                     <MenuItem value={1988}>2023 მაჭარაშვილი ტესტი #17</MenuItem>
                                     <MenuItem value={1987}>2023 მაჭარაშვილი ტესტი #18</MenuItem>
                                     <MenuItem value={1986}>2023 მაჭარაშვილი ტესტი #19</MenuItem>

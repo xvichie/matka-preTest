@@ -124,20 +124,23 @@ function TestComponent() {
                 <>
                     {problems.map((problem, index) => {
                         //console.log(SolutionsJSON[problem.Year][problem.Version][problem.Problem+1]);
+                        console.log(index);
+                        console.log(require('../../assets/' + problem.Year + '/info.json'));
+                        console.log(require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']);
                         return (
                             <div key={'problem-div-' + index} className='TestComponent-Problem'>
                                 <div className='ProblemLabel'>
                                     <h3>
-                                        {index <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 ? "(1)"
+                                        {problem.Problem <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 ? "(1)"
                                             :
-                                            index <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems']
+                                            problem.Problem <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems']
                                                 ? "(2)"
                                                 :
-                                                index <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']
+                                                problem.Problem <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']
                                                     ? "(3)"
                                                     :
-                                                    "(4)"}{(index + 1)
-                                        }
+                                                    "(4)"}
+                                                    {(index + 1)}
                                     </h3>
                                 </div>
                                 <PDFViewer id={'problem-' + index} key={'problem-' + index} Problem={problem} />
