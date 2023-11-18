@@ -117,27 +117,34 @@ function StartTestComponent({ isLoadingSetter }) {
 
             console.log("Year:",Year, "Version", Version);
 
-            let ProblemRange = findProblemRange(1,Generated1PointProblems+1);
-            console.log("ProblemRange",ProblemRange);
+            let Problem = null;
 
-            //console.log(TestGenConfig);
+            if(GenType === 0){
+                let ProblemRange = findProblemRange(1,Generated1PointProblems+1);
+                console.log("ProblemRange",ProblemRange);
 
-            console.log("NumberOfAllProblems",NumberOfAllProblems);
-            console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
+                //console.log(TestGenConfig);
 
-            let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["1"][ProblemRange];
-            let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["1"][ProblemRange+1];
+                console.log("NumberOfAllProblems",NumberOfAllProblems);
+                console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
 
-            if(TestRightBorder == undefined){
-                if(TestGenConfig["Ranges"][NumberOfAllProblems]["2"]["1"] === -1){
-                    TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"]["1"]-1;
+                let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["1"][ProblemRange];
+                let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["1"][ProblemRange+1];
+
+                if(TestRightBorder == undefined){
+                    if(TestGenConfig["Ranges"][NumberOfAllProblems]["2"]["1"] === -1){
+                        TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"]["1"]-1;
+                    }
+                    else TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["2"]["1"]-1;
                 }
-                else TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["2"]["1"]-1;
+
+                console.log("Borders: ",TestLeftBorder,TestRightBorder);
+
+                Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
             }
-
-            console.log("Borders: ",TestLeftBorder,TestRightBorder);
-
-            const Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
+            else if(GenType===1){
+                Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf1PointProblems']);
+            }
 
                 const ProblemObject = {
                     Year: Year,
@@ -172,26 +179,30 @@ function StartTestComponent({ isLoadingSetter }) {
 
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
 
+            let Problem = null;
 
-            let ProblemRange = findProblemRange(3,Generated1PointProblems+Generated3PointProblems+1);
-            console.log("ProblemRange",ProblemRange);
+            if(GenType==0){
+                let ProblemRange = findProblemRange(3,Generated1PointProblems+Generated3PointProblems+1);
+                console.log("ProblemRange",ProblemRange);
 
-            //console.log(TestGenConfig);
+                //console.log(TestGenConfig);
 
-            console.log("NumberOfAllProblems",NumberOfAllProblems);
-            console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
+                console.log("NumberOfAllProblems",NumberOfAllProblems);
+                console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
 
-            let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"][ProblemRange];
-            let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"][ProblemRange+1];
+                let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"][ProblemRange];
+                let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"][ProblemRange+1];
 
-            if(TestRightBorder == undefined){
-                TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"]["1"]-1;
+                if(TestRightBorder == undefined){
+                    TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"]["1"]-1;
+                }
+
+                console.log("Borders: ",TestLeftBorder,TestRightBorder);
+
+                Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
+            } else if(GenType===1){
+                Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf3PointProblems']) + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'];
             }
-
-            console.log("Borders: ",TestLeftBorder,TestRightBorder);
-
-            const Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
-
 
             //const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf3PointProblems']) + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'];
 
@@ -231,27 +242,30 @@ function StartTestComponent({ isLoadingSetter }) {
 
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
 
-            //const Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf4PointProblems']) + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'] + VersionInfoJSON['NumberOf3PointProblems'];
+            let Problem = null;
 
-            let ProblemRange = findProblemRange(4,Generated1PointProblems+Generated3PointProblems+Generated4PointProblems+1);
-            console.log("ProblemRange",ProblemRange);
+            if(GenType===0){
+                let ProblemRange = findProblemRange(4,Generated1PointProblems+Generated3PointProblems+Generated4PointProblems+1);
+                console.log("ProblemRange",ProblemRange);
 
-            //console.log(TestGenConfig);
+                //console.log(TestGenConfig);
 
-            console.log("NumberOfAllProblems",NumberOfAllProblems);
-            console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
+                console.log("NumberOfAllProblems",NumberOfAllProblems);
+                console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
 
-            let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"][ProblemRange];
-            let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"][ProblemRange+1];
+                let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"][ProblemRange];
+                let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"][ProblemRange+1];
 
-            if(TestRightBorder == undefined){
-                TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"]["2"]+1;
+                if(TestRightBorder == undefined){
+                    TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"]["2"]+1;
+                }
+
+                console.log("Borders: ",TestLeftBorder,TestRightBorder);
+
+                Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
+            } else if(GenType===1){
+                Problem = Math.floor(Math.random() * VersionInfoJSON['NumberOf4PointProblems']) + VersionInfoJSON['NumberOf1PointProblems'] + VersionInfoJSON['NumberOf2PointProblems'] + VersionInfoJSON['NumberOf3PointProblems'];
             }
-
-            console.log("Borders: ",TestLeftBorder,TestRightBorder);
-
-            const Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
-
 
             const ProblemObject = {
                 Year: Year,
@@ -406,7 +420,11 @@ function StartTestComponent({ isLoadingSetter }) {
 
     console.log(useSelector((state) => state.test.problems))
 
+    const [GenType,setGenType] = useState(0);
 
+    const handleGenTypeChange = (event) => {
+        setGenType(event.target.value);
+    }
 
     return (
         <>
@@ -423,6 +441,17 @@ function StartTestComponent({ isLoadingSetter }) {
                             </div>
                             <div className='StartTest-Configuration'>
                             <div className='StartTest-Configuration-Problems'>
+                                <FormControl>
+                                    <InputLabel id="type-label">გენერაციის ტიპი</InputLabel>
+                                    <Select
+                                        value={GenType}
+                                        label="გენერაციის ტიპი"
+                                        onChange={handleGenTypeChange}
+                                    >
+                                        <MenuItem value={0}>რეალისტური</MenuItem>
+                                        <MenuItem value={1}>შემთხვევითი</MenuItem>
+                                    </Select>
+                                </FormControl>
                                 <FormControl className='StartTest-Configuration-Problems-Checkboxs'>
                                     <FormControlLabel checked={ErovnuliChechbox} control={<Checkbox onClick={
                                         () => {
