@@ -31,23 +31,6 @@ function MyTestsComponent() {
     const dispatch = useDispatch();
     const theme = useTheme()
 
-    const translateAnswer = (answer) => {
-        let translated = '';
-        if (answer === 'a') {
-            translated = 'ა'
-        } else if (answer === 'b') {
-            translated = 'ბ'
-        } else if (answer === 'c') {
-            translated = 'გ'
-        } else if (answer === 'd') {
-            translated = 'დ'
-        }
-        else {
-            translated = ''
-        }
-        return translated;
-    }
-
     useEffect(() => {
         const fetchTests = async () => {
             try {
@@ -68,6 +51,7 @@ function MyTestsComponent() {
     }, [user.email]); // Add user.email to the dependency array to fetch data when user.email changes
 
     // require('../../../assets')
+    console.log(currentTest);
     return (
         <div className='MyTests'>
             <div className="MyTests-Label">
@@ -99,22 +83,23 @@ function MyTestsComponent() {
                 <div className="MyTests-TestViewer">
                     <div className="MyTests-TestViewer-Tests">
                         {tests[currentTest].test[0].problems.map((problem, index) => (
-                            <>
-                                <div className='MyTests-TestViewer-Test'>
+                                <div className='MyTests-TestViewer-Test' key={tests[currentTest]._id+'-TestDiv-'+index}>
                                     <div className='ProblemLabel'>
                                         <h3>
-                                            {index <= require('../../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 ? "(1)"
+                                            {problem.Problem <= require('../../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 ? "(1)"
                                                 :
-                                                index <= require('../../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems']
+                                                problem.Problem <= require('../../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems']
                                                     ? "(2)"
                                                     :
-                                                    index <= require('../../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']
+                                                    problem.Problem <= require('../../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']
                                                         ? "(3)"
                                                         :
                                                         "(4)"}{(index + 1)}
                                         </h3>
                                     </div>
-                                    <PDFViewer id={'problem-' + index} key={'problem-' + index} Problem={problem} />
+                                    <PDFViewer id={'problem-' + index} 
+                                    // key={tests[currentTest]._id+'-problem-' + index} 
+                                    Problem={problem} />
                                     <div className="PDFButtons">
                                         <ButtonGroup variant="outlined" aria-label="outlined primary button group">
                                             <Button className='Test-SolutionButton' style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}><EmojiObjectsIcon></EmojiObjectsIcon>ამოხსნა</Button>
@@ -128,7 +113,6 @@ function MyTestsComponent() {
                                         </ButtonGroup>
                                     </div>
                                 </div>
-                            </>
                         ))}
                     </div>
                 </div>

@@ -84,28 +84,32 @@ export default function AnswerSheetModalComponent({ index, ButtonIcon, currentTe
     const [ImageRows,setImageRows] = useState([]);
 
     //console.log(Problems);
-    let test = useSelector((state) => state.userTests.tests[currentTest].test[0]);
-    console.log(test);
+    const test = useSelector((state) => state.userTests.tests[currentTest].test[0]);
+    //console.log(test);
     useEffect(() => {
         const newRows = [];
         const newImageRows = [];
-    
+        setRows([]);
+        setImageRows([]);
+
         test.answers.forEach((answer, index) => {
             if (answer !== 'Custom') {
                 newRows.push([index, answer, test.chosenAnswers[index]]);
             } else {
-                console.log(index)
+                //console.log(index)
                 newImageRows.push([index, test.chosenAnswers[index]]);
             }
         });
     
-        setRows([...rows, ...newRows]);
-        setImageRows([...ImageRows, ...newImageRows]);
-    }, []);
+        setRows(newRows);
+        setImageRows(newImageRows);
+    }, [test]);
 
+    // console.log('CurrTest: ',currentTest);
+    console.log(test);
 
-    console.log(rows);
-    console.log(ImageRows);
+    console.log("Rows: ",rows);
+    console.log("ImageRows: ",ImageRows);
     return (
         <div>
             <Button className='Test-AnswerSheetButton' variant='outlined' onClick={handleOpen}>პასუხების ფურცელი <ButtonIcon /></Button>
@@ -128,16 +132,16 @@ export default function AnswerSheetModalComponent({ index, ButtonIcon, currentTe
                             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                                 <TableHead>
                                 <TableRow>
-                                    <TableCell align="center">#</TableCell>
-                                    <TableCell align="center">არჩეული პასუხი</TableCell>
-                                    <TableCell align="center">სწორი პასუხი</TableCell>
-                                    <TableCell align="center">ქულა</TableCell>
+                                    <TableCell align="center"><strong>#</strong></TableCell>
+                                    <TableCell align="center"><strong>არჩეული პასუხი</strong></TableCell>
+                                    <TableCell align="center"><strong>სწორი პასუხი</strong></TableCell>
+                                    <TableCell align="center"><strong>ქულა</strong></TableCell>
                                 </TableRow>
                                 </TableHead>
                                 <TableBody>
                                 {rows.map((row) => (
                                     <TableRow
-                                    key={row[0]}
+                                    key={test._id+' '+row[0]+" "+row[1]+" "+row[2]}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
                                         <TableCell align="center" component="th" scope="row">
@@ -166,7 +170,7 @@ export default function AnswerSheetModalComponent({ index, ButtonIcon, currentTe
                                 ))}
                                 {ImageRows.map(imageRow => (
                                     <TableRow
-                                    key={imageRow[0]}
+                                    key={imageRow[0]+" "+imageRow[1]+" "}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
                                         <TableCell align="center" component="th" scope="row">

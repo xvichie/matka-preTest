@@ -37,7 +37,7 @@ function Header() {
                 <Container>
                     <LinkContainer to='/'>
                         <NavLink activeClassName="active">
-                            <Navbar.Brand style={{ color: theme.palette.primary.main, fontWeight: 'bold', fontSize: '1.5rem', alignItems: 'center' }}>Matka.ge</Navbar.Brand>
+                            <Navbar.Brand className='Brand' style={{ color: theme.palette.primary.main, fontWeight: 'bold', fontSize: '1.5rem', alignItems: 'center' }}>Matka.ge</Navbar.Brand>
                         </NavLink>
                     </LinkContainer>
                     <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>

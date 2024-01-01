@@ -155,9 +155,8 @@ function StartTestComponent({ isLoadingSetter }) {
     
                     generatedProblems.push(ProblemObject);
                     Used[Year][Version][Problem] = true;
-                    generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
-                    console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem+1);
-                    generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
+                    generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1])
+                    generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1]);
                     Generated1PointProblems += 1;
     
                     console.log("==== MORCHA GENERATING AMOCANA #",Generated1PointProblems+1," ====");
@@ -222,8 +221,8 @@ function StartTestComponent({ isLoadingSetter }) {
                 console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem+1);
 
 
-                generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem])
-                generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
+                generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1])
+                generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1]);
                 Generated3PointProblems += 1;
 
                 
@@ -278,8 +277,8 @@ function StartTestComponent({ isLoadingSetter }) {
                 Used[Year][Version][Problem] = true;
                 console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem+1);
 
-                generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem])
-                generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem]);
+                generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1])
+                generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1]);
                 Generated4PointProblems += 1;
             }
         }

@@ -106,6 +106,7 @@ function ScoreComponent() {
     useEffect(() => {
         startAndStop();
         setSecondsTime(Overalltime)
+        console.log(answers);
     }, []);
     useEffect(() => {
         let intervalId, overallIntervalId;

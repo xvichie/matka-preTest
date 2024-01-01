@@ -38,11 +38,8 @@ function TestComponent() {
     const answers = useSelector((state) => state.test.answers);
     const similars = useSelector((state) => state.test.similars);
 
-    const testHasStarted = useSelector((state) => state.test.testHasStarted);
-    const testType = useSelector((state) => state.test.testType);
-    const erovnuli = useSelector((state) => state.test.erovnuli)
 
-    const availableYears = Object.entries(AnswersJSON).map((AnswerJson, indxe) => parseInt(AnswerJson[0]));
+    const availableYears = Object.entries(AnswersJSON).map((AnswerJson, index) => parseInt(AnswerJson[0]));
     //console.log(availableYears)
 
     const componentOrder = useSelector((state) => state.test.componentOrder)
@@ -124,9 +121,9 @@ function TestComponent() {
                 <>
                     {problems.map((problem, index) => {
                         //console.log(SolutionsJSON[problem.Year][problem.Version][problem.Problem+1]);
-                        console.log(index);
-                        console.log(require('../../assets/' + problem.Year + '/info.json'));
-                        console.log(require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']);
+                        // console.log(index);
+                        // console.log(require('../../assets/' + problem.Year + '/info.json'));
+                        // console.log(require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']);
                         return (
                             <div key={'problem-div-' + index} className='TestComponent-Problem'>
                                 <div className='ProblemLabel'>
