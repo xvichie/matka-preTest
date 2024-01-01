@@ -19,6 +19,8 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
+import './AnswerSheetModalComponent.scss';
+
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
         children,
@@ -82,6 +84,18 @@ export default function AnswerSheetModalComponent({ index, ButtonIcon, currentTe
 
     const [rows, setRows] = useState([]);
     const [ImageRows,setImageRows] = useState([]);
+
+
+    const [imageOpenStates, setImageOpenStates] = useState([]);
+
+    // Function to handle opening/closing of a specific image
+    const handleImageOpen = (index) => {
+    setImageOpenStates((prevState) => {
+        const newState = [...prevState];
+        newState[index] = !newState[index]; // Toggle the state for the specific image index
+        return newState;
+    });
+    };
 
     //console.log(Problems);
     const test = useSelector((state) => state.userTests.tests[currentTest].test[0]);
@@ -168,23 +182,33 @@ export default function AnswerSheetModalComponent({ index, ButtonIcon, currentTe
                                         </TableCell>
                                     </TableRow>
                                 ))}
-                                {ImageRows.map(imageRow => (
+                                {ImageRows.map((imageRow,index) => (
                                     <TableRow
-                                    key={imageRow[0]+" "+imageRow[1]+" "}
+                                    key={index+' '+imageRow[0]+" "+imageRow[1]+" "}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
                                         <TableCell align="center" component="th" scope="row">
                                             <h5>{imageRow[0]+1}</h5>
                                         </TableCell>
                                         <TableCell align="center" component="th" scope="row">
-                                            <h5>{imageRow[1] != '' ?<> <Button onClick={() => setImgOpen(true)}><RemoveRedEyeIcon /> ნახვა</Button> 
-                                            <Lightbox
-                                                open={imgOpen}
-                                                close={() => setImgOpen(false)}
-                                                slides={[{ src: imageRow[1] }]}
-                                            />
-                                            </>: 'არ იყო არჩეული'}</h5>
-                                        </TableCell>
+                                            <h5>
+                                                {imageRow[1] !== '' ? (
+                                                <>
+                                                    <Button onClick={() => handleImageOpen(index)}>
+                                                    <RemoveRedEyeIcon /> ნახვა
+                                                    </Button>
+                                                    <Lightbox
+                                                    className='Lightbox'
+                                                    open={imageOpenStates[index] || false}
+                                                    close={() => handleImageOpen(index)}
+                                                    slides={[{ src: imageRow[1] }]} // Pass the correct image source here
+                                                    />
+                                                </>
+                                                ) : (
+                                                'არ იყო არჩეული'
+                                                )}
+                                            </h5>
+                                            </TableCell>
                                         <TableCell align="center" component="th" scope="row">
                                         </TableCell>
                                         <TableCell align="center" component="th" scope="row">
