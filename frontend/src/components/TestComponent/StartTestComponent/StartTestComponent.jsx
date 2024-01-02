@@ -496,74 +496,104 @@ function StartTestComponent({ isLoadingSetter }) {
                             </div>
                         </div>
                         <div className='StartTest-Erovnuli' value={value} index={1}>
-                            <h2>ეროვნული გამოცდები</h2>
-                            <FormControl fullWidth>
-                                <InputLabel id="demo-simple-select-label">წელი</InputLabel>
-                                <Select
-                                    defaultValue={2023}
-                                    value={year}
-                                    label="Year"
-                                    onChange={handleYearChange}
-                                >
-                                    <MenuItem value={2023}>2023</MenuItem>
-                                    <MenuItem value={2022}>2022</MenuItem>
-                                    <MenuItem value={2021}>2021</MenuItem>
-                                    <MenuItem value={2020}>2020</MenuItem>
-                                    <MenuItem value={2019}>2019</MenuItem>
-                                    <MenuItem value={2018}>2018</MenuItem>
-                                    <MenuItem value={2017}>2017</MenuItem>
-                                    <MenuItem value={2016}>2016</MenuItem>
-                                    <MenuItem value={2015}>2015</MenuItem>
-                                    <MenuItem value={2014}>2014</MenuItem>
-                                    <MenuItem value={2013}>2013</MenuItem>
-                                    <MenuItem value={2012}>2012</MenuItem>
-                                    <MenuItem value={2011}>2011</MenuItem>
-                                    <MenuItem value={2010}>2010</MenuItem>
-                                    <MenuItem value={2009}>2009</MenuItem>
-                                    <MenuItem value={2008}>2008</MenuItem>
-                                    {/* <MenuItem value={2007}>2007</MenuItem> */}
-                                    {/* <MenuItem value={2006}>2006</MenuItem> */}
-                                    {/* <MenuItem value={2005}>2005</MenuItem> */}
-                                    <MenuItem value={2004}>2023 მაჭარაშვილი ტესტი #1</MenuItem>
-                                    <MenuItem value={2003}>2023 მაჭარაშვილი ტესტი #2</MenuItem>
-                                    <MenuItem value={2002}>2023 მაჭარაშვილი ტესტი #3</MenuItem>
-                                    <MenuItem value={2001}>2023 მაჭარაშვილი ტესტი #4</MenuItem>
-                                    <MenuItem value={2000}>2023 მაჭარაშვილი ტესტი #5</MenuItem>
-                                    <MenuItem value={1999}>2023 მაჭარაშვილი ტესტი #6</MenuItem>
-                                    <MenuItem value={1998}>2023 მაჭარაშვილი ტესტი #7</MenuItem>
-                                    <MenuItem value={1997}>2023 მაჭარაშვილი ტესტი #8</MenuItem>
-                                    <MenuItem value={1996}>2023 მაჭარაშვილი ტესტი #9</MenuItem>
-                                    <MenuItem value={1995}>2023 მაჭარაშვილი ტესტი #10</MenuItem>
-                                    <MenuItem value={1994}>2023 მაჭარაშვილი ტესტი #11</MenuItem>
-                                    <MenuItem value={1993}>2023 მაჭარაშვილი ტესტი #12</MenuItem>
-                                    <MenuItem value={1992}>2023 მაჭარაშვილი ტესტი #13</MenuItem>
-                                    <MenuItem value={1991}>2023 მაჭარაშვილი ტესტი #14</MenuItem>
-                                    <MenuItem value={1990}>2023 მაჭარაშვილი ტესტი #15</MenuItem>
-                                    <MenuItem value={1989}>2023 მაჭარაშვილი ტესტი #16</MenuItem>
-                                    <MenuItem value={1988}>2023 მაჭარაშვილი ტესტი #17</MenuItem>
-                                    <MenuItem value={1987}>2023 მაჭარაშვილი ტესტი #18</MenuItem>
-                                    <MenuItem value={1986}>2023 მაჭარაშვილი ტესტი #19</MenuItem>
-                                    <MenuItem value={1985}>2023 მაჭარაშვილი ტესტი #20</MenuItem>
-                                    <MenuItem value={1984}>2023 მაჭარაშვილი ტესტი #21</MenuItem>
-                                    <MenuItem value={1983}>2023 მაჭარაშვილი ტესტი #22</MenuItem>
-                                    <MenuItem value={1982}>2023 მაჭარაშვილი ტესტი #23</MenuItem>
-                                    <MenuItem value={1981}>2023 მაჭარაშვილი ტესტი #24</MenuItem>
-                                    <MenuItem value={1980}>2023 მაჭარაშვილი ტესტი #25</MenuItem>
-                                </Select>
-                            </FormControl>
-                            <FormControl fullWidth>
-                                <InputLabel id="demo-simple-select-label">ვარიანტი</InputLabel>
-                                <Select
-                                    defaultValue={1}
-                                    value={version}
-                                    label="Version"
-                                    onChange={handleVersionChange}
-                                >
-                                    {getVersions(year).map((Version, index) => {
-                                        return (<MenuItem value={Version}>{Version == 1 ? 'I' : Version == 2 ? 'II' : 'III'} ვარიანტი</MenuItem>)
-                                    })}
-                                </Select>
-                            </FormControl>
+                            <div className="Erovnuli-Label">
+                                ეროვნული გამოცდები
+                            </div>
+                            <div className='Erovnuli-Configuration'>
+                                <FormControl fullWidth>
+                                    <InputLabel id="demo-simple-select-label">წელი</InputLabel>
+                                    <Select
+                                        defaultValue={2023}
+                                        value={year}
+                                        label="Year"
+                                        onChange={handleYearChange}
+                                    >
+                                        <MenuItem value={2023}>2023 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2022}>2022 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2021}>2021 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2020}>2020 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2019}>2019 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2018}>2018 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2017}>2017 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2016}>2016 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2015}>2015 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2014}>2014 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2013}>2013 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2012}>2012 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2011}>2011 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2010}>2010 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2009}>2009 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        <MenuItem value={2008}>2008 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                        {/* <MenuItem value={2007}>2007</MenuItem> */}
+                                        {/* <MenuItem value={2006}>2006</MenuItem> */}
+                                        {/* <MenuItem value={2005}>2005</MenuItem> */}
+                                        <MenuItem value={2004}>2023 მაჭარაშვილი ტესტი #1</MenuItem>
+                                        <MenuItem value={2003}>2023 მაჭარაშვილი ტესტი #2</MenuItem>
+                                        <MenuItem value={2002}>2023 მაჭარაშვილი ტესტი #3</MenuItem>
+                                        <MenuItem value={2001}>2023 მაჭარაშვილი ტესტი #4</MenuItem>
+                                        <MenuItem value={2000}>2023 მაჭარაშვილი ტესტი #5</MenuItem>
+                                        <MenuItem value={1999}>2023 მაჭარაშვილი ტესტი #6</MenuItem>
+                                        <MenuItem value={1998}>2023 მაჭარაშვილი ტესტი #7</MenuItem>
+                                        <MenuItem value={1997}>2023 მაჭარაშვილი ტესტი #8</MenuItem>
+                                        <MenuItem value={1996}>2023 მაჭარაშვილი ტესტი #9</MenuItem>
+                                        <MenuItem value={1995}>2023 მაჭარაშვილი ტესტი #10</MenuItem>
+                                        <MenuItem value={1994}>2023 მაჭარაშვილი ტესტი #11</MenuItem>
+                                        <MenuItem value={1993}>2023 მაჭარაშვილი ტესტი #12</MenuItem>
+                                        <MenuItem value={1992}>2023 მაჭარაშვილი ტესტი #13</MenuItem>
+                                        <MenuItem value={1991}>2023 მაჭარაშვილი ტესტი #14</MenuItem>
+                                        <MenuItem value={1990}>2023 მაჭარაშვილი ტესტი #15</MenuItem>
+                                        <MenuItem value={1989}>2023 მაჭარაშვილი ტესტი #16</MenuItem>
+                                        <MenuItem value={1988}>2023 მაჭარაშვილი ტესტი #17</MenuItem>
+                                        <MenuItem value={1987}>2023 მაჭარაშვილი ტესტი #18</MenuItem>
+                                        <MenuItem value={1986}>2023 მაჭარაშვილი ტესტი #19</MenuItem>
+                                        <MenuItem value={1985}>2023 მაჭარაშვილი ტესტი #20</MenuItem>
+                                        <MenuItem value={1984}>2023 მაჭარაშვილი ტესტი #21</MenuItem>
+                                        <MenuItem value={1983}>2023 მაჭარაშვილი ტესტი #22</MenuItem>
+                                        <MenuItem value={1982}>2023 მაჭარაშვილი ტესტი #23</MenuItem>
+                                        <MenuItem value={1981}>2023 მაჭარაშვილი ტესტი #24</MenuItem>
+                                        <MenuItem value={1980}>2023 მაჭარაშვილი ტესტი #25</MenuItem>
+                                    </Select>
+                                </FormControl>
+                                <span style={{width:'20px'}}>
+                                </span>
+                                <FormControl fullWidth>
+                                    <InputLabel id="demo-simple-select-label">ვარიანტი</InputLabel>
+                                    <Select
+                                        defaultValue={1}
+                                        value={version}
+                                        label="Version"
+                                        onChange={handleVersionChange}
+                                    >
+                                        {getVersions(year).map((Version, index) => {
+                                            return (<MenuItem value={Version}>{Version == 1 ? 'I' : Version == 2 ? 'II' : 'III'} ვარიანტი</MenuItem>)
+                                        })}
+                                    </Select>
+                                </FormControl>
+                            </div>
+                            <div className='Erovnuli-Content'>
+                                <div className="Erovnuli-Content-Left">
+                                    <img src={process.env.PUBLIC_URL+'images/ErovnuliHero.png'} alt="" />
+                                </div>
+                                <div className="Erovnuli-Content-Right">
+                                    <div className='Left-Top'>
+                                        <h2>არსებული ტესტები</h2>
+                                        <h4>ყველაფერი ერთ ადგილას</h4>
+                                    </div>
+                                    <div className='Left-Bottom'>
+                                        <ul>
+                                            <li>
+                                                უკვე გამოყენებული და ჩვენი შექმნილი ტესტები
+                                            </li>
+                                            <li>
+                                                ტესტების პასუხები და ვიდეო ამოხსნები
+                                            </li>
+                                            <li>
+                                                ამოცანის მსგავსი ამოცანები
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </SwipeableViews>
                 </div>
