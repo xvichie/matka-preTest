@@ -1,8 +1,21 @@
+@font-face {
+  font-family: 'Nino Mtavruli';
+  src: url('/public/fonts/bpg_nino_mtavruli_bold.ttf');
+}
+@font-face {
+  font-family: 'Extra Square Mtavruli';
+  src: url('/public/fonts/bpg_extrasquare_mtavruli_2009.ttf');
+}
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+    /* font-family: 'Nino Mtavruli' !important; */
+    font-family: 'Extra Square Mtavruli' !important;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f7f7ff !important;

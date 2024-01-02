@@ -1,0 +1,114 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+
+
+
+a{
+    text-decoration-style: none;
+    text-decoration: none;
+    color: $Main-Text-Color;
+    width: fit-content !important;
+}
+
+a:hover{
+    h4{
+        color: #f39468 !important;
+        transition: all 0.2s ease;
+    }
+}
+
+
+
+.Footer{
+    height: 180px;
+    background-color: $Background-Color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Footer-Wrapper{
+        width: 85%;
+        height: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        .Footer-Brand{
+            h2{
+                color: white;
+            }
+            a{
+                img.Brand-Alfa{
+                    height: 64px;
+                }
+            }
+        }
+        .Footer-Contact{
+            .Contact-Contents{
+                .Contents-Socials{
+                    ul{
+                        display: flex;
+                        padding:0;
+                        list-style: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.Title{
+    h1,h2,h3,h4,h5,h6{
+        font-size: 20px;
+        color: $Main-Text-Color;
+    }
+}
+
+.Subtitle{
+    font-size: 16px;
+    color: $Subtle-Text-Color;
+}
+
+.Contents-Socials{
+    ul{
+        li:hover{
+            color: #f1c3ad !important;
+            transition: all 0.2s ease;
+        }
+    }
+}
+
+
+
+@media (max-width:750px) {
+    .Footer{
+        height: fit-content;
+        padding: 20px 0;
+        .Footer-Wrapper{
+            grid-template-columns: 1fr 1fr;
+            row-gap: 15px;
+        }
+    }
+}
+
+@media (max-width:550px) {
+    .Title{
+        h1,h2,h3,h4,h5,h6{
+            font-size: 16px;
+            color: $Main-Text-Color;
+        }
+    }
+    .Subtitle{
+        font-size: 12px;
+    }
+}
+
+@media (max-width:400px) {
+    .Title{
+        h1,h2,h3,h4,h5,h6{
+            font-size: 16px;
+            color: $Main-Text-Color;
+        }
+    }
+    .Subtitle{
+        font-size: 10px;
+    }
+}

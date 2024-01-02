@@ -430,8 +430,8 @@ function StartTestComponent({ isLoadingSetter }) {
             <div className="StartTestComponent">
                 <div className="ChooseTest">
                     <Tabs value={value} onChange={handleChange} aria-label="disabled tabs example">
-                        <Tab label="ტესტის გენერატორი" />
-                        <Tab label="ეროვნული გამოცდები" />
+                        <Tab label="ტესტის გენერატორი" style={{fontWeight:'bold'}} />
+                        <Tab label="ეროვნული გამოცდები" style={{fontWeight:'bold'}}/>
                     </Tabs>
                     <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
                         <div className='StartTest-TestGenerator' value={value} index={0}>
@@ -454,23 +454,44 @@ function StartTestComponent({ isLoadingSetter }) {
                                 <FormControl className='StartTest-Configuration-Problems-Checkboxs'>
                                     <FormControlLabel checked={ErovnuliChechbox} control={<Checkbox onClick={
                                         () => {
-                                            setErovnuliCheckbox(!ErovnuliChechbox);
+                                            if(TestChechbox){
+                                                setErovnuliCheckbox(!ErovnuliChechbox);
+                                            }                                            
                                         }
                                     } checkedIcon={<CheckBoxIcon />}  />} label="ეროვნულები" />
                                     <FormControlLabel control={<Checkbox checked={TestChechbox} onClick={
                                         () => {
-                                            setTestCheckbox(!TestChechbox);
+                                            if(ErovnuliChechbox)
+                                            {
+                                                setTestCheckbox(!TestChechbox);
+                                            }
                                         }
                                     } checkedIcon={<CheckBoxIcon />}  />} label="მაჭარაშვილის ტესტები" />
                                 </FormControl>
                             </div>
-                        </div>
-                            <div>
+                            </div>
+                            <div className='TestGenerator-Content'>
                                 <div className="TestGenerator-Content-Left">
-
+                                    <div className='Left-Top'>
+                                        <h2>შექმენი ახალი ტესტები</h2>
+                                        <h4>ტესტები აღარასოდეს გამოგელევა</h4>
+                                    </div>
+                                    <div className='Left-Bottom'>
+                                        <ul>
+                                            <li>
+                                                გახადე მათემატიკა უფრო სახალისო
+                                            </li>
+                                            <li>
+                                                რეალისტური და შემთხვევითი გენერაცია
+                                            </li>
+                                            <li>
+                                                ტესტის,პასუხების და დროის შენახვა
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div className="TestGenerator-Content-Right">
-
+                                    <img src={process.env.PUBLIC_URL+'images/TestHero.png'} alt="" />
                                 </div>
                             </div>
                         </div>
@@ -547,8 +568,10 @@ function StartTestComponent({ isLoadingSetter }) {
                     </SwipeableViews>
                 </div>
                 <div className="StartTest-Button">
-                    <div>*დრო ჩაირთვება ტესტის ეკრანზე ჩატვირთვისთანავე</div>
-                    <Button variant='contained' color='primary' style={{ color: 'white' }} onClick={handleStart}>dawyeba bozi viyo</Button>
+                    <div
+                    style={{marginBottom:'5px'}}
+                    >*დრო ჩაირთვება ტესტის ეკრანზე ჩატვირთვისთანავე</div>
+                    <Button variant='contained' color='primary' style={{ color: 'white' }} onClick={handleStart}>ტესტის დაწყება</Button>
                 </div>
             </div>
         </>

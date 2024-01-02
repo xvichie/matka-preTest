@@ -157,7 +157,7 @@ function AnswerComponent(props) {
         <FormGroup className='AnswerSheet-Answer'>
             {props.CorrectAnswer != "Custom" ?
                 <>
-                    <div className='Answer-Radio-Tag-Label'>{props.NumberOfAProblem + 1}</div>
+                    <div className='Answer-Radio-Tag-Label'><strong>{props.NumberOfAProblem + 1}</strong></div>
                     <div className='Answer-Radio-Tag'>
                         <Checkbox color='primary' style={{ margin: 0, padding: 0 }} onChange={onChangeValue} checked={chosenAnswers[props.NumberOfAProblem] == 'a'} disabled={(used['ა'] == true && currentAnswer != 'a') || correctAnswerHasBeenFound} value={"ა"} name={props.NumberOfAProblem}></Checkbox>
                     </div>

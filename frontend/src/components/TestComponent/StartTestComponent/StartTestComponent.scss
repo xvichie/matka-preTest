@@ -1,3 +1,6 @@
+$Purple-Text: #52389d;
+$Main-Orange: #f97432;
+
 .StartTestComponent {
     .StartTest-TestGenerator {
         text-align: center;
@@ -5,6 +8,40 @@
         .TestGenerator-Label {
             font-size: 40px;
             font-weight: bold;
+            color: $Main-Orange;
+        }
+        .TestGenerator-Content{
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            .TestGenerator-Content-Left{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                .Left-Top{
+                    h2{
+                        font-size: 76px;
+                        line-height: 72px;
+                        font-weight: bold;
+                    }
+                    h4{
+                        font-size: 30px;
+                        color: $Purple-Text;
+                    }
+                }
+                .Left-Bottom{
+                    ul{
+                        li{
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+            .TestGenerator-Content-Right{
+                img{
+                    height: 450px;
+                }
+            }
         }
     }
     .StartTest-Configuration {
@@ -19,5 +56,8 @@
                 flex-direction: row;
             }
         }
+    }
+    .StartTest-Button{
+        margin: 10px 0 40px 0;
     }
 }

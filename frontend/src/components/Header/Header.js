@@ -22,6 +22,7 @@ import { setCredentials, logoutUser } from '../../slices/authSlice.js';
 import './Header.scss';
 import { useTheme } from '@emotion/react';
 import MuiSwitch from './HeaderComponents/MuiSwitch.jsx';
+import { Link } from 'react-router-dom';
 
 function Header() {
     const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -36,9 +37,9 @@ function Header() {
             <Navbar expand='lg' collapseOnSelect>
                 <Container>
                     <LinkContainer to='/'>
-                        <NavLink activeClassName="active">
+                        <Link>
                             <Navbar.Brand className='Brand' style={{ color: theme.palette.primary.main, fontWeight: 'bold', fontSize: '1.5rem', alignItems: 'center' }}>Matka.ge</Navbar.Brand>
-                        </NavLink>
+                        </Link>
                     </LinkContainer>
                     <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
                     <Navbar.Collapse id='basic-navbar-nav'>

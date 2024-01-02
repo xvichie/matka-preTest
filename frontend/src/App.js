@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setGlobalTheme } from './slices/globalSettingsSlice';
+import Footer from './components/Footer/Footer';
+import ContactUs from './components/ContactUs/ContactUs';
 
 
 const getDesignTokens = (mode) => ({
@@ -68,7 +70,12 @@ const getDesignTokens = (mode) => ({
         checkedIcon: <CloseIcon />
       }
     }
-  }
+  },
+  typography: {
+    allVariants: {
+      fontFamily: 'Extra Square Mtavruli',
+    },
+  },
 });
 
 
@@ -104,6 +111,8 @@ function App() {
           </Container>
         </div>
         <ToastContainer />
+        <ContactUs></ContactUs>
+        <Footer></Footer>
       </ThemeProvider>
     </>
   );

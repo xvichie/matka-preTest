@@ -25,19 +25,19 @@ export default function AnswersComponent(props) {
             <div className='Answer-Sheet'>
                 <div className='AnswerSheet-Answer'>
                     {<>
-                        <div className='Answer-Radio-Tag-Label'>#</div>
+                        <div className='Answer-Radio-Tag-Label'><strong>#</strong></div>
                         <div className="AnswerSheet-Letters">
                             <div className='Answer-Radio-Tag-Startup'>
-                                <h6>ა</h6>
+                                <h6><strong>ა</strong></h6>
                             </div>
                             <div className='Answer-Radio-Tag-Startup'>
-                                <h6>ბ</h6>
+                                <h6><strong>ბ</strong></h6>
                             </div>
                             <div className='Answer-Radio-Tag-Startup'>
-                                <h6>გ</h6>
+                                <h6><strong>გ</strong></h6>
                             </div>
                             <div className='Answer-Radio-Tag-Startup'>
-                                <h6>დ</h6>
+                                <h6><strong>დ</strong></h6>
                             </div>
                         </div>
                         <div className='Answer-CorrectnessIcon'>
