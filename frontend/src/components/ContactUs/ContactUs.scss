@@ -39,3 +39,26 @@ $Main-Text-Color: #F97432;
         }
     }
 }
+
+@media (max-width:850px){
+    .ContactUs-Wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .ContactUs-Form{
+            width: 90%;
+        }
+    }
+}
+
+@media (max-width:500px){
+    .Form-Form{
+        height: 310px !important;
+    }
+    .ContactUs-Top{
+        flex-direction: column;
+        justify-content: space-around;
+        height: 120px;
+    }
+}

@@ -32,6 +32,7 @@ $Main-Orange: #f97432;
                 .Left-Bottom{
                     ul{
                         li{
+                            text-align: left;
                             font-size: 24px;
                         }
                     }
@@ -95,6 +96,7 @@ $Main-Orange: #f97432;
                 .Left-Bottom{
                     ul{
                         li{
+                            text-align: center;
                             font-size: 24px;
                         }
                     }
@@ -105,5 +107,141 @@ $Main-Orange: #f97432;
 
     .StartTest-Button{
         margin: 10px 0 40px 0;
+    }
+}
+
+
+@media (max-width:1250px){
+    .Left-Top{
+        h2{
+            font-size: 60px !important;
+        }
+        h4{
+            font-size: 24px !important;
+        }
+    }
+    .Erovnuli-Content-Right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .Left-Top{
+            h2{
+                font-size: 60px !important;
+            }
+            h4{
+                font-size: 24px !important;
+            }
+        }
+        
+    }
+}
+
+@media (max-width:1200px){
+    .Left-Top{
+        h2{
+            font-size: 56px !important;
+        }
+        h4{
+            font-size: 24px !important;
+        }
+    }
+    .Erovnuli-Content-Right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .Left-Top{
+            h2{
+                font-size: 56px !important;
+            }
+            h4{
+                font-size: 24px !important;
+            }
+        }
+        
+    }
+    ul{
+        li{
+            font-size: 16px !important;
+        }
+    }
+    img{
+        height: 350px !important;
+    }
+}
+
+@media (max-width:1200px){
+    .StartTest-TestGenerator {
+        height: fit-content;
+    }
+    .TestGenerator-Content{
+        flex-direction: column-reverse !important;
+    }
+    .Erovnuli-Content{
+        flex-direction: column !important;
+    }
+
+    .Left-Top{
+        h2{
+            font-size: 44px !important;
+            line-height: 50px !important;
+        }
+        h4{
+            font-size: 24px !important;
+        }
+    }
+    .Erovnuli-Content-Right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .Left-Top{
+            h2{
+                font-size: 44px !important;
+                line-height: 50px !important;
+            }
+            h4{
+                font-size: 24px !important;
+            }
+        }
+        
+    }
+    ul{
+        li{
+            font-size: 16px !important;
+        }
+    }
+    img{
+        height: 300px !important;
+    }
+}
+
+@media (max-width:770px){
+    .StartTest-Configuration-Problems{
+        display: flex;
+        flex-direction: column !important;
+        .StartTest-Configuration-Problems-Checkboxs{
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width:490px){
+    img{
+        height: 250px !important;
+    }
+    .StartTest-Configuration-Problems{
+        display: flex; 
+        flex-direction: column !important; 
+        
+    }
+}
+
+@media (max-width:420px){
+    img{
+        height: 225px !important;
+    }
+    .StartTest-Configuration-Problems{
+        display: flex; 
+        flex-direction: column !important; 
+        
     }
 }

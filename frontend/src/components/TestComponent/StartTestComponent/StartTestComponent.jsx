@@ -439,36 +439,36 @@ function StartTestComponent({ isLoadingSetter }) {
                                 ტესტის გენერატორი
                             </div>
                             <div className='StartTest-Configuration'>
-                            <div className='StartTest-Configuration-Problems'>
-                                <FormControl>
-                                    <InputLabel id="type-label">გენერაციის ტიპი</InputLabel>
-                                    <Select
-                                        value={GenType}
-                                        label="გენერაციის ტიპი"
-                                        onChange={handleGenTypeChange}
-                                    >
-                                        <MenuItem value={0}>რეალისტური</MenuItem>
-                                        <MenuItem value={1}>შემთხვევითი</MenuItem>
-                                    </Select>
-                                </FormControl>
-                                <FormControl className='StartTest-Configuration-Problems-Checkboxs'>
-                                    <FormControlLabel checked={ErovnuliChechbox} control={<Checkbox onClick={
-                                        () => {
-                                            if(TestChechbox){
-                                                setErovnuliCheckbox(!ErovnuliChechbox);
-                                            }                                            
-                                        }
-                                    } checkedIcon={<CheckBoxIcon />}  />} label="ეროვნულები" />
-                                    <FormControlLabel control={<Checkbox checked={TestChechbox} onClick={
-                                        () => {
-                                            if(ErovnuliChechbox)
-                                            {
-                                                setTestCheckbox(!TestChechbox);
+                                <div className='StartTest-Configuration-Problems'>
+                                    <FormControl>
+                                        <InputLabel id="type-label">გენერაციის ტიპი</InputLabel>
+                                        <Select
+                                            value={GenType}
+                                            label="გენერაციის ტიპი"
+                                            onChange={handleGenTypeChange}
+                                        >
+                                            <MenuItem value={0}>რეალისტური</MenuItem>
+                                            <MenuItem value={1}>შემთხვევითი</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                    <FormControl className='StartTest-Configuration-Problems-Checkboxs'>
+                                        <FormControlLabel checked={ErovnuliChechbox} control={<Checkbox onClick={
+                                            () => {
+                                                if(TestChechbox){
+                                                    setErovnuliCheckbox(!ErovnuliChechbox);
+                                                }                                            
                                             }
-                                        }
-                                    } checkedIcon={<CheckBoxIcon />}  />} label="მაჭარაშვილის ტესტები" />
-                                </FormControl>
-                            </div>
+                                        } checkedIcon={<CheckBoxIcon />}  />} label="ეროვნულები" />
+                                        <FormControlLabel control={<Checkbox checked={TestChechbox} onClick={
+                                            () => {
+                                                if(ErovnuliChechbox)
+                                                {
+                                                    setTestCheckbox(!TestChechbox);
+                                                }
+                                            }
+                                        } checkedIcon={<CheckBoxIcon />}  />} label="მაჭარაშვილის ტესტები" />
+                                    </FormControl>
+                                </div>
                             </div>
                             <div className='TestGenerator-Content'>
                                 <div className="TestGenerator-Content-Left">
