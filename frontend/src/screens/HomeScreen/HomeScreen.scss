@@ -1,6 +1,7 @@
 $Background-Color: #52389D;
 $Main-Text-Color: #F97432;
 $Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
 
 .HomeScreen{
     .HomeScreen-Main{
@@ -37,16 +38,1210 @@ $Subtle-Text-Color: #ffe5d9;
                         font-size: 96px;
                         font-weight: bold;
                         color: white;
+                        line-height: 90px;
                     }
                 }
                 .Contents-CallButton{
                     width: 100%;
                     .StartTestButton{
+                        margin-top: 10px;
                         height: 64px;
                         width: 212px;
                         font-size: 20px;
                         font-weight: bold;
                         // color: #52389D;
+                    }
+                }
+            }
+        }
+    }
+    .HomeScreen-Stats{
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        .Stats-Wrapper{
+            width: 85%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            .Stats-Div{
+                align-items: center;
+                .Stats-Icon{
+                    display: flex;
+                    justify-content: center;
+                    .Icon{
+                        height: 96px;
+                        width: 96px;
+                        background-color:$Background-Color;
+                        color: $Main-Text-Color;
+                        border-radius: 64px;
+                        margin: 20px;
+                        padding: 20px;
+                    }
+                }
+                .Stats-Number{
+                    display: flex;
+                    justify-content: center;
+                    text-align: center;
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: $Background-Color;
+                }
+                .Stats-Name{
+                    display: flex;
+                    justify-content: center;
+                    text-align: center;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+    .HomeScreen-Problems{
+        display: flex;
+        justify-content: center;
+        // background-image: url('../../../public/images/BackgroundImage.png');
+        background-color: $Second-Background-Color;
+        background-size: cover;
+        .Problems-Wrapper{
+            width: 85%;
+            display: flex;
+            justify-content: space-around;
+            .Problems-Left{
+                // background-color: red;
+                img{
+                    margin: 30px 0;
+                    height: 384px;
+                }
+            }
+            .Problems-Right{
+                margin-left: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                .Right-Top{
+                    font-size: 56px;
+                    line-height: 52px;
+                    color: $Background-Color;
+                    #Title{
+                        color: $Main-Text-Color;
+                    }
+                }
+                .Right-Bottom{
+                    ul{
+                        padding-left: 0;
+                        li{
+                            font-size: 20px;
+                            line-height: 24px;
+                            color: #52389D;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .HomeScreen-Theory{
+        display: flex;
+        justify-content: center;
+        background-image: url('../../../public/images/BackgroundImage.png');
+        background-size: cover;
+        .Theory-Wrapper{
+            width: 85%;
+            display: flex;
+            justify-content: center;
+            .Theory-Left{
+                // background-color: red;
+                margin-left: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                .Left-Top{
+                    font-size: 56px;
+                    line-height: 52px;
+                    color: $Background-Color;
+                    #Title{
+                        color: $Main-Text-Color;
+                    }
+                }
+                .Left-Bottom{
+                    ul{
+                        padding-left: 0;
+                        li{
+                            font-size: 20px;
+                            line-height: 24px;
+                            color: #52389D;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+            .Theory-Right{
+                img{
+                    margin: 40px 0;
+                    height: 384px;
+                }
+            }
+        }
+    }
+    .HomeScreen-Teachers{
+        padding: 30px 0;
+        display: flex;
+        justify-content: center;
+        // background-image: url('../../../public/images/BackgroundImage.png');
+        background-color: $Background-Color;
+        background-size: cover;
+        .Teachers-Wrapper{
+            width: 85%;
+            display: flex;
+            justify-content: space-around;
+            .Teachers-Left{
+                // background-color: red;
+                img{
+                    margin: 30px 0;
+                    height: 384px;
+                }
+            }
+            .Teachers-Right{
+                margin-left: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                .Right-Top{
+                    font-size: 56px;
+                    line-height: 52px;
+                    color: white;
+                    #Title{
+                        color: $Main-Text-Color;
+                    }
+                }
+                .Right-Bottom{
+                    ul{
+                        padding-left: 0;
+                        li{
+                            font-size: 20px;
+                            line-height: 24px;
+                            color: $Subtle-Text-Color;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .HomeScreen-AboutUs{
+        display: flex;
+        justify-content: center;
+        background-image: url('../../../public/images/BackgroundImage.png');
+        background-size: cover;
+        padding: 20px 0;
+        .AboutUs-Wrapper{
+            width: 85%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .AboutUs-Label{
+                font-size: 64px;
+                color: $Main-Text-Color;
+                font-weight: bold;
+            }
+            .AboutUs-Contents{
+                display: flex;
+                justify-content: space-around;
+                .AboutUs-Left{
+                    // background-color: red;
+                    margin-left: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    .Left-Top{
+                        font-size: 56px;
+                        line-height: 52px;
+                        color: $Background-Color;
+                        #Title{
+                            color: $Main-Text-Color;
+                        }
+                    }
+                    .Left-Bottom{
+                        font-size: 16px;
+                        line-height: 22px;
+                        color: #52389D;
+                    }
+                    .Left-Button{
+                        width: 40%;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+                .AboutUs-Right{
+                    img{
+                        margin: 20px 0;
+                        height: 512px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1000px) {
+    .HomeScreen-Problems{
+        padding: 30px 0 !important;
+        .Problems-Wrapper{
+            width: 90% !important;
+            .Problems-Left{
+                // background-color: red;
+                img{
+                    margin: 30px 0;
+                    height: 312px !important;
+                }
+            }
+            .Problems-Right{
+                
+                margin-left: 40px !important;
+                .Right-Top{
+                    font-size: 48px !important;
+                    line-height: 48px !important;
+                }
+                .Right-Bottom{
+                    ul{
+                        li{
+                            font-size: 20px;
+                            line-height: 24px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .HomeScreen-Theory{
+        padding: 40px 0 !important;
+        .Theory-Wrapper{
+            width: 90% !important;
+            .Theory-Left{
+                margin-left: 30px !important;
+                .Left-Top{
+                    font-size: 48px !important;
+                    line-height: 48px !important;
+                }
+                .Left-Bottom{
+                    ul{
+                        padding-left: 0;
+                        li{
+                            font-size: 16px !important;
+                            line-height: 16px !important;
+                        }
+                    }
+                }
+            }
+            .Theory-Right{
+                img{
+                    margin: 40px 0;
+                    height: 384px;
+                }
+            }
+        }
+    }
+    .HomeScreen-Teachers{
+        .Teachers-Wrapper{
+            width: 90% !important;
+            .Teachers-Left{
+                // background-color: red;
+                img{
+                    margin: 30px 0;
+                    height: 256px !important;
+                }
+            }
+            .Teachers-Right{
+                margin-left: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                .Right-Top{
+                    font-size: 48px !important;
+                    line-height: 48px !important;
+                }
+                .Right-Bottom{
+                    ul{
+                        padding-left: 0;
+                        li{
+                            color: white !important;
+                            font-size: 16px !important;
+                            line-height: 20px !important;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .HomeScreen-AboutUs{
+        padding: 20px 0 !important;
+        .AboutUs-Wrapper{
+            width: 95% !important;
+            .AboutUs-Label{
+                font-size: 48px !important;
+            }
+            .AboutUs-Contents{
+                .AboutUs-Left{
+                    .Left-Top{
+                        font-size: 40px !important;
+                        line-height: 40px !important;
+                    }
+                    .Left-Bottom{
+                        margin-top: 10px;
+                        font-size: 12px !important;
+                        line-height: 18px !important;
+                    }
+                    .Left-Button{
+                        margin-top: 20px;
+                        width: 300px !important;
+                    }
+                }
+                .AboutUs-Right{
+                    img{
+                        margin: 20px 0;
+                        height: 512px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:850px) {
+    .HomeScreen-Problems{
+        padding: 30px 0 !important;
+        .Problems-Wrapper{
+            width: 90% !important;
+            flex-direction: column !important;
+            .Problems-Left{
+                text-align: center;
+                img{
+                    margin: 0px 0 !important;
+                    height: 424px !important;
+                }
+            }
+            .Problems-Right{
+                align-items: center;
+                margin-left: 0px !important;
+                .Right-Top{
+                    text-align: center;
+                    font-size: 64px !important;
+                    line-height: 64px !important;
+                }
+                .Right-Bottom{
+                    ul{
+                        margin-top: 10px !important;
+                        margin-left: 30px !important;
+                        li{
+                            font-size: 20px !important;
+                            line-height: 24px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .HomeScreen-Theory{
+        padding: 0px 0 20px 0 !important;
+        .Theory-Wrapper{
+            width: 90% !important;
+            flex-direction: column-reverse !important;
+            .Theory-Left{
+                margin-left: 30px !important;
+                .Left-Top{
+                    text-align: center;
+                    font-size: 64px !important;
+                    line-height: 64px !important;
+                }
+                .Left-Bottom{
+                    margin-top: 20px !important;
+                    ul{
+                        padding-left: 0;
+                        li{
+                            font-size: 20px !important;
+                            line-height: 20px !important;
+                        }
+                    }
+                }
+                .Left-Button{
+                    margin-top: 10px !important;
+                    text-align: center;
+                }
+            }
+            .Theory-Right{
+                text-align: center;
+                img{
+                    margin: 20px 0 !important;
+                    height: 424px !important;
+                }
+            }
+        }
+    }
+    .HomeScreen-Teachers{
+        .Teachers-Wrapper{
+            width: 90% !important;
+            flex-direction: column !important;
+            .Teachers-Left{
+                text-align: center;
+                img{
+                    margin: 30px 0;
+                    height: 384px !important;
+                }
+            }
+            .Teachers-Right{
+                align-items: center;
+                .Right-Top{
+                    text-align: center;
+                    font-size: 48px !important;
+                    line-height: 48px !important;
+                }
+                .Right-Bottom{
+                    margin-top: 20px !important;
+                    ul{
+                        padding-left: 0;
+                        li{
+                            color: white !important;
+                            font-size: 16px !important;
+                            line-height: 20px !important;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                .Right-Button{
+                    margin-top: 10px !important;
+                }
+            }
+        }
+    }
+    .HomeScreen-AboutUs{
+        padding: 20px 0 !important;
+        .AboutUs-Wrapper{
+            width: 95% !important;
+            .AboutUs-Label{
+                font-size: 48px !important;
+                margin: 0px 0 !important;
+            }
+            .AboutUs-Contents{
+                flex-direction: column-reverse !important;
+                .AboutUs-Left{
+                    align-items: center;
+                    .Left-Top{
+                        text-align: center;
+                        font-size: 64px !important;
+                        line-height: 64px !important;
+                    }
+                    .Left-Bottom{
+                        margin: 20px 0;
+                        font-size: 24px !important;
+                        line-height: 24px !important;
+                        text-align: justify;
+                    }
+                    .Left-Button{
+                        margin-top: 20px;
+                        width: 300px !important;
+                    }
+                }
+                .AboutUs-Right{
+                    text-align: center;
+                    img{
+                        margin: 0px 0 10px 0 !important;
+                        height: 384px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:750px) {
+    .Stats-Wrapper{
+        grid-template-columns: 1fr 1fr !important;
+        row-gap: 15px;
+    }
+    .Contents-Label{
+        h1{
+            font-size: 80px !important;
+            line-height: 80px !important;
+        }
+    }
+    .Contents-CallButton{
+        width: 100%;
+        .StartTestButton{
+            margin-top: 10px;
+            height: 64px;
+            width: 212px;
+            font-size: 20px;
+            font-weight: bold;
+            // color: #52389D;
+        }
+    }
+}
+
+@media (max-width:600px) {
+    .HomeScreen-Main-Contents{
+        .Contents-Wrapper{
+            width: 85% !important;
+        }
+    }
+    .Contents-Label{
+        h1{
+            font-size: 68px !important;
+            line-height: 68px !important;
+        }
+    }
+    .HomeScreen-Main{
+        height: 90vh !important;
+    }
+
+    .HomeScreen-Problems{
+        padding: 10px 0 30px 0!important;
+        .Problems-Wrapper{
+            width: 90% !important;
+            flex-direction: column !important;
+            .Problems-Left{
+                text-align: center;
+                img{
+                    margin: 0px 0 !important;
+                    height: 356px !important;
+                }
+            }
+            .Problems-Right{
+                align-items: center;
+                margin-left: 0px !important;
+                .Right-Top{
+                    text-align: center;
+                    font-size: 56px !important;
+                    line-height: 56px !important;
+                }
+                .Right-Bottom{
+                    ul{
+                        margin-top: 10px !important;
+                        margin-left: 30px !important;
+                        li{
+                            font-size: 20px !important;
+                            line-height: 24px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    .HomeScreen-Theory{
+        padding: 0px 0 20px 0 !important;
+        .Theory-Wrapper{
+            width: 90% !important;
+            flex-direction: column-reverse !important;
+            .Theory-Left{
+                margin-left: 30px !important;
+                .Left-Top{
+                    text-align: center;
+                    font-size: 64px !important;
+                    line-height: 64px !important;
+                }
+                .Left-Bottom{
+                    margin-top: 20px !important;
+                    ul{
+                        padding-left: 0;
+                        li{
+                            font-size: 20px !important;
+                            line-height: 20px !important;
+                        }
+                    }
+                }
+                .Left-Button{
+                    margin-top: 10px !important;
+                    text-align: center;
+                }
+            }
+            .Theory-Right{
+                text-align: center;
+                img{
+                    margin: 20px 0 !important;
+                    height: 356px !important;
+                }
+            }
+        }
+    }
+    .HomeScreen-Teachers{
+        .Teachers-Wrapper{
+            width: 90% !important;
+            flex-direction: column !important;
+            .Teachers-Left{
+                text-align: center;
+                img{
+                    margin: 30px 0;
+                    height: 316px !important;
+                }
+            }
+            .Teachers-Right{
+                align-items: center;
+                .Right-Top{
+                    text-align: center;
+                    font-size: 48px !important;
+                    line-height: 48px !important;
+                }
+                .Right-Bottom{
+                    margin-top: 20px !important;
+                    ul{
+                        padding-left: 0;
+                        li{
+                            color: white !important;
+                            font-size: 16px !important;
+                            line-height: 20px !important;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                .Right-Button{
+                    margin-top: 10px !important;
+                }
+            }
+        }
+    }
+    .HomeScreen-AboutUs{
+        padding: 20px 0 !important;
+        .AboutUs-Wrapper{
+            width: 95% !important;
+            .AboutUs-Label{
+                font-size: 48px !important;
+                margin: 0px 0 !important;
+            }
+            .AboutUs-Contents{
+                flex-direction: column-reverse !important;
+                .AboutUs-Left{
+                    align-items: center;
+                    .Left-Top{
+                        text-align: center;
+                        font-size: 52px !important;
+                        line-height: 52px !important;
+                    }
+                    .Left-Bottom{
+                        margin: 20px 0;
+                        font-size: 22px !important;
+                        line-height: 22px !important;
+                        text-align: justify;
+                    }
+                    .Left-Button{
+                        margin-top: 20px;
+                        width: 300px !important;
+                    }
+                }
+                .AboutUs-Right{
+                    text-align: center;
+                    img{
+                        margin: 0px 0 10px 0 !important;
+                        height: 356px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:550px) {
+    .HomeScreen-Problems{
+        padding: 10px 0 30px 0!important;
+        .Problems-Wrapper{
+            width: 90% !important;
+            flex-direction: column !important;
+            .Problems-Left{
+                text-align: center;
+                img{
+                    margin: 0px 0 !important;
+                    height: 256px !important;
+                }
+            }
+            .Problems-Right{
+                align-items: center;
+                margin-left: 0px !important;
+                .Right-Top{
+                    text-align: center;
+                    font-size: 40px !important;
+                    line-height: 40px !important;
+                }
+                .Right-Bottom{
+                    ul{
+                        margin-top: 10px !important;
+                        margin-left: 30px !important;
+                        li{
+                            font-size: 22px !important;
+                            line-height: 20px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    .HomeScreen-Theory{
+        padding: 0px 0 20px 0 !important;
+        .Theory-Wrapper{
+            width: 90% !important;
+            flex-direction: column-reverse !important;
+            .Theory-Left{
+                margin-left: 0 !important;
+                .Left-Top{
+                    text-align: center;
+                    font-size: 40px !important;
+                    line-height: 40px !important;
+                }
+                .Left-Bottom{
+                    margin-top: 20px !important;
+                    display: flex;
+                    justify-content: center;
+                    ul{
+                        width: 90%;
+                        padding-left: 10px !important;
+                        li{
+                            font-size: 20px !important;
+                            line-height: 22px !important;
+                        }
+                    }
+                }
+                .Left-Button{
+                    margin-top: 10px !important;
+                    text-align: center;
+                }
+            }
+            .Theory-Right{
+                text-align: center;
+                img{
+                    margin: 20px 0 !important;
+                    height: 256px !important;
+                }
+            }
+        }
+    }
+    .HomeScreen-Teachers{
+        .Teachers-Wrapper{
+            width: 90% !important;
+            flex-direction: column !important;
+            .Teachers-Left{
+                text-align: center;
+                img{
+                    margin: 30px 0;
+                    height: 256px !important;
+                }
+            }
+            .Teachers-Right{
+                margin-left: 0 !important;
+                align-items: center;
+                .Right-Top{
+                    text-align: center;
+                    font-size: 40px !important;
+                    line-height: 40px !important;
+                }
+                .Right-Bottom{
+                    margin-top: 20px !important;
+                    display: flex;
+                    justify-content: center;
+                    ul{
+                        padding-left: 20px !important;
+                        width: 95% !important;
+                        li{
+                            color: white !important;
+                            font-size: 18px !important;
+                            line-height: 20px !important;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                .Right-Button{
+                    margin-top: 10px !important;
+                }
+            }
+        }
+    }
+    .HomeScreen-AboutUs{
+        padding: 20px 0 !important;
+        .AboutUs-Wrapper{
+            width: 95% !important;
+            .AboutUs-Label{
+                font-size: 48px !important;
+                margin: 0px 0 !important;
+            }
+            .AboutUs-Contents{
+                flex-direction: column-reverse !important;
+                .AboutUs-Left{
+                    align-items: center;
+                    margin-left: 0 !important;
+                    .Left-Top{
+                        text-align: center;
+                        font-size: 40px !important;
+                        line-height: 40px !important;
+                    }
+                    .Left-Bottom{
+                        width: 90% !important;
+                        margin: 20px 0;
+                        font-size: 18px !important;
+                        line-height: 20px !important;
+                        text-align: justify;
+                    }
+                    .Left-Button{
+                        margin-top: 20px;
+                        width: 300px !important;
+                    }
+                }
+                .AboutUs-Right{
+                    text-align: center;
+                    img{
+                        margin: 0px 0 10px 0 !important;
+                        height: 300px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:500px) {
+    .Stats-Wrapper{
+        width: 95% !important;
+    }
+    .Stats-Icon{
+        .Icon{
+            height: 80px !important;
+            width: 80px !important;
+        }
+    }
+    .Stats-Number{
+        font-size: 20px !important;
+    }
+    .Stats-Name{
+        font-size: 20px !important;
+    }
+
+    .Contents-Label{
+        h1{
+            font-size: 48px !important;
+            line-height: 48px !important;
+        }
+    }
+    .Contents-CallButton{
+        width: 100%;
+        .StartTestButton{
+            height: 56px !important;
+            width: 188px !important;
+            font-size: 16px !important;
+            // color: #52389D;
+        }
+    }
+    .HomeScreen-Main{
+        height: 80vh !important;
+    }
+
+    .HomeScreen-Problems{
+        padding: 10px 0 30px 0!important;
+        .Problems-Wrapper{
+            width: 90% !important;
+            flex-direction: column !important;
+            .Problems-Left{
+                text-align: center;
+                img{
+                    margin: 0px 0 !important;
+                    height: 232px !important;
+                }
+            }
+            .Problems-Right{
+                align-items: center;
+                margin-left: 0px !important;
+                .Right-Top{
+                    text-align: center;
+                    font-size: 36px !important;
+                    line-height: 36px !important;
+                }
+                .Right-Bottom{
+                    ul{
+                        margin-top: 10px !important;
+                        margin-left: 30px !important;
+                        li{
+                            font-size: 20px !important;
+                            line-height: 22px !important;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    .HomeScreen-Theory{
+        padding: 0px 0 20px 0 !important;
+        .Theory-Wrapper{
+            width: 90% !important;
+            flex-direction: column-reverse !important;
+            .Theory-Left{
+                margin-left: 0 !important;
+                .Left-Top{
+                    text-align: center;
+                    font-size: 36px !important;
+                    line-height: 36px !important;
+                }
+                .Left-Bottom{
+                    margin-top: 20px !important;
+                    display: flex;
+                    justify-content: center;
+                    ul{
+                        width: 90%;
+                        padding-left: 10px !important;
+                        li{
+                            font-size: 18px !important;
+                            line-height: 22px !important;
+                        }
+                    }
+                }
+                .Left-Button{
+                    margin-top: 10px !important;
+                    text-align: center;
+                }
+            }
+            .Theory-Right{
+                text-align: center;
+                img{
+                    margin: 20px 0 !important;
+                    height: 212px !important;
+                }
+            }
+        }
+    }
+    .HomeScreen-Teachers{
+        .Teachers-Wrapper{
+            width: 90% !important;
+            flex-direction: column !important;
+            .Teachers-Left{
+                text-align: center;
+                img{
+                    margin: 30px 0 20px 0 !important;
+                    height: 212px !important;
+                }
+            }
+            .Teachers-Right{
+                margin-left: 0 !important;
+                align-items: center;
+                .Right-Top{
+                    text-align: center;
+                    font-size: 36px !important;
+                    line-height: 36px !important;
+                }
+                .Right-Bottom{
+                    margin-top: 20px !important;
+                    display: flex;
+                    justify-content: center;
+                    ul{
+                        padding-left: 20px !important;
+                        width: 95% !important;
+                        li{
+                            color: white !important;
+                            font-size: 18px !important;
+                            line-height: 20px !important;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                .Right-Button{
+                    margin-top: 10px !important;
+                }
+            }
+        }
+    }
+    .HomeScreen-AboutUs{
+        padding: 20px 0 30px 0!important;
+        .AboutUs-Wrapper{
+            width: 95% !important;
+            .AboutUs-Label{
+                font-size: 40px !important;
+                margin: 0px 0 !important;
+            }
+            .AboutUs-Contents{
+                flex-direction: column-reverse !important;
+                .AboutUs-Left{
+                    align-items: center;
+                    margin-left: 0 !important;
+                    .Left-Top{
+                        text-align: center;
+                        font-size: 36px !important;
+                        line-height: 36px !important;
+                    }
+                    .Left-Bottom{
+                        width: 90% !important;
+                        margin: 30px 0 !important;
+                        font-size: 18px !important;
+                        line-height: 20px !important;
+                        text-align: justify;
+                    }
+                    .Left-Button{
+                        margin-top: 20px;
+                        width: 300px !important;
+                    }
+                }
+                .AboutUs-Right{
+                    text-align: center;
+                    img{
+                        margin: 0px 0 20px 0 !important;
+                        height: 256px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:400px) {
+    .HomeScreen-Problems{
+        padding: 10px 0 30px 0!important;
+        .Problems-Wrapper{
+            width: 90% !important;
+            flex-direction: column !important;
+            .Problems-Left{
+                text-align: center;
+                img{
+                    margin: 0px 0 !important;
+                    height: 200px !important;
+                }
+            }
+            .Problems-Right{
+                align-items: center;
+                margin-left: 0px !important;
+                .Right-Top{
+                    text-align: center;
+                    font-size: 32px !important;
+                    line-height: 32px !important;
+                }
+                .Right-Bottom{
+                    ul{
+                        margin-top: 10px !important;
+                        margin-left: 30px !important;
+                        li{
+                            font-size: 18px !important;
+                            line-height: 20px !important;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    .HomeScreen-Theory{
+        padding: 0px 0 20px 0 !important;
+        .Theory-Wrapper{
+            width: 90% !important;
+            flex-direction: column-reverse !important;
+            .Theory-Left{
+                margin-left: 0 !important;
+                .Left-Top{
+                    text-align: center;
+                    font-size: 32px !important;
+                    line-height: 32px !important;
+                }
+                .Left-Bottom{
+                    margin-top: 20px !important;
+                    display: flex;
+                    justify-content: center;
+                    ul{
+                        width: 90%;
+                        padding-left: 10px !important;
+                        li{
+                            font-size: 18px !important;
+                            line-height: 22px !important;
+                        }
+                    }
+                }
+                .Left-Button{
+                    margin-top: 10px !important;
+                    text-align: center;
+                }
+            }
+            .Theory-Right{
+                text-align: center;
+                img{
+                    margin: 20px 0 !important;
+                    height: 188px !important;
+                }
+            }
+        }
+    }
+    .HomeScreen-Teachers{
+        .Teachers-Wrapper{
+            width: 90% !important;
+            flex-direction: column !important;
+            .Teachers-Left{
+                text-align: center;
+                img{
+                    margin: 30px 0 20px 0 !important;
+                    height: 188px !important;
+                }
+            }
+            .Teachers-Right{
+                margin-left: 0 !important;
+                align-items: center;
+                .Right-Top{
+                    text-align: center;
+                    font-size: 32px !important;
+                    line-height: 32px !important;
+                }
+                .Right-Bottom{
+                    margin-top: 20px !important;
+                    display: flex;
+                    justify-content: center;
+                    ul{
+                        padding-left: 20px !important;
+                        width: 95% !important;
+                        li{
+                            color: white !important;
+                            font-size: 16px !important;
+                            line-height: 18px !important;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                .Right-Button{
+                    margin-top: 10px !important;
+                }
+            }
+        }
+    }
+    .HomeScreen-AboutUs{
+        padding: 20px 0 30px 0!important;
+        .AboutUs-Wrapper{
+            width: 95% !important;
+            .AboutUs-Label{
+                font-size: 32px !important;
+                margin: 0px 0 !important;
+            }
+            .AboutUs-Contents{
+                flex-direction: column-reverse !important;
+                .AboutUs-Left{
+                    align-items: center;
+                    margin-left: 0 !important;
+                    .Left-Top{
+                        text-align: center;
+                        font-size: 32px !important;
+                        line-height: 32px !important;
+                    }
+                    .Left-Bottom{
+                        width: 90% !important;
+                        margin: 30px 0 !important;
+                        font-size: 16px !important;
+                        line-height: 18px !important;
+                        text-align: justify;
+                    }
+                    .Left-Button{
+                        margin-top: 20px;
+                        width: 90% !important;
+                    }
+                }
+                .AboutUs-Right{
+                    text-align: center;
+                    img{
+                        margin: 0px 0 20px 0 !important;
+                        height: 200px !important;
                     }
                 }
             }
