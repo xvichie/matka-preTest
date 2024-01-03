@@ -61,72 +61,74 @@ function AlgebraScreen() {
 
     return (
         <div className="AlgebraScreen">
-            <div className="TheoryScreen-Algebra-Search">
-                <Container className='SearchBar' sx={{ mt: 20 }}>
-                    <Autocomplete
-                        id="search"
-                        type="search"
-                        sx={{ width: 600 }}
-                        options={theorems}
-                        freeSolo
-                        disableClearable
-                        autoComplete
-                        groupBy={(option) => option.TheoremAlgGeo}
-                        getOptionLabel={(option) => {
-                            console.log(option);
+            <div className="AlgebraScreen-Wrapper">
+                <div className="TheoryScreen-Algebra-Search">
+                    <Container className='SearchBar' sx={{ mt: 20 }}>
+                        <Autocomplete
+                            id="search"
+                            type="search"
+                            sx={{ width: 600 }}
+                            options={theorems}
+                            freeSolo
+                            disableClearable
+                            autoComplete
+                            groupBy={(option) => option.TheoremAlgGeo}
+                            getOptionLabel={(option) => {
+                                console.log(option);
+                                return (
+                                    option.title
+                                );
+                            }}
+                            renderOption={(props, option, { selected }) => (
+                                <Link style={{ textDecoration: 'none' }} to={'/theory/' + option.TheoremAlgGeo + '/' + option.id}>
+                                    <li {...props}>
+                                        <h3 dangerouslySetInnerHTML={{ '__html': option.title }}></h3>
+                                    </li>
+                                </Link>
+                            )}
+                            renderInput={(params) => {
+                                return (<TextField {...params} label="მოძებნე თეორია ან თეორემა"></TextField>)
+                            }}
+                        />
+                    </Container>
+                </div>
+                <div className="Breadcrumbs">
+                    <Breadcrumbs aria-label="breadcrumb">
+                        <Link style={{ textDecoration: 'none' }}
+                            underline="hover"
+                            sx={{ display: 'flex', alignItems: 'center' }}
+                            color="inherit"
+                            to={'/theory'}
+                        >
+                            <MenuBookIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                            თეორია
+                        </Link>
+                        <Typography
+                            sx={{ display: 'flex', alignItems: 'center' }}
+                            color="text.primary"
+                        >
+                            <CalculateIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                            ალგებრა
+                        </Typography>
+                    </Breadcrumbs>
+                </div>
+                <div className="AlgebraScreen-Theorems">
+                    {
+                        TheoremsInfoJSON['algebra'].map((theorem, index) => {
+                            console.log(theorem)
                             return (
-                                option.title
-                            );
-                        }}
-                        renderOption={(props, option, { selected }) => (
-                            <Link style={{ textDecoration: 'none' }} to={'/theory/' + option.TheoremAlgGeo + '/' + option.id}>
-                                <li {...props}>
-                                    <h3 dangerouslySetInnerHTML={{ '__html': option.title }}></h3>
-                                </li>
-                            </Link>
-                        )}
-                        renderInput={(params) => {
-                            return (<TextField {...params} label="მოძებნე თეორია ან თეორემა"></TextField>)
-                        }}
-                    />
-                </Container>
-            </div>
-            <div className="Breadcrumbs">
-                <Breadcrumbs aria-label="breadcrumb">
-                    <Link style={{ textDecoration: 'none' }}
-                        underline="hover"
-                        sx={{ display: 'flex', alignItems: 'center' }}
-                        color="inherit"
-                        to={'/theory'}
-                    >
-                        <MenuBookIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                        თეორია
-                    </Link>
-                    <Typography
-                        sx={{ display: 'flex', alignItems: 'center' }}
-                        color="text.primary"
-                    >
-                        <CalculateIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                        ალგებრა
-                    </Typography>
-                </Breadcrumbs>
-            </div>
-            <div className="AlgebraScreen-Theorems">
-                {
-                    TheoremsInfoJSON['algebra'].map((theorem, index) => {
-                        console.log(theorem)
-                        return (
-                            <Link style={{ textDecoration: 'none' }} key={index} to={`${theorem.id}`}>
-                                <div>
-                                    <h2 dangerouslySetInnerHTML={{ __html: unEscape(theorem.title) }}>{ }</h2>
-                                    {theorem.description}
-                                </div>
-                            </Link>)
-                    })
-                    // TheoremsInfoJSON['geometry'].map((theorem, index) => {
-                    //     <TheoremComponent TheoremAlgGeo={'Geometry'} TheoremId={index + 1}></TheoremComponent>
-                    // })
-                }
+                                <Link style={{ textDecoration: 'none' }} key={index} to={`${theorem.id}`}>
+                                    <div>
+                                        <h2 dangerouslySetInnerHTML={{ __html: unEscape(theorem.title) }}>{ }</h2>
+                                        {theorem.description}
+                                    </div>
+                                </Link>)
+                        })
+                        // TheoremsInfoJSON['geometry'].map((theorem, index) => {
+                        //     <TheoremComponent TheoremAlgGeo={'Geometry'} TheoremId={index + 1}></TheoremComponent>
+                        // })
+                    }
+                </div>
             </div>
         </div>
     )

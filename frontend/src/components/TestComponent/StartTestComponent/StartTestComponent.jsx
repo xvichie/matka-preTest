@@ -428,180 +428,182 @@ function StartTestComponent({ isLoadingSetter }) {
     return (
         <>
             <div className="StartTestComponent">
-                <div className="ChooseTest">
-                    <Tabs value={value} onChange={handleChange} aria-label="disabled tabs example">
-                        <Tab label="ტესტის გენერატორი" style={{fontWeight:'bold'}} />
-                        <Tab label="ეროვნული გამოცდები" style={{fontWeight:'bold'}}/>
-                    </Tabs>
-                    <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
-                        <div className='StartTest-TestGenerator' value={value} index={0}>
-                            <div className="TestGenerator-Label">
-                                ტესტის გენერატორი
+                <div className="StartTestComponent-Wrapper">
+                    <div className="ChooseTest">
+                        <Tabs value={value} onChange={handleChange} aria-label="disabled tabs example">
+                            <Tab label="ტესტის გენერატორი" style={{fontWeight:'bold'}} />
+                            <Tab label="ეროვნული გამოცდები" style={{fontWeight:'bold'}}/>
+                        </Tabs>
+                        <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
+                            <div className='StartTest-TestGenerator' value={value} index={0}>
+                                <div className="TestGenerator-Label">
+                                    ტესტის გენერატორი
+                                </div>
+                                <div className='StartTest-Configuration'>
+                                    <div className='StartTest-Configuration-Problems'>
+                                        <FormControl>
+                                            <InputLabel id="type-label">გენერაციის ტიპი</InputLabel>
+                                            <Select
+                                                value={GenType}
+                                                label="გენერაციის ტიპი"
+                                                onChange={handleGenTypeChange}
+                                            >
+                                                <MenuItem value={0}>რეალისტური</MenuItem>
+                                                <MenuItem value={1}>შემთხვევითი</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                        <FormControl className='StartTest-Configuration-Problems-Checkboxs'>
+                                            <FormControlLabel checked={ErovnuliChechbox} control={<Checkbox onClick={
+                                                () => {
+                                                    if(TestChechbox){
+                                                        setErovnuliCheckbox(!ErovnuliChechbox);
+                                                    }                                            
+                                                }
+                                            } checkedIcon={<CheckBoxIcon />}  />} label="ეროვნულები" />
+                                            <FormControlLabel control={<Checkbox checked={TestChechbox} onClick={
+                                                () => {
+                                                    if(ErovnuliChechbox)
+                                                    {
+                                                        setTestCheckbox(!TestChechbox);
+                                                    }
+                                                }
+                                            } checkedIcon={<CheckBoxIcon />}  />} label="მაჭარაშვილის ტესტები" />
+                                        </FormControl>
+                                    </div>
+                                </div>
+                                <div className='TestGenerator-Content'>
+                                    <div className="TestGenerator-Content-Left">
+                                        <div className='Left-Top'>
+                                            <h2>შექმენი ახალი ტესტები</h2>
+                                            <h4>ტესტები აღარასოდეს გამოგელევა</h4>
+                                        </div>
+                                        <div className='Left-Bottom'>
+                                            <ul>
+                                                <li>
+                                                    გახადე მათემატიკა უფრო სახალისო
+                                                </li>
+                                                <li>
+                                                    რეალისტური და შემთხვევითი გენერაცია
+                                                </li>
+                                                <li>
+                                                    ტესტის,პასუხების და დროის შენახვა
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div className="TestGenerator-Content-Right">
+                                        <img src={process.env.PUBLIC_URL+'images/TestHero.png'} alt="" />
+                                    </div>
+                                </div>
                             </div>
-                            <div className='StartTest-Configuration'>
-                                <div className='StartTest-Configuration-Problems'>
-                                    <FormControl>
-                                        <InputLabel id="type-label">გენერაციის ტიპი</InputLabel>
+                            <div className='StartTest-Erovnuli' value={value} index={1}>
+                                <div className="Erovnuli-Label">
+                                    ეროვნული გამოცდები
+                                </div>
+                                <div className='Erovnuli-Configuration'>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">წელი</InputLabel>
                                         <Select
-                                            value={GenType}
-                                            label="გენერაციის ტიპი"
-                                            onChange={handleGenTypeChange}
+                                            defaultValue={2023}
+                                            value={year}
+                                            label="Year"
+                                            onChange={handleYearChange}
                                         >
-                                            <MenuItem value={0}>რეალისტური</MenuItem>
-                                            <MenuItem value={1}>შემთხვევითი</MenuItem>
+                                            <MenuItem value={2023}>2023 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2022}>2022 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2021}>2021 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2020}>2020 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2019}>2019 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2018}>2018 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2017}>2017 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2016}>2016 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2015}>2015 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2014}>2014 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2013}>2013 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2012}>2012 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2011}>2011 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2010}>2010 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2009}>2009 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            <MenuItem value={2008}>2008 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
+                                            {/* <MenuItem value={2007}>2007</MenuItem> */}
+                                            {/* <MenuItem value={2006}>2006</MenuItem> */}
+                                            {/* <MenuItem value={2005}>2005</MenuItem> */}
+                                            <MenuItem value={2004}>2023 მაჭარაშვილი ტესტი #1</MenuItem>
+                                            <MenuItem value={2003}>2023 მაჭარაშვილი ტესტი #2</MenuItem>
+                                            <MenuItem value={2002}>2023 მაჭარაშვილი ტესტი #3</MenuItem>
+                                            <MenuItem value={2001}>2023 მაჭარაშვილი ტესტი #4</MenuItem>
+                                            <MenuItem value={2000}>2023 მაჭარაშვილი ტესტი #5</MenuItem>
+                                            <MenuItem value={1999}>2023 მაჭარაშვილი ტესტი #6</MenuItem>
+                                            <MenuItem value={1998}>2023 მაჭარაშვილი ტესტი #7</MenuItem>
+                                            <MenuItem value={1997}>2023 მაჭარაშვილი ტესტი #8</MenuItem>
+                                            <MenuItem value={1996}>2023 მაჭარაშვილი ტესტი #9</MenuItem>
+                                            <MenuItem value={1995}>2023 მაჭარაშვილი ტესტი #10</MenuItem>
+                                            <MenuItem value={1994}>2023 მაჭარაშვილი ტესტი #11</MenuItem>
+                                            <MenuItem value={1993}>2023 მაჭარაშვილი ტესტი #12</MenuItem>
+                                            <MenuItem value={1992}>2023 მაჭარაშვილი ტესტი #13</MenuItem>
+                                            <MenuItem value={1991}>2023 მაჭარაშვილი ტესტი #14</MenuItem>
+                                            <MenuItem value={1990}>2023 მაჭარაშვილი ტესტი #15</MenuItem>
+                                            <MenuItem value={1989}>2023 მაჭარაშვილი ტესტი #16</MenuItem>
+                                            <MenuItem value={1988}>2023 მაჭარაშვილი ტესტი #17</MenuItem>
+                                            <MenuItem value={1987}>2023 მაჭარაშვილი ტესტი #18</MenuItem>
+                                            <MenuItem value={1986}>2023 მაჭარაშვილი ტესტი #19</MenuItem>
+                                            <MenuItem value={1985}>2023 მაჭარაშვილი ტესტი #20</MenuItem>
+                                            <MenuItem value={1984}>2023 მაჭარაშვილი ტესტი #21</MenuItem>
+                                            <MenuItem value={1983}>2023 მაჭარაშვილი ტესტი #22</MenuItem>
+                                            <MenuItem value={1982}>2023 მაჭარაშვილი ტესტი #23</MenuItem>
+                                            <MenuItem value={1981}>2023 მაჭარაშვილი ტესტი #24</MenuItem>
+                                            <MenuItem value={1980}>2023 მაჭარაშვილი ტესტი #25</MenuItem>
                                         </Select>
                                     </FormControl>
-                                    <FormControl className='StartTest-Configuration-Problems-Checkboxs'>
-                                        <FormControlLabel checked={ErovnuliChechbox} control={<Checkbox onClick={
-                                            () => {
-                                                if(TestChechbox){
-                                                    setErovnuliCheckbox(!ErovnuliChechbox);
-                                                }                                            
-                                            }
-                                        } checkedIcon={<CheckBoxIcon />}  />} label="ეროვნულები" />
-                                        <FormControlLabel control={<Checkbox checked={TestChechbox} onClick={
-                                            () => {
-                                                if(ErovnuliChechbox)
-                                                {
-                                                    setTestCheckbox(!TestChechbox);
-                                                }
-                                            }
-                                        } checkedIcon={<CheckBoxIcon />}  />} label="მაჭარაშვილის ტესტები" />
+                                    <span style={{width:'20px'}}>
+                                    </span>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">ვარიანტი</InputLabel>
+                                        <Select
+                                            defaultValue={1}
+                                            value={version}
+                                            label="Version"
+                                            onChange={handleVersionChange}
+                                        >
+                                            {getVersions(year).map((Version, index) => {
+                                                return (<MenuItem value={Version}>{Version == 1 ? 'I' : Version == 2 ? 'II' : 'III'} ვარიანტი</MenuItem>)
+                                            })}
+                                        </Select>
                                     </FormControl>
                                 </div>
-                            </div>
-                            <div className='TestGenerator-Content'>
-                                <div className="TestGenerator-Content-Left">
-                                    <div className='Left-Top'>
-                                        <h2>შექმენი ახალი ტესტები</h2>
-                                        <h4>ტესტები აღარასოდეს გამოგელევა</h4>
+                                <div className='Erovnuli-Content'>
+                                    <div className="Erovnuli-Content-Left">
+                                        <img src={process.env.PUBLIC_URL+'images/ErovnuliHero.png'} alt="" />
                                     </div>
-                                    <div className='Left-Bottom'>
-                                        <ul>
-                                            <li>
-                                                გახადე მათემატიკა უფრო სახალისო
-                                            </li>
-                                            <li>
-                                                რეალისტური და შემთხვევითი გენერაცია
-                                            </li>
-                                            <li>
-                                                ტესტის,პასუხების და დროის შენახვა
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="TestGenerator-Content-Right">
-                                    <img src={process.env.PUBLIC_URL+'images/TestHero.png'} alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className='StartTest-Erovnuli' value={value} index={1}>
-                            <div className="Erovnuli-Label">
-                                ეროვნული გამოცდები
-                            </div>
-                            <div className='Erovnuli-Configuration'>
-                                <FormControl fullWidth>
-                                    <InputLabel id="demo-simple-select-label">წელი</InputLabel>
-                                    <Select
-                                        defaultValue={2023}
-                                        value={year}
-                                        label="Year"
-                                        onChange={handleYearChange}
-                                    >
-                                        <MenuItem value={2023}>2023 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2022}>2022 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2021}>2021 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2020}>2020 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2019}>2019 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2018}>2018 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2017}>2017 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2016}>2016 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2015}>2015 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2014}>2014 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2013}>2013 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2012}>2012 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2011}>2011 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2010}>2010 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2009}>2009 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        <MenuItem value={2008}>2008 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                        {/* <MenuItem value={2007}>2007</MenuItem> */}
-                                        {/* <MenuItem value={2006}>2006</MenuItem> */}
-                                        {/* <MenuItem value={2005}>2005</MenuItem> */}
-                                        <MenuItem value={2004}>2023 მაჭარაშვილი ტესტი #1</MenuItem>
-                                        <MenuItem value={2003}>2023 მაჭარაშვილი ტესტი #2</MenuItem>
-                                        <MenuItem value={2002}>2023 მაჭარაშვილი ტესტი #3</MenuItem>
-                                        <MenuItem value={2001}>2023 მაჭარაშვილი ტესტი #4</MenuItem>
-                                        <MenuItem value={2000}>2023 მაჭარაშვილი ტესტი #5</MenuItem>
-                                        <MenuItem value={1999}>2023 მაჭარაშვილი ტესტი #6</MenuItem>
-                                        <MenuItem value={1998}>2023 მაჭარაშვილი ტესტი #7</MenuItem>
-                                        <MenuItem value={1997}>2023 მაჭარაშვილი ტესტი #8</MenuItem>
-                                        <MenuItem value={1996}>2023 მაჭარაშვილი ტესტი #9</MenuItem>
-                                        <MenuItem value={1995}>2023 მაჭარაშვილი ტესტი #10</MenuItem>
-                                        <MenuItem value={1994}>2023 მაჭარაშვილი ტესტი #11</MenuItem>
-                                        <MenuItem value={1993}>2023 მაჭარაშვილი ტესტი #12</MenuItem>
-                                        <MenuItem value={1992}>2023 მაჭარაშვილი ტესტი #13</MenuItem>
-                                        <MenuItem value={1991}>2023 მაჭარაშვილი ტესტი #14</MenuItem>
-                                        <MenuItem value={1990}>2023 მაჭარაშვილი ტესტი #15</MenuItem>
-                                        <MenuItem value={1989}>2023 მაჭარაშვილი ტესტი #16</MenuItem>
-                                        <MenuItem value={1988}>2023 მაჭარაშვილი ტესტი #17</MenuItem>
-                                        <MenuItem value={1987}>2023 მაჭარაშვილი ტესტი #18</MenuItem>
-                                        <MenuItem value={1986}>2023 მაჭარაშვილი ტესტი #19</MenuItem>
-                                        <MenuItem value={1985}>2023 მაჭარაშვილი ტესტი #20</MenuItem>
-                                        <MenuItem value={1984}>2023 მაჭარაშვილი ტესტი #21</MenuItem>
-                                        <MenuItem value={1983}>2023 მაჭარაშვილი ტესტი #22</MenuItem>
-                                        <MenuItem value={1982}>2023 მაჭარაშვილი ტესტი #23</MenuItem>
-                                        <MenuItem value={1981}>2023 მაჭარაშვილი ტესტი #24</MenuItem>
-                                        <MenuItem value={1980}>2023 მაჭარაშვილი ტესტი #25</MenuItem>
-                                    </Select>
-                                </FormControl>
-                                <span style={{width:'20px'}}>
-                                </span>
-                                <FormControl fullWidth>
-                                    <InputLabel id="demo-simple-select-label">ვარიანტი</InputLabel>
-                                    <Select
-                                        defaultValue={1}
-                                        value={version}
-                                        label="Version"
-                                        onChange={handleVersionChange}
-                                    >
-                                        {getVersions(year).map((Version, index) => {
-                                            return (<MenuItem value={Version}>{Version == 1 ? 'I' : Version == 2 ? 'II' : 'III'} ვარიანტი</MenuItem>)
-                                        })}
-                                    </Select>
-                                </FormControl>
-                            </div>
-                            <div className='Erovnuli-Content'>
-                                <div className="Erovnuli-Content-Left">
-                                    <img src={process.env.PUBLIC_URL+'images/ErovnuliHero.png'} alt="" />
-                                </div>
-                                <div className="Erovnuli-Content-Right">
-                                    <div className='Left-Top'>
-                                        <h2>არსებული ტესტები</h2>
-                                        <h4>ყველაფერი ერთ ადგილას</h4>
-                                    </div>
-                                    <div className='Left-Bottom'>
-                                        <ul>
-                                            <li>
-                                                უკვე გამოყენებული და ჩვენი შექმნილი ტესტები
-                                            </li>
-                                            <li>
-                                                ტესტების პასუხები და ვიდეო ამოხსნები
-                                            </li>
-                                            <li>
-                                                ამოცანის მსგავსი ამოცანები
-                                            </li>
-                                        </ul>
+                                    <div className="Erovnuli-Content-Right">
+                                        <div className='Left-Top'>
+                                            <h2>არსებული ტესტები</h2>
+                                            <h4>ყველაფერი ერთ ადგილას</h4>
+                                        </div>
+                                        <div className='Left-Bottom'>
+                                            <ul>
+                                                <li>
+                                                    უკვე გამოყენებული და ჩვენი შექმნილი ტესტები
+                                                </li>
+                                                <li>
+                                                    ტესტების პასუხები და ვიდეო ამოხსნები
+                                                </li>
+                                                <li>
+                                                    ამოცანის მსგავსი ამოცანები
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </SwipeableViews>
-                </div>
-                <div className="StartTest-Button">
-                    <div
-                    style={{marginBottom:'5px'}}
-                    >*დრო ჩაირთვება ტესტის ეკრანზე ჩატვირთვისთანავე</div>
-                    <Button variant='contained' color='primary' style={{ color: 'white' }} onClick={handleStart}>ტესტის დაწყება</Button>
+                        </SwipeableViews>
+                    </div>
+                    <div className="StartTest-Button">
+                        <div
+                        style={{marginBottom:'5px'}}
+                        >*დრო ჩაირთვება ტესტის ეკრანზე ჩატვირთვისთანავე</div>
+                        <Button variant='contained' color='primary' style={{ color: 'white' }} onClick={handleStart}>ტესტის დაწყება</Button>
+                    </div>
                 </div>
             </div>
         </>

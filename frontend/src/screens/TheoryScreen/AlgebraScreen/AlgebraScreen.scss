@@ -1,13 +1,18 @@
 .AlgebraScreen {
-    .TheoryScreen-Algebra-Search {
-        height: 100px !important;
-        text-align: center;
-        display: flex;
-        align-items: center;
-
-        .SearchBar {
+    display: flex;
+    justify-content: center;
+    .AlgebraScreen-Wrapper{
+        width: 85%;
+        .TheoryScreen-Algebra-Search {
+            height: 100px !important;
+            text-align: center;
             display: flex;
-            justify-content: center;
+            align-items: center;
+
+            .SearchBar {
+                display: flex;
+                justify-content: center;
+            }
         }
     }
 }

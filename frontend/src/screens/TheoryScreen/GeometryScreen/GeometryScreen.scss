@@ -1,13 +1,18 @@
 .GeometryScreen {
-    .TheoryScreen-Geometry-Search {
-        height: 100px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-
-        .SearchBar {
+    display: flex;
+    justify-content: center;
+    .GeometryScreen-Wrapper{
+        width: 85%;
+        .TheoryScreen-Geometry-Search {
+            height: 100px;
+            text-align: center;
             display: flex;
-            justify-content: center;
+            align-items: center;
+
+            .SearchBar {
+                display: flex;
+                justify-content: center;
+            }
         }
     }
 }

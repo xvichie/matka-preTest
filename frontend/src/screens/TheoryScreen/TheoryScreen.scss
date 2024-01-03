@@ -1,67 +1,71 @@
 .TheoryScreen {
-
-    .TheoryScreen-Search {
-        height: 100px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-
-        .SearchBar {
+    display: flex;
+    justify-content: center;
+    .TheoryScreen-Wrapper{
+        width: 85%;
+        .TheoryScreen-Search {
+            height: 100px;
+            text-align: center;
             display: flex;
-            justify-content: center;
-        }
+            align-items: center;
 
-        .Search-Dropdown {
-            position: absolute;
-            top: 0;
-        }
-    }
+            .SearchBar {
+                display: flex;
+                justify-content: center;
+            }
 
-    .TheoryScreen-Label {
-        text-align: center;
-    }
-
-    .TheoryScreen-Choose {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        height: 700px;
-
-        .Choose-Tab {
-            display: flex;
-            //background-color: rgb(247, 246, 244);
-            padding: 10px;
-            border-radius: 25px;
-
-            .Choose-Right-Side {
-                width: 100%;
-
-                .Right-Side-Top {
-                    font-size: 32px;
-                    font-weight: bold;
-                    text-align: center;
-                }
-
-                .Right-Side-Bottom {
-                    font-size: 16px;
-                    font-weight: bold;
-                    text-align: center;
-                }
+            .Search-Dropdown {
+                position: absolute;
+                top: 0;
             }
         }
 
-        Button {
-            height: 200px;
-            width: 550px;
+        .TheoryScreen-Label {
+            text-align: center;
+        }
+
+        .TheoryScreen-Choose {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50px;
-            text-decoration: none !important;
+            justify-content: space-around;
+            height: 700px;
 
-            .ChooseIcon {
-                font-size: 128px;
+            .Choose-Tab {
+                display: flex;
+                //background-color: rgb(247, 246, 244);
+                padding: 10px;
+                border-radius: 25px;
+
+                .Choose-Right-Side {
+                    width: 100%;
+
+                    .Right-Side-Top {
+                        font-size: 32px;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+
+                    .Right-Side-Bottom {
+                        font-size: 16px;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                }
+            }
+
+            Button {
+                height: 200px;
+                width: 550px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50px;
+                text-decoration: none !important;
+
+                .ChooseIcon {
+                    font-size: 128px;
+                }
             }
         }
     }

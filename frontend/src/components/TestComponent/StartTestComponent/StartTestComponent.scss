@@ -2,111 +2,116 @@ $Purple-Text: #52389d;
 $Main-Orange: #f97432;
 
 .StartTestComponent {
-    .StartTest-TestGenerator {
-        text-align: center;
+    display: flex;
+    justify-content: center;
+    .StartTestComponent-Wrapper{
+        width: 90%;
+        .StartTest-TestGenerator {
+            text-align: center;
 
-        .TestGenerator-Label {
-            font-size: 40px;
-            font-weight: bold;
-            color: $Main-Orange;
-        }
-        .TestGenerator-Content{
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            .TestGenerator-Content-Left{
+            .TestGenerator-Label {
+                font-size: 40px;
+                font-weight: bold;
+                color: $Main-Orange;
+            }
+            .TestGenerator-Content{
                 display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                .Left-Top{
-                    h2{
-                        font-size: 76px;
-                        line-height: 72px;
-                        font-weight: bold;
+                justify-content: space-around;
+                padding: 10px 0;
+                .TestGenerator-Content-Left{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    .Left-Top{
+                        h2{
+                            font-size: 76px;
+                            line-height: 72px;
+                            font-weight: bold;
+                        }
+                        h4{
+                            font-size: 30px;
+                            color: $Purple-Text;
+                        }
                     }
-                    h4{
-                        font-size: 30px;
-                        color: $Purple-Text;
-                    }
-                }
-                .Left-Bottom{
-                    ul{
-                        li{
-                            text-align: left;
-                            font-size: 24px;
+                    .Left-Bottom{
+                        ul{
+                            li{
+                                text-align: left;
+                                font-size: 24px;
+                            }
                         }
                     }
                 }
-            }
-            .TestGenerator-Content-Right{
-                img{
-                    height: 450px;
+                .TestGenerator-Content-Right{
+                    img{
+                        height: 450px;
+                    }
                 }
             }
         }
-    }
-    .StartTest-Configuration {
-        width: 100%;
-        .StartTest-Configuration-Problems {
+        .StartTest-Configuration {
             width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            .StartTest-Configuration-Problems-Checkboxs {
+            .StartTest-Configuration-Problems {
+                width: 100%;
                 display: flex;
                 flex-direction: row;
+                justify-content: space-between;
+                .StartTest-Configuration-Problems-Checkboxs {
+                    display: flex;
+                    flex-direction: row;
+                }
             }
         }
-    }
 
-    .StartTest-Erovnuli{
-        text-align: center;
-        .Erovnuli-Label{
-            font-size: 40px;
-            font-weight: bold;
-            color: $Main-Orange;
-        }
-        .Erovnuli-Configuration{
-            display: flex;
-        }
-        .Erovnuli-Content{
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            .Erovnuli-Content-Left{
-                img{
-                    height: 420px;
-                }
+        .StartTest-Erovnuli{
+            text-align: center;
+            .Erovnuli-Label{
+                font-size: 40px;
+                font-weight: bold;
+                color: $Main-Orange;
             }
-            .Erovnuli-Content-Right{
+            .Erovnuli-Configuration{
                 display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                .Left-Top{
-                    h2{
-                        font-size: 76px;
-                        line-height: 72px;
-                        font-weight: bold;
-                    }
-                    h4{
-                        font-size: 30px;
-                        color: $Purple-Text;
+            }
+            .Erovnuli-Content{
+                display: flex;
+                justify-content: space-around;
+                padding: 10px 0;
+                .Erovnuli-Content-Left{
+                    img{
+                        height: 420px;
                     }
                 }
-                .Left-Bottom{
-                    ul{
-                        li{
-                            text-align: center;
-                            font-size: 24px;
+                .Erovnuli-Content-Right{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    .Left-Top{
+                        h2{
+                            font-size: 76px;
+                            line-height: 72px;
+                            font-weight: bold;
+                        }
+                        h4{
+                            font-size: 30px;
+                            color: $Purple-Text;
+                        }
+                    }
+                    .Left-Bottom{
+                        ul{
+                            li{
+                                text-align: center;
+                                font-size: 24px;
+                            }
                         }
                     }
                 }
             }
         }
-    }
 
-    .StartTest-Button{
-        margin: 10px 0 40px 0;
+        .StartTest-Button{
+            margin: 10px 0 40px 0;
+        }
     }
 }
 
@@ -220,6 +225,15 @@ $Main-Orange: #f97432;
         flex-direction: column !important;
         .StartTest-Configuration-Problems-Checkboxs{
             justify-content: space-between;
+        }
+    }
+    .Erovnuli-Content-Right{
+        .Left-Bottom{
+            ul{
+                li{
+                    text-align: left !important;
+                }
+            }
         }
     }
 }

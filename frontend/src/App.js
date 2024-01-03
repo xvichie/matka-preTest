@@ -106,9 +106,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <Header></Header>
         <div style={{ backgroundColor: theme.palette.background.main, width: '100%' }} >
-          <Container>
+          {/* <Container> */}
             <Outlet></Outlet>
-          </Container>
+          {/* </Container> */}
         </div>
         <ToastContainer />
         <ContactUs></ContactUs>

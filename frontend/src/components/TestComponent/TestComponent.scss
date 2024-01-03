@@ -1,32 +1,36 @@
 .TestComponent {
+    display: flex;
+    justify-content: left;
+    .TestComponent-Wrapper{
+        width: 94%;
+        .TestComponent-Problem {
+            position: relative;
+            
+            .ProblemLabel {
+                position: absolute;
+                top: 6.4%;
+                left: 4.25%;
+                z-index: 1;
 
-    .TestComponent-Problem {
-        position: relative;
+                h3 {
+                    font-size: 28px;
+                }
+            }
 
-        .ProblemLabel {
-            position: absolute;
-            top: 6.4%;
-            left: 4.25%;
-            z-index: 1;
-
-            h3 {
-                font-size: 28px;
+            .PDFButtons {
+                width: 100%;
+                display: flex;
+                position: absolute;
+                bottom: 10%;
+                justify-content: center;
             }
         }
 
-        .PDFButtons {
-            width: 100%;
-            display: flex;
-            position: absolute;
-            bottom: 10%;
-            justify-content: center;
+        .AnswersButton {
+            position: fixed;
+            bottom: 30px;
+            right: 90px;
         }
-    }
-
-    .AnswersButton {
-        position: fixed;
-        bottom: 30px;
-        right: 90px;
     }
 }
 
