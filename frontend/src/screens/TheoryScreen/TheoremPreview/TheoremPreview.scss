@@ -1,0 +1,49 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+$Background-Color-Accent: #eeeded;
+$Background-Color-Darker: #f8f6f4;
+$Shadow-Color:#adacac;
+
+.TheoremPreview{
+    box-shadow: 0 3px 3px $Shadow-Color;
+    // background-color: $Background-Color-Darker;
+    outline: 1px solid $Main-Text-Color;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    h2 {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word; /* For older browser compatibility */
+      }
+    h5{
+        color: $Background-Color;
+    }
+}
+
+.TheoremPreview:hover{
+    background-color: $Background-Color-Accent;
+}
+
+
+// .TheoremPreview{
+//     box-shadow: 0 3px 1px $Background-Color-Accent;
+//     background-color: $Background-Color;
+//     outline: 1px solid $Main-Text-Color;
+//     padding: 15px;
+//     margin: 10px 0;
+//     border-radius: 10px;
+//     transition: all 0.2s ease;
+//     h2{
+//         color: $Main-Text-Color;
+//     }
+//     h5{
+//         color: white;
+//     }
+// }
+
+// .TheoremPreview:hover{
+//     background-color: $Background-Color-Accent;
+// }

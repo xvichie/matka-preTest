@@ -1,3 +1,8 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+
 .TheoryScreen {
     display: flex;
     justify-content: center;
@@ -24,47 +29,224 @@
             text-align: center;
         }
 
-        .TheoryScreen-Choose {
+        .TheoryScreen-Hero{
+            text-align: center;
             display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            height: 700px;
-
-            .Choose-Tab {
-                display: flex;
-                //background-color: rgb(247, 246, 244);
-                padding: 10px;
-                border-radius: 25px;
-
-                .Choose-Right-Side {
-                    width: 100%;
-
-                    .Right-Side-Top {
-                        font-size: 32px;
-                        font-weight: bold;
-                        text-align: center;
-                    }
-
-                    .Right-Side-Bottom {
-                        font-size: 16px;
-                        font-weight: bold;
-                        text-align: center;
-                    }
-                }
+            justify-content: center;
+            img{
+                height: 344px;
             }
-
-            Button {
-                height: 200px;
-                width: 550px;
+            .Hero-Labels{
+                text-align: left;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
-                border-radius: 50px;
-                text-decoration: none !important;
+                .Labels-Top{
+                    font-size: 72px;
+                    line-height: 80px;
+                    color: $Main-Text-Color;
+                }
+                .Labels-Bottom{
+                    color: $Background-Color;
+                    font-size: 24px;
+                }
+            }
+        }
 
-                .ChooseIcon {
-                    font-size: 128px;
+        .TheoryScreen-Choose {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin-bottom: 30px;
+
+            .Choose-Button{
+                .Choose-Tab {
+                    display: flex;
+                    padding: 10px;
+                    border-radius: 25px;
+                    width: 100% !important;
+                    justify-content: center;
+                }
+
+                Button {
+                    height: 200px;
+                    width: 90%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50px;
+                    text-decoration: none !important;
+
+                    .ChooseIcon {
+                        font-size: 128px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1000px){
+    .TheoryScreen-Wrapper{
+        width: 95% !important;
+        .Hero-Labels{
+            .Labels-Top{
+                font-size: 56px !important;
+                line-height: 60px !important;
+            }
+            .Labels-Bottom{
+                font-size: 20px !important;
+            }
+        }
+    }
+}
+
+@media (max-width:800px){
+    .TheoryScreen-Wrapper{
+        .TheoryScreen-Hero{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img{
+                height: 344px;
+                width: 550px;
+            }
+            .Hero-Labels{
+                .Labels-Top{
+                    font-size: 76px !important;
+                    line-height: 88px !important;
+                    text-align: center;
+                }
+                .Labels-Bottom{
+                    text-align: center;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:700px){
+    .TheoryScreen-Wrapper{
+        .TheoryScreen-Hero{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img{
+                height: 312px !important;
+                width: 480px !important;
+            }
+            .Hero-Labels{
+                .Labels-Top{
+                    font-size: 76px !important;
+                    line-height: 88px !important;
+                    text-align: center;
+                }
+                .Labels-Bottom{
+                    text-align: center;
+                    font-size: 24px;
+                }
+            }
+        }
+        .TheoryScreen-Choose {
+            display: grid;
+            grid-template-columns: 1fr !important;
+
+            .Choose-Button{
+                .Choose-Tab {
+                    display: flex;
+                    padding: 10px;
+                    border-radius: 25px;
+                    width: 100% !important;
+                    justify-content: center;
+                }
+
+                Button {
+                    height: 200px;
+                    width: 90%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50px;
+                    text-decoration: none !important;
+
+                    .ChooseIcon {
+                        font-size: 128px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:500px) {
+    .TheoryScreen-Wrapper{
+        .TheoryScreen-Hero{
+            img{
+                height: 264px !important;
+                width: 420px !important;
+            }
+            .Hero-Labels{
+                .Labels-Top{
+                    font-size: 48px !important;
+                    line-height: 52px !important;
+                    text-align: center;
+                }
+                .Labels-Bottom{
+                    text-align: center;
+                    font-size: 20px !important;
+                    margin-bottom: 20px !important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:450px) {
+    .TheoryScreen-Wrapper{
+        .TheoryScreen-Hero{
+            img{
+                height: 220px !important;
+                width: 380px !important;
+            }
+            .Hero-Labels{
+                .Labels-Top{
+                    font-size: 44px !important;
+                    line-height: 58px !important;
+                    text-align: center;
+                }
+                .Labels-Bottom{
+                    text-align: center;
+                    font-size: 18px !important;
+                    margin-bottom: 20px !important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:400px) {
+    .TheoryScreen-Wrapper{
+        .TheoryScreen-Hero{
+            img{
+                height: 200px !important;
+                width: 360px !important;
+            }
+            .Hero-Labels{
+                .Labels-Top{
+                    font-size: 40px !important;
+                    line-height: 54px !important;
+                    text-align: center;
+                }
+                .Labels-Bottom{
+                    text-align: center;
+                    font-size: 16px !important;
+                    margin-bottom: 0px !important;
                 }
             }
         }

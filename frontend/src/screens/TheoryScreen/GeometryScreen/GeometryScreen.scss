@@ -1,8 +1,24 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+$Background-Color-Accent: #ffffff;
+$Background-Color-Darker: #f8f6f4;
+
 .GeometryScreen {
     display: flex;
     justify-content: center;
     .GeometryScreen-Wrapper{
         width: 85%;
+        .Breadcrumbs{
+            .Breadcrumbs-Breadcrumbs{
+                padding: 10px;
+                outline: 1px solid $Main-Text-Color;
+                width: 250px;
+                border-radius: 5px;
+                // background-color: $Background-Color-Accent;
+            }
+        }
         .TheoryScreen-Geometry-Search {
             height: 100px;
             text-align: center;

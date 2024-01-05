@@ -256,6 +256,7 @@ $Second-Background-Color: #f7e8d5;
                     .Left-Top{
                         font-size: 56px;
                         line-height: 52px;
+                        margin: 20px 0;
                         color: $Background-Color;
                         #Title{
                             color: $Main-Text-Color;
@@ -265,9 +266,10 @@ $Second-Background-Color: #f7e8d5;
                         font-size: 16px;
                         line-height: 22px;
                         color: #52389D;
+                        margin-bottom: 20px;
                     }
                     .Left-Button{
-                        width: 40%;
+                        width: 300px;
                         display: flex;
                         justify-content: space-between;
                     }

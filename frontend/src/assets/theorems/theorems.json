@@ -57,7 +57,7 @@
         },
         {
             "id": 12,
-            "title": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>y<\/mi><mo>=<\/mo><mfrac><mi>k<\/mi><mi>x<\/mi><\/mfrac><mo>,<\/mo><mi>y<\/mi><mo>=<\/mo><msqrt><mi>x<\/mi><\/msqrt><mo>&#xA0;<\/mo><mi>&#x10D3;<\/mi><mi>&#x10D0;<\/mi><mo>&#xA0;<\/mo><mi>y<\/mi><mo>=<\/mo><msup><mi>x<\/mi><mn>3<\/mn><\/msup><mo>&#xA0;<\/mo><mi>&#x10E4;<\/mi><mi>&#x10E3;<\/mi><mi>&#x10DC;<\/mi><mi>&#x10E5;<\/mi><mi>&#x10EA;<\/mi><mi>&#x10D8;<\/mi><mi>&#x10D4;<\/mi><mi>&#x10D1;<\/mi><mi>&#x10D8;<\/mi><\/math>",
+            "title": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\"><mi>y<\/mi><mo>=<\/mo><mfrac><mi>k<\/mi><mi>x<\/mi><\/mfrac><mo>,<\/mo><mi>y<\/mi><mo>=<\/mo><msqrt><mi>x<\/mi><\/msqrt><mo>&#xA0;<\/mo><mi>&#x10D3;<\/mi><mi>&#x10D0;<\/mi><mo>&#xA0;<\/mo><mi>y<\/mi><mo>=<\/mo><msup><mi>x<\/mi><mn>3<\/mn><\/msup><mo>&#xA0;<\/mo><mi>&#x10E4;<\/mi><mi>&#x10E3;<\/mi><mi>&#x10DC;<\/mi><mi>&#x10E5; <\/mi><mi>&#x10EA;<\/mi><mi>&#x10D8;<\/mi><mi>&#x10D4;<\/mi><mi>&#x10D1;<\/mi><mi>&#x10D8;<\/mi><\/math>",
             "description": "ჩემი ყლე და ყვერი"
         },
         {
@@ -94,7 +94,7 @@
     "geometry": [
         {
             "id": 1,
-            "title": "წრფე,სხივი,მონაკვეთი,ტეხილი,მანძილი",
+            "title": "წრფე, სხივი, მონაკვეთი, ტეხილი, მანძილი",
             "description": "ჩემი ყლე და ყვერი"
         },
         {
@@ -114,7 +114,7 @@
         },
         {
             "id": 5,
-            "title": "მრავალკუთხედები: პარალელოგრამი,მართკუთხედი,რომბი,კვადრატი,ტრაპეცია",
+            "title": "მრავალკუთხედები: პარალელოგრამი, მართკუთხედი, რომბი, კვადრატი, ტრაპეცია",
             "description": "ჩემი ყლე და ყვერი"
         },
         {

@@ -14,6 +14,7 @@ import { Container } from 'react-bootstrap';
 import { handleSearch, getAllTheorems } from '../../../services/handleSearch';
 
 import './GeometryScreen.scss';
+import TheoremPreview from '../TheoremPreview/TheoremPreview';
 
 function GeometryScreen() {
 
@@ -62,7 +63,7 @@ function GeometryScreen() {
                     </Container>
                 </div>
                 <div className="Breadcrumbs">
-                    <Breadcrumbs aria-label="breadcrumb">
+                    <Breadcrumbs aria-label="breadcrumb" className='Breadcrumbs-Breadcrumbs'>
                         <Link style={{ textDecoration: 'none' }}
                             underline="hover"
                             sx={{ display: 'flex', alignItems: 'center' }}
@@ -87,10 +88,7 @@ function GeometryScreen() {
                             console.log(theorem)
                             return (
                                 <Link style={{ textDecoration: 'none' }} key={index} to={`${theorem.id}`}>
-                                    <div>
-                                        <h2 dangerouslySetInnerHTML={{ __html: unEscape(theorem.title) }}>{ }</h2>
-                                        {theorem.description}
-                                    </div>
+                                    <TheoremPreview theorem={theorem}></TheoremPreview>
                                 </Link>)
                         })
                         // TheoremsInfoJSON['geometry'].map((theorem, index) => {

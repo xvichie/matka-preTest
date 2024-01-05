@@ -14,6 +14,7 @@ import TheoremsInfoJSON from '../../../assets/theorems/theorems.json';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import { getAllTheorems } from '../../../services/handleSearch';
+import TheoremPreview from '../TheoremPreview/TheoremPreview';
 
 function ThesisScreen() {
 
@@ -62,7 +63,7 @@ function ThesisScreen() {
                     </Container>
                 </div>
                 <div className="Breadcrumbs">
-                    <Breadcrumbs aria-label="breadcrumb">
+                    <Breadcrumbs aria-label="breadcrumb" className='Breadcrumbs-Breadcrumbs'>
                         <Link style={{ textDecoration: 'none' }}
                             underline="hover"
                             sx={{ display: 'flex', alignItems: 'center' }}
@@ -87,10 +88,7 @@ function ThesisScreen() {
                             console.log(theorem)
                             return (
                                 <Link style={{ textDecoration: 'none' }} key={index} to={`${theorem.id}`}>
-                                    <div>
-                                        <h2 dangerouslySetInnerHTML={{ __html: unEscape(theorem.title) }}>{ }</h2>
-                                        {theorem.description}
-                                    </div>
+                                    <TheoremPreview theorem={theorem}></TheoremPreview>
                                 </Link>)
                         })
                     }

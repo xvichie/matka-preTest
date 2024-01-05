@@ -53,10 +53,30 @@ function TheoryScreen() {
                     </Container>
                 </div>
                 <div className="TheoryScreen-Label">
-                    <h1>აირჩიე მიმართულება</h1>
+                    {/* <h1>აირჩიე მიმართულება</h1> */}
+                </div>
+                <div className="TheoryScreen-Hero">
+                    <img src={process.env.PUBLIC_URL+'/images/TheoryScreenHero.png'} alt="" />
+                    <div className="Hero-Labels">
+                        <div className="Labels-Top">
+                            <strong>ყველა თეორია</strong>
+                        </div>
+                        <div className="Labels-Bottom">
+                            <strong>აირჩიე სასურველი მიმართულება:</strong>
+                            <br />
+                            <br />
+                            • ალგებრა
+
+                            <br />
+                            • გეომეტრია
+
+                            <br />
+                            • თეზისები
+                        </div>
+                    </div>
                 </div>
                 <div className="TheoryScreen-Choose">
-                    <div>
+                    <div className='Choose-Button'>
                         <Link style={{ textDecoration: 'none' }} to={'algebra'} className='Choose-Tab' >
                             <Button variant='outlined' className='Choose-Algebra'>
                                 <CalculateIcon className='ChooseIcon'></CalculateIcon>
@@ -64,17 +84,9 @@ function TheoryScreen() {
                                     ალგებრა
                                 </h2>
                             </Button>
-                            <div className="Choose-Right-Side">
-                                <div className="Right-Side-Top">
-                                    ალგებრა. რიცხვები და გამოთვლები n shit.
-                                </div>
-                                <div className="Right-Side-Bottom">
-                                    ალგებრა მაგარი პონტია ტო.
-                                </div>
-                            </div>
                         </Link>
                     </div>
-                    <div>
+                    <div className='Choose-Button'>
                         <Link style={{ textDecoration: 'none' }} to={'geometry'} className='Choose-Tab'>
                             <Button variant='outlined' className="Choose-Geometry">
                                 <InterestsIcon className='ChooseIcon'></InterestsIcon>
@@ -82,17 +94,9 @@ function TheoryScreen() {
                                     გეომეტრია
                                 </h2>
                             </Button>
-                            <div className="Choose-Right-Side">
-                                <div className="Right-Side-Top">
-                                    გეომეტრია. ფიგურები, 3D, წარმოსახვა.
-                                </div>
-                                <div className="Right-Side-Bottom">
-                                    ბავშვებს უფრო ევასებათ. ცვეტში მაგარი პონტია.
-                                </div>
-                            </div>
                         </Link>
                     </div>
-                    <div>
+                    <div className='Choose-Button'>
                         <Link style={{ textDecoration: 'none' }} to={'thesis'} className='Choose-Tab'>
                             <Button variant='outlined' className="Choose-Short">
                                 <SummarizeIcon className='ChooseIcon'></SummarizeIcon>
@@ -100,14 +104,6 @@ function TheoryScreen() {
                                     თეზისები
                                 </h2>
                             </Button>
-                            <div className="Choose-Right-Side">
-                                <div className="Right-Side-Top">
-                                    თეზისები. ხელით ამოკრეფილი ფორმულები, ამოხსნის გზები და პატარა შპარგალკა.
-                                </div>
-                                <div className="Right-Side-Bottom">
-                                    როცა ბევრი ძებნა გეზარება.
-                                </div>
-                            </div>
                         </Link>
                     </div>
                 </div>

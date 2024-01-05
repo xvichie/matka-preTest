@@ -1,4 +1,4 @@
-import { Autocomplete, Breadcrumbs, InputAdornment, TextField, Typography } from '@mui/material'
+import { Autocomplete, Breadcrumbs, Button, InputAdornment, TextField, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -14,17 +14,11 @@ import './AlgebraScreen.scss'; // Import the Sass file
 import TheoremsInfoJSON from '../../../assets/theorems/theorems.json';
 
 import { handleSearch, getAllTheorems } from '../../../services/handleSearch';
+import TheoremPreview from '../TheoremPreview/TheoremPreview';
 
 function AlgebraScreen() {
 
-    function unEscape(htmlStr) {
-        htmlStr = htmlStr.replace(/&lt;/g, "<");
-        htmlStr = htmlStr.replace(/&gt;/g, ">");
-        htmlStr = htmlStr.replace(/&quot;/g, "\"");
-        htmlStr = htmlStr.replace(/&#39;/g, "\'");
-        htmlStr = htmlStr.replace(/&amp;/g, "&");
-        return htmlStr;
-    }
+    
 
     const [searchTerm, setSearchTerm] = useState("");
     const [handleSearchServiceData, setHandleSearchServiceData] = useState([]);
@@ -93,7 +87,7 @@ function AlgebraScreen() {
                     </Container>
                 </div>
                 <div className="Breadcrumbs">
-                    <Breadcrumbs aria-label="breadcrumb">
+                    <Breadcrumbs aria-label="breadcrumb" className='Breadcrumbs-Breadcrumbs'>
                         <Link style={{ textDecoration: 'none' }}
                             underline="hover"
                             sx={{ display: 'flex', alignItems: 'center' }}
@@ -118,10 +112,7 @@ function AlgebraScreen() {
                             console.log(theorem)
                             return (
                                 <Link style={{ textDecoration: 'none' }} key={index} to={`${theorem.id}`}>
-                                    <div>
-                                        <h2 dangerouslySetInnerHTML={{ __html: unEscape(theorem.title) }}>{ }</h2>
-                                        {theorem.description}
-                                    </div>
+                                        <TheoremPreview theorem={theorem}></TheoremPreview>
                                 </Link>)
                         })
                         // TheoremsInfoJSON['geometry'].map((theorem, index) => {
