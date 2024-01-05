@@ -59,7 +59,7 @@ function TheoryScreen() {
                     <img src={process.env.PUBLIC_URL+'/images/TheoryScreenHero.png'} alt="" />
                     <div className="Hero-Labels">
                         <div className="Labels-Top">
-                            <strong>ყველა თეორია</strong>
+                            <strong className='animate-charcter'>ყველა თეორია</strong>
                         </div>
                         <div className="Labels-Bottom">
                             <strong>აირჩიე სასურველი მიმართულება:</strong>

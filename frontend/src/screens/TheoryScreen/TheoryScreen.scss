@@ -76,15 +76,56 @@ $Second-Background-Color: #f7e8d5;
                     align-items: center;
                     border-radius: 50px;
                     text-decoration: none !important;
+                    transition: all .4s ease;
 
                     .ChooseIcon {
                         font-size: 128px;
                     }
                 }
+
+                Button:hover {
+                    background-color: #F97432;
+                    color: white;
+                }
             }
         }
     }
 }
+
+// .animate-charcter{
+//     transition: all 2.5s ease;
+// }
+
+// .animate-charcter:hover
+// {
+//    text-transform: uppercase;
+//   background-image: linear-gradient(
+//     -225deg,
+//     #231557 0%,
+//     #44107a 29%,
+//     #ff1361 67%,
+//     #fff800 100%
+//   );
+//   background-size: auto auto;
+//   background-clip: border-box;
+//   background-size: 200% auto;
+//   color: #fff;
+//   background-clip: text;
+//   text-fill-color: transparent;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   animation: textclip 2s linear infinite;
+//   display: inline-block;
+//     //   font-size: 190px;
+//     transition: all 0.5s ease;
+// }
+
+// @keyframes textclip {
+//   to {
+//     background-position: 200% center;
+//   }
+// }
+
 
 @media (max-width:1000px){
     .TheoryScreen-Wrapper{

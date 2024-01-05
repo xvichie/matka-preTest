@@ -26,7 +26,7 @@ function MuiSwitch() {
 
     return (
         <>
-            <MaterialUISwitch checked={GlobalThemeSelected === 'dark'} onChange={handleOnChange} theme={GlobalTheme}></MaterialUISwitch>
+            <MaterialUISwitch disabled checked={GlobalThemeSelected === 'dark'} onChange={handleOnChange} theme={GlobalTheme}></MaterialUISwitch>
         </>
     )
 }

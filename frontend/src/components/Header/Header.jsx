@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Toggle from "react-toggle";
 
-import { Navbar, Nav, NavLink, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container,NavLink as BSNavLink } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 import { BsNewspaper } from 'react-icons/bs';
@@ -13,6 +13,8 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import LoginIcon from '@mui/icons-material/Login';
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -22,7 +24,7 @@ import { setCredentials, logoutUser } from '../../slices/authSlice.js';
 import './Header.scss';
 import { useTheme } from '@emotion/react';
 import MuiSwitch from './HeaderComponents/MuiSwitch.jsx';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
     const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -47,28 +49,36 @@ function Header() {
 
                             <MuiSwitch></MuiSwitch>
 
-                            <LinkContainer to={'/teachers'}>
-                                <NavLink activeClassName="active">
-                                    <CoPresentIcon sx={{ mr: 0.5 }}></CoPresentIcon>რეპეტიტორები
-                                </NavLink>
-                            </LinkContainer>
-                            <LinkContainer to={'/theory'}>
-                                <NavLink activeClassName="active">
-                                    <AutoStoriesIcon sx={{ mr: 0.5 }}></AutoStoriesIcon>თეორია
-                                </NavLink>
-                            </LinkContainer>
-                            <LinkContainer to={'/test'}>
-                                <NavLink activeClassName="active">
-                                    <BsNewspaper sx={{ mr: 0.5 }}></BsNewspaper> ტესტი
-                                </NavLink>
-                            </LinkContainer>
-                            {isAuthenticated == false ?
-                                <LinkContainer onClick={loginWithPopup} to={'/'} style={{ color: theme.palette.primary.main, fontWeight: 'bold' }}>
-                                    <NavLink>
-                                        <FaSignInAlt style={{ marginRight: '3px' }}></FaSignInAlt>
-                                        შესვლა
-                                    </NavLink>
+                            <NavLink to={'/teachers'} className='Nav-Item'>
+                                <LinkContainer to={'/teachers'}>
+                                    <>
+                                        <CoPresentIcon sx={{ mr: 0.5 }}></CoPresentIcon>რეპეტიტორები
+                                    </>
                                 </LinkContainer>
+                            </NavLink>
+                            <NavLink to={'/theory'} className='Nav-Item'>
+                                <LinkContainer to={'/theory'}>
+                                    <>
+                                        <AutoStoriesIcon sx={{ mr: 0.5 }}></AutoStoriesIcon>თეორია
+                                    </>
+                                </LinkContainer>
+                            </NavLink>
+                            <NavLink to={'/test'} className='Nav-Item'>
+                                <LinkContainer to={'/test'}>
+                                    <>
+                                            <AssignmentIcon sx={{ mr: 0.5 }}></AssignmentIcon> ტესტი
+                                    </>
+                                </LinkContainer>
+                            </NavLink>
+                            {isAuthenticated == false ?
+                            
+                                <Link to={'/'}  onClick={loginWithPopup} className='Nav-Login'>
+                                        <>
+                                            {/* <FaSignInAlt style={{ marginRight: '3px' }}></FaSignInAlt> */}
+                                            <LoginIcon style={{ marginRight: '3px' }}></LoginIcon>
+                                            შესვლა
+                                            </>
+                                </Link>
                                 :
                                 <Dropdown>
                                     <Dropdown.Toggle style={{ backgroundColor: theme.palette.primary.main }} variant="success" id="dropdown-basic">

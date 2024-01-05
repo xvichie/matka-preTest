@@ -39,7 +39,9 @@ function HomeScreen() {
                 <div className="Stats-Wrapper">
                     <div className='Stats-Div'>
                         <div className="Stats-Icon">
-                            <PercentIcon className='Icon'></PercentIcon>
+                            <Link to={'/test'}>
+                                <PercentIcon className='Icon'></PercentIcon>
+                            </Link>
                         </div>
                         <div className="Stats-Number">
                             2 500-ზე მეტი
@@ -50,7 +52,9 @@ function HomeScreen() {
                     </div>
                     <div className='Stats-Div'>
                         <div className="Stats-Icon">
-                            <ArticleIcon className='Icon'></ArticleIcon>
+                            <Link to={'/test'}>
+                                <ArticleIcon className='Icon'></ArticleIcon>
+                            </Link>
                         </div>
                         <div className="Stats-Number">
                             50 ზე მეტი
@@ -61,7 +65,9 @@ function HomeScreen() {
                     </div>
                     <div className='Stats-Div'>
                         <div className="Stats-Icon">
-                            <EmojiObjectsIcon className='Icon'></EmojiObjectsIcon>
+                            <Link to={'/test'}>
+                                <EmojiObjectsIcon className='Icon'></EmojiObjectsIcon>
+                            </Link>
                         </div>
                         <div className="Stats-Number">
                             ამოცანების
@@ -72,7 +78,9 @@ function HomeScreen() {
                     </div>
                     <div className='Stats-Div'>
                         <div className="Stats-Icon">
-                            <MenuBookIcon className='Icon'></MenuBookIcon>
+                            <Link to={'/theory'}>
+                                <MenuBookIcon className='Icon'></MenuBookIcon>
+                            </Link>
                         </div>
                         <div className="Stats-Number">
                             გაადვილებული

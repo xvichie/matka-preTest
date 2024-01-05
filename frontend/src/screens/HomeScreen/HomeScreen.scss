@@ -3,6 +3,14 @@ $Main-Text-Color: #F97432;
 $Subtle-Text-Color: #ffe5d9;
 $Second-Background-Color: #f7e8d5;
 
+#Title {
+    transition: color 0.4s ease-out;
+    /* Add initial color and text stroke properties here */
+    /* For example: */
+    color: $Main-Text-Color;
+    -webkit-text-stroke: 0.01px $Main-Text-Color;
+}
+
 .HomeScreen{
     .HomeScreen-Main{
         height: 100vh;
@@ -76,6 +84,12 @@ $Second-Background-Color: #f7e8d5;
                         border-radius: 64px;
                         margin: 20px;
                         padding: 20px;
+                        transition: all 0.4s ease;
+                    }
+                    .Icon:hover{
+                        background-color: $Main-Text-Color;
+                        color: white;
+                        cursor: pointer;
                     }
                 }
                 .Stats-Number{
@@ -283,6 +297,21 @@ $Second-Background-Color: #f7e8d5;
             }
         }
     }
+}
+
+// #Title {
+//     transition: color 0.4s ease, -webkit-text-stroke 0.4s ease;
+//     /* Add initial color and text stroke properties here */
+//     /* For example: */
+//     color: $Main-Text-Color;
+//     -webkit-text-stroke: 0px $Main-Text-Color;
+// }
+
+#Title:hover {
+    cursor: pointer;
+    color: rgba($Main-Text-Color, 0.1) !important;
+    -webkit-text-stroke: 1px $Main-Text-Color;
+    transition: all 0.2s ease;
 }
 
 @media (max-width:1000px) {
