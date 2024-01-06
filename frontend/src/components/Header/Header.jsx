@@ -38,11 +38,11 @@ function Header() {
         <header>
             <Navbar expand='lg' collapseOnSelect>
                 <Container>
-                    <LinkContainer to='/'>
-                        <Link>
+                    <Link>
+                        {/* <LinkContainer to='/'> */}
                             <Navbar.Brand className='Brand' style={{ color: theme.palette.primary.main, fontWeight: 'bold', fontSize: '1.5rem', alignItems: 'center' }}>Matka.ge</Navbar.Brand>
-                        </Link>
-                    </LinkContainer>
+                        {/* </LinkContainer> */}
+                    </Link>
                     <Navbar.Toggle aria-controls='basic-navbar-nav'></Navbar.Toggle>
                     <Navbar.Collapse id='basic-navbar-nav'>
                         <Nav className="ms-auto">
@@ -82,14 +82,14 @@ function Header() {
                                 :
                                 <Dropdown>
                                     <Dropdown.Toggle style={{ backgroundColor: theme.palette.primary.main }} variant="success" id="dropdown-basic">
-                                        <AccountCircleIcon></AccountCircleIcon> {user && user.name}
+                                        <AccountCircleIcon></AccountCircleIcon> {user && user.name.split('@')[0]}
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
                                         <LinkContainer to='/profile'>
                                             <Dropdown.Item>პროფილი</Dropdown.Item>
                                         </LinkContainer>
-                                        <Dropdown.Item style={{ backgroundColor: 'beige', borderRadius: '10px' }} onClick={logout}>გამოსვლა</Dropdown.Item>
+                                        <Dropdown.Item style={{ borderRadius: '10px' }} id='Logout' onClick={logout}>გამოსვლა</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             }

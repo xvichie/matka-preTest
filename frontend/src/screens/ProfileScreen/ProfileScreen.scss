@@ -1,3 +1,13 @@
 .ProfileScreen {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    .ProfileScreen-Wrapper{
+        width: 85%;
+    }
+}
+
+@media (max-width:600px) {
+    .ProfileScreen-Wrapper{
+        width: 95% !important;
+    }
 }

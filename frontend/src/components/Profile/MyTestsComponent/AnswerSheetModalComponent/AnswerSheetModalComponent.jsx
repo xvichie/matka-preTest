@@ -125,7 +125,7 @@ export default function AnswerSheetModalComponent({ index, ButtonIcon, currentTe
     console.log("Rows: ",rows);
     console.log("ImageRows: ",ImageRows);
     return (
-        <div>
+        <div className='AnswerSheet-Button'>
             <Button className='Test-AnswerSheetButton' variant='outlined' onClick={handleOpen}>პასუხების ფურცელი <ButtonIcon /></Button>
             <Modal
                 aria-labelledby="spring-modal-title"

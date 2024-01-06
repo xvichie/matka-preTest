@@ -22,7 +22,7 @@ function ProfileScreen() {
 
     return (
         <div className='ProfileScreen'>
-            <>
+            <div className="ProfileScreen-Wrapper">
                 {!isLoading && isAuthenticated &&
                     <>
                         {/* <CheckoutComponent></CheckoutComponent> */}
@@ -30,7 +30,7 @@ function ProfileScreen() {
                         <MyTestsComponent></MyTestsComponent>
                     </>
                 }
-            </>
+            </div>
         </div>
     )
 }

@@ -15,6 +15,7 @@ import './MyTestsComponent.scss';
 import { Button, ButtonGroup, Fab, IconButton } from '@mui/material';
 import SimilarProblemModalComponent from '../../TestComponent/SimilarProblemComponent/SimilarProblemModalComponent';
 import ReceiptIcon from '@mui/icons-material/Receipt';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import SimilarModalComponent from './SimilarModalComponent/SimilarModalComponent';
 import { useTheme } from '@emotion/react';
 import AnswerSheetModalComponent from './AnswerSheetModalComponent/AnswerSheetModalComponent';
@@ -61,7 +62,7 @@ function MyTestsComponent() {
             </div>
             <div className='MyTests-Dropdown'>
                 <Dropdown >
-                    <Dropdown.Toggle style={{ backgroundColor: theme.palette.primary.main }} disabled={!(tests.length > 0)} variant="success" id="dropdown-basic">
+                    <Dropdown.Toggle style={{ backgroundColor: theme.palette.primary.main,height:'100%' }} disabled={!(tests.length > 0)} variant="success" id="dropdown-basic">
                         {currentTest === null ? ("აირჩიე ტესტი") : tests[currentTest]._id}
                     </Dropdown.Toggle>
                     <Dropdown.Menu style={{ maxHeight: '200px', overflow: 'scroll' }}>
@@ -97,18 +98,12 @@ function MyTestsComponent() {
                                                         "(4)"}{(index + 1)}
                                         </h3>
                                     </div>
-                                    <PDFViewer id={'problem-' + index} 
-                                    // key={tests[currentTest]._id+'-problem-' + index} 
-                                    Problem={problem} />
+                                    <PDFViewer 
+                                        id={'problem-' + index} 
+                                        Problem={problem} />
                                     <div className="PDFButtons">
                                         <ButtonGroup variant="outlined" aria-label="outlined primary button group">
                                             <Button className='Test-SolutionButton' style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}><EmojiObjectsIcon></EmojiObjectsIcon>ამოხსნა</Button>
-                                            {/* {translateAnswer(tests[currentTest].test[0].answers[index]) &&
-                                                <>
-                                                    <Button>{"სწორი პასუხი: "}{translateAnswer(tests[currentTest].test[0].answers[index])}</Button>
-                                                    <Button>{"არჩეული პასუხი: "}{translateAnswer(tests[currentTest].test[0].chosenAnswers[index]) ? translateAnswer(tests[currentTest].test[0].chosenAnswers[index]) : "არ იყო არჩეული"}</Button>
-                                                </>
-                                            } */}
                                             <SimilarModalComponent ButtonIcon={ContentCopyIcon} index={index} currentTest={currentTest} ViewedIn={'MyTests'}></SimilarModalComponent>
                                         </ButtonGroup>
                                     </div>
@@ -117,7 +112,8 @@ function MyTestsComponent() {
                     </div>
                 </div>
             ) : (
-                <div>
+                <div className='ChooseTest-Placeholder'>
+                    <RemoveRedEyeIcon className='Placeholder-Icon'></RemoveRedEyeIcon>
                     აირჩიე ტესტი
                 </div>
             )}

@@ -1,3 +1,30 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+
 .Lightbox{
     z-index: 10000;
+    
+}
+.AnswerSheet-Button{
+    width: 300px;
+    margin-left: 10px;
+    
+}
+.Test-AnswerSheetButton{
+    width: 100% !important;
+    height: 100%;
+}
+
+.Test-AnswerSheetButton:hover{
+    background-color: $Main-Text-Color !important;
+    color: white;
+}
+
+@media (max-width:500px) {
+    .AnswerSheet-Button{
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
 }

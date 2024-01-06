@@ -1,4 +1,5 @@
 $Text-Color:#7b7466;
+$Main-Text-Color: #F97432;
 
 header {
     background-color: white;
@@ -14,24 +15,34 @@ header {
         justify-content: center;
         margin: 0 10px;
         color:$Text-Color;
+        transition: all 0.25s ease;
     }
     .Nav-Login{
         align-items: center !important;
         display: flex;
         justify-content: center;
     }
-    // .Nav-Login::before {
-    //     content: '';
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 2px;
-    //     background-color: #ffcc00;
-    //     /* Your desired underline color */
-    //     bottom: -2px;
-    //     left: 0;
-    //     z-index: 1000;
-    // }
+    
+    .Nav-Item:hover{
+        color: $Main-Text-Color;
+    }
+    .dropdown-menu.show{
+        a{
+            width: 100% !important;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    #Logout{
+        color: $Main-Text-Color;
+        font-weight: bold;
+    }
 }
+
+
 
 .active {
     position: relative;
@@ -45,5 +56,15 @@ header {
         /* Your desired underline color */
         bottom: -2px;
         left: 0;
+    }
+}
+
+@media (max-width:992px) {
+    .navbar-nav{
+        // display: grid;
+        // grid-template-columns: 1fr 1fr 1fr;
+        .Nav-Item{
+            padding: 15px 0;
+        }
     }
 }

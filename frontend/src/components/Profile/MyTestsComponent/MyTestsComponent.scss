@@ -1,9 +1,15 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+
 .MyTests {
+    margin-bottom: 20px;
     .MyTests-Dropdown{
         display: flex;
         flex-direction: row;
-        width: 450px;
-        justify-content: space-between;
+        height: 40px;
+        margin-bottom: 10px;
     }
     .MyTests-TestViewer {
         .MyTests-TestViewer-Tests {
@@ -38,6 +44,63 @@
                 position: absolute;
                 top: 0;
             }
+        }
+    }
+    .ChooseTest-Placeholder{
+        transition: all 0.3s ease;
+        margin: 20px 0;
+        height: 350px;
+        border: 3px solid $Main-Text-Color;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 48px;
+        color: $Main-Text-Color;
+        .Placeholder-Icon{
+            transition: all 0.2s ease;
+            margin-right: 10px;
+            height: 88px;
+            width: 88px;
+        }
+    }
+    .ChooseTest-Placeholder:hover{
+        background-color: $Main-Text-Color;
+        color: white;
+        cursor: pointer;
+        .Placeholder-Icon{
+            color: white;
+        }
+    }
+}
+
+
+@media (max-width:600px) {
+    .ChooseTest-Placeholder{
+        font-size: 40px !important;
+        .Placeholder-Icon{
+            height: 72px !important;
+            width: 72px !important;
+        }
+    }
+}
+
+@media (max-width:500px) {
+    #dropdown-basic{
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+    .MyTests-Dropdown{
+        flex-direction: column !important;
+        height: auto !important;
+        margin-bottom: 10px;
+    }
+    .ChooseTest-Placeholder{
+        margin-left: 0 !important;
+        font-size: 32px !important;
+        .Placeholder-Icon{
+            height: 64px !important;
+            width: 64px !important;
         }
     }
 }

@@ -67,7 +67,7 @@ function UserInfoComponent() {
                     <div className="UserInfo-Header-Right">
                         <div className='UserInfo-Header-Right-Top'>
                             <h3>
-                                @{user.name}
+                                @{user.name.split('@')[0]}
                             </h3>
                             <div className="UserInfo-Header-Right-Top-Icons">
                                 <ModalComponent ButtonIcon={HelpOutlineIcon} RenderComponent={HelpComponent}></ModalComponent>
@@ -77,17 +77,22 @@ function UserInfoComponent() {
                         <div className='UserInfo-Header-Right-Middle'>
                             <div className='UserInfo-Header-Right-Middle-Stats'>
                                 <div className='UserInfo-Header-Right-Middle-Stats-DoneTests'>
-                                    <h3><strong style={{ fontWeight: 'bolder' }}>{tests.length}</strong> ტესტი</h3>
+                                    <h3><strong style={{ fontWeight: 'bolder',color:'#52389D' }}>{tests.length}</strong> ტესტი</h3>
                                 </div>
                                 <div className='UserInfo-Header-Right-Middle-Stats-AvgScore'>
-                                    <h3><strong>{calculateAverage(getScoreArray(tests)).toFixed(2)}</strong> საშუალო ქულა</h3>
+                                    <h3><strong style={{ fontWeight: 'bolder',color:'#52389D' }}>
+                                        {calculateAverage(getScoreArray(tests)).toFixed(2)==NaN ? '0' : calculateAverage(getScoreArray(tests)).toFixed(2)}
+                                        </strong> საშუალო ქულა</h3>
                                 </div>
                                 <div className='UserInfo-Header-Right-Middle-Stats-AvgTime'>
-                                    <h3><strong>{(calculateAverage(getTimeArray(tests)) / 100 / 60).toFixed(0)} წ</strong> საშუალო დრო</h3>
+                                    <h3><strong style={{ fontWeight: 'bolder',color:'#52389D' }}>
+                                        {(calculateAverage(getTimeArray(tests)) / 100 / 60).toFixed(0)==NaN ? '0' : (calculateAverage(getTimeArray(tests)) / 100 / 60).toFixed(0)} 
+                                        {' '}წ</strong> საშუალო დრო</h3>
                                 </div>
                                 {getHighScores(tests)[0] != undefined &&
                                     <div className="UserInfo-Header-Right-Middle-Stats-HighScore">
-                                        <h3><strong>{getHighScores(tests)[0]}</strong> მაქს. ქულა</h3>
+                                        <h3><strong style={{ fontWeight: 'bolder',color:'#52389D' }}>
+                                            {getHighScores(tests)[0] ==NaN ? '0' : getHighScores(tests)[0]}</strong> მაქს. ქულა</h3>
                                     </div>
                                 }
                             </div>
