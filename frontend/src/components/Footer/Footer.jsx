@@ -32,10 +32,10 @@ function Footer() {
                     <Link to={'/'}>
                         <h4 className='Subtitle'>რეკლამის განთავსება</h4>
                     </Link>
-                    <Link to={'/about-us'}>
+                    <Link to={'/aboutUs'}>
                         <h4 className='Subtitle'>ჩვენს შესახებ</h4>
                     </Link>
-                    <Link to={'/about-us'}>
+                    <Link to={'/aboutUs'}>
                         <h4 className='Subtitle'>ჩვენი გუნდი</h4>
                     </Link>
                 </div>
@@ -54,7 +54,7 @@ function Footer() {
                     <Link to={'/privacy'}>
                         <h4 className='Subtitle'>კონფიდენციალურობა</h4>
                     </Link>
-                    <Link to={'/about-us'}>
+                    <Link to={'/aboutUs'}>
                         <h4 className='Subtitle'>ჩვენი მიზნები</h4>
                     </Link>
                 </div>

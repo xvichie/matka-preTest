@@ -17,6 +17,9 @@ $Background-Color-Darker: #f8f6f4;
                 width: 230px;
                 border-radius: 5px;
                 // background-color: $Background-Color-Accent;
+                .Current-Selection{
+                    color: $Background-Color;
+                }
             }
         }
         .TheoryScreen-Algebra-Search {

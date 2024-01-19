@@ -62,3 +62,14 @@ $Main-Text-Color: #F97432;
         height: 120px;
     }
 }
+
+
+.TextField{
+    background-color: white;
+    border-radius: 5px;
+    label{
+        background-color: white;
+        padding: 1px 5px;
+        border-radius: 10px;
+    }
+}

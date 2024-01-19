@@ -11,11 +11,14 @@ import PDFViewer from '../../TestComponent/ProblemComponent/PDFViewer';
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
+import {toast} from 'react-toastify';
+
 import './MyTestsComponent.scss';
 import { Button, ButtonGroup, Fab, IconButton } from '@mui/material';
 import SimilarProblemModalComponent from '../../TestComponent/SimilarProblemComponent/SimilarProblemModalComponent';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import ShareIcon from '@mui/icons-material/Share';
 import SimilarModalComponent from './SimilarModalComponent/SimilarModalComponent';
 import { useTheme } from '@emotion/react';
 import AnswerSheetModalComponent from './AnswerSheetModalComponent/AnswerSheetModalComponent';
@@ -51,7 +54,37 @@ function MyTestsComponent() {
         fetchTests();
     }, [user.email]); // Add user.email to the dependency array to fetch data when user.email changes
 
-    // require('../../../assets')
+
+    const CopyTestUrlToClipboard = () => {
+        try{
+            let url = window.location.host+'/test/'+tests[currentTest]._id;
+            navigator.clipboard.writeText(url);
+            toast.success('თქვენი ტესტის ლინკი ჩაკოპირებულია. გაუგზავნეთ იგი მეგობრებს, რომ ნახონ თქვენი ტესტი!', {
+                position: "bottom-left",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+        catch
+        {
+            toast.error('თქვენი ტესტი ვერ ჩაკოპირდა! ცადეთ ახლიდან.', {
+                position: "bottom-left",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+    }
+
     console.log(currentTest);
     return (
         <div className='MyTests'>
@@ -61,24 +94,37 @@ function MyTestsComponent() {
                 </h2>
             </div>
             <div className='MyTests-Dropdown'>
-                <Dropdown >
-                    <Dropdown.Toggle style={{ backgroundColor: theme.palette.primary.main,height:'100%' }} disabled={!(tests.length > 0)} variant="success" id="dropdown-basic">
-                        {currentTest === null ? ("აირჩიე ტესტი") : tests[currentTest]._id}
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu style={{ maxHeight: '200px', overflow: 'scroll' }}>
-                        {tests.map((test, index) => (
-                            <div key={test._id}>
-                                <Dropdown.Item eventKey={index} onClick={() => setCurrentTest(index)}>ტესტი:{test._id}</Dropdown.Item>
-                            </div>
-                        ))}
-                    </Dropdown.Menu>
-                </Dropdown>
-                {currentTest !== null && tests.length > 0 &&
-                <AnswerSheetModalComponent 
-                    ButtonIcon={ReceiptIcon} 
-                    currentTest={currentTest}
-                >
-                </AnswerSheetModalComponent>}
+                <div className="Dropdown-Top">
+                    <Dropdown >
+                        <Dropdown.Toggle style={{ backgroundColor: theme.palette.primary.main,height:'100%' }} disabled={!(tests.length > 0)} variant="success" id="dropdown-basic">
+                            {currentTest === null ? ("აირჩიე ტესტი") : tests[currentTest]._id}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu style={{ maxHeight: '200px', overflow: 'scroll' }}>
+                            {tests.map((test, index) => (
+                                <div key={test._id}>
+                                    <Dropdown.Item eventKey={index} onClick={() => setCurrentTest(index)}>ტესტი:{test._id}</Dropdown.Item>
+                                </div>
+                            ))}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                    {currentTest !== null && tests.length > 0 &&
+                    <AnswerSheetModalComponent 
+                        ButtonIcon={ReceiptIcon} 
+                        currentTest={currentTest}
+                    >
+                    </AnswerSheetModalComponent>}
+                </div>
+                <div className="Dropdown-Bottom">
+                    {currentTest !== null && tests.length > 0 &&
+                        <Button 
+                        variant='outlined'
+                        className='Share-Button'
+                        onClick={CopyTestUrlToClipboard}
+                        ><ShareIcon 
+                        sx={{mr:2}}
+                        ></ShareIcon> გააზიარე ტესტი</Button>
+                    }
+                </div>
             </div>
             {currentTest !== null && tests.length > 0 ? ( // Conditional rendering based on currentTest and tests length
                 <div className="MyTests-TestViewer">

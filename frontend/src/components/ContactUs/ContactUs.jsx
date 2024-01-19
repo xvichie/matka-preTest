@@ -1,37 +1,76 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import './ContactUs.scss';
-import { Button, FormControl } from '@mui/material';
+import { Button, FormControl, TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MuiTextField from '@mui/material/TextField';
+import emailjs from '@emailjs/browser';
 
 function ContactUs() {
 
-    const Orange = '#F97432';
-    const SubtleWhite = '#f7f7ff';
+  const Orange = '#F97432';
+  const SubtleWhite = '#f7f7ff';
 
-    const options = {
-        shouldForwardProp: (prop) => prop !== 'borderColor',
-      };
-      const outlinedSelectors = [
-        '& .MuiOutlinedInput-notchedOutline',
-        '&:hover .MuiOutlinedInput-notchedOutline',
-        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline',
-      ];
-      const TextField = styled(
-        MuiTextField,
-        options,
-      )(({ borderColor, backgroundColor }) => ({
-        '& label.Mui-focused': {
-          color: borderColor,
-        },
-        [outlinedSelectors.join(',')]: {
-          borderWidth: 1.5,
-          borderColor,
-        },
-        '& .MuiInputBase-root': {
-          backgroundColor, // Change the background color of the input area
-        },
-      }));
+  const [SendButtonText, SetTextButtonTest] = useState("გაგზავნა");
+
+  const [Name,SetName] = useState("");
+  const [Email,SetEmail] = useState("");
+  const [Message,SetMessage] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault(); // prevents the page from reloading when you hit “Send”
+    const formData = {
+      from_name: Name,
+      message: Message,
+      from_email: Email
+  };
+
+  const hiddenForm = document.createElement('form');
+
+  // Set form attributes
+  hiddenForm.setAttribute('action', '');  // Add your emailjs API endpoint here
+  hiddenForm.setAttribute('method', 'post');
+  hiddenForm.style.display = 'none';
+
+  // Append form fields
+  for (const key in formData) {
+      const input = document.createElement('input');
+      input.setAttribute('type', 'hidden');
+      input.setAttribute('name', key);
+      input.setAttribute('value', formData[key]);
+      hiddenForm.appendChild(input);
+  }
+
+  document.body.appendChild(hiddenForm);
+    try{
+    emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, 
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID, 
+      hiddenForm, 
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
+      .then((result) => {
+          if (result.status === 200) {
+            SetTextButtonTest("მესიჯი გაიგზავნა!");
+            SetEmail("");
+            SetName("");
+            SetMessage("");
+            setTimeout(() => {
+              SetTextButtonTest("გაგზავნა");
+            }, 15000);
+          }
+          
+      }, (error) => {
+        console.error('მესიჯი არ გაიგზავნა!', error);
+      });
+    }
+    catch(error)
+    {
+      console.error('მესიჯი არ გაიგზავნა!', error);
+    }
+    finally {
+      // Remove the hidden form from the DOM
+      document.body.removeChild(hiddenForm);
+    }
+  };
+
   return (
     <div className='ContactUs'>
         <div className="ContactUs-Wrapper">
@@ -39,45 +78,60 @@ function ContactUs() {
                 <h1>დაგვიკავშირდით</h1>
             </div>
             <div className="ContactUs-Form">
-                <FormControl className='Form-Form'>
+              <form onSubmit={sendEmail} className='Form-Form'>
                     <div className="ContactUs-Top">
-                        <TextField
-                        fullWidth
-                            required 
-                            type="text" 
-                            variant='outlined'
-                            borderColor={Orange}
-                            backgroundColor={SubtleWhite}
-                            label="თქვენი სრული სახელი"/>
-                        <span style={{width:'20px'}}>
+                          <TextField
+                          className='TextField'
+                          key={"NameInput"}
+                          name='NameInput'
+                              fullWidth
+                              required 
+                              type="text" 
+                              variant='outlined'
+                              borderColor={Orange}
+                              backgroundColor={SubtleWhite}
+                              value={Name} 
+                              onChange={(e) => SetName(e.target.value)}
+                              label="თქვენი სრული სახელი"/>
+                          <span style={{width:'20px'}}>
 
-                        </span>
-                        <TextField
-                        fullWidth 
-                            required 
-                            type="email" 
-                            variant='outlined' 
-                            borderColor={Orange}
-                            backgroundColor={SubtleWhite}
-                            label="თქვენი Email"/>
-                    </div>
-                    <div className="ContactUs-Bottom">
-                        <TextField
-                        fullWidth 
-                            type="text" 
-                            variant='outlined'
-                            multiline
-                            minRows={5}
-                            maxRows={5} 
-                            required
-                            backgroundColor={SubtleWhite}
-                            borderColor={Orange}
-                            label="თქვენი წერილი"/>
-                    </div>
-                    <div className="ContactUs-Button">
-                        <Button type='Submit' variant='contained'>გაგზავნა</Button>
-                    </div>
-                </FormControl>
+                          </span>
+                          <TextField
+                          className='TextField'
+                          key={"EmailInput"}
+                          name='EmailInput'
+                          fullWidth
+                          value={Email}
+                          onChange={(e) => SetEmail(e.target.value)} 
+                              required 
+                              type="email" 
+                              variant='outlined' 
+                              borderColor={Orange}
+                              backgroundColor={SubtleWhite}
+                              label="თქვენი Email"/>
+                      </div>
+                      <div className="ContactUs-Bottom">
+                          <TextField
+                          className='TextField'
+                          fullWidth
+                              key={"Input"}
+                              value={Message}
+                              onChange={(e) => SetMessage(e.target.value)} 
+                              type="text"
+                              name='MessageInput'
+                              variant='outlined'
+                              multiline
+                              minRows={5}
+                              maxRows={5} 
+                              required
+                              backgroundColor={SubtleWhite}
+                              borderColor={Orange}
+                              label="თქვენი წერილი"/>
+                      </div>
+                      <div className="ContactUs-Button">
+                          <Button type='Submit' variant='contained' id='SubmitButton' >{SendButtonText}</Button>
+                      </div>
+                  </form>
             </div>
         </div>
     </div>

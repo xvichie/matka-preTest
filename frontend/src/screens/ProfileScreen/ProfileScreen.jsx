@@ -6,6 +6,7 @@ import UserInfoComponent from '../../components/Profile/UserInfoComponent/UserIn
 import './ProfileScreen.scss';
 import MyTestsComponent from '../../components/Profile/MyTestsComponent/MyTestsComponent';
 import CheckoutComponent from '../../components/CheckoutComponent/CheckoutComponent';
+import AdPlaceholderComponent from '../../components/AdPlaceholderComponent/AdPlaceholderComponent';
 
 
 
@@ -30,6 +31,7 @@ function ProfileScreen() {
                         <MyTestsComponent></MyTestsComponent>
                     </>
                 }
+                <AdPlaceholderComponent AdId={4}></AdPlaceholderComponent>
             </div>
         </div>
     )

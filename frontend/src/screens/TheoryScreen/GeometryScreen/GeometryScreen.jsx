@@ -75,7 +75,8 @@ function GeometryScreen() {
                         </Link>
                         <Typography
                             sx={{ display: 'flex', alignItems: 'center' }}
-                            color="text.primary"
+                            className='Current-Selection'
+
                         >
                             <InterestsIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                             გეომეტრია

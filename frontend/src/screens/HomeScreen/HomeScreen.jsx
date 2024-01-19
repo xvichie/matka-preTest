@@ -117,7 +117,7 @@ function HomeScreen() {
                         </div>
                         <div className="Right-Button">
                             <Link to={'/Test'}>
-                                <Button variant='contained'>
+                                <Button variant='contained' className='HomeScreenButton'>
                                     დაიწყე ტესტი
                                 </Button>
                             </Link>
@@ -149,7 +149,7 @@ function HomeScreen() {
                         </div>
                         <div className="Left-Button">
                             <Link to={'/Theory'}>
-                                <Button variant='contained'>
+                                <Button variant='contained' className='HomeScreenButton'>
                                     თეორია
                                 </Button>
                             </Link>
@@ -183,7 +183,7 @@ function HomeScreen() {
                         </div>
                         <div className="Right-Button">
                             <Link to={'/teachers'}>
-                                <Button variant='contained'>
+                                <Button variant='contained' className='HomeScreenButton'>
                                     მოძებნე მასწავლებელი
                                 </Button>
                             </Link>
@@ -215,13 +215,14 @@ function HomeScreen() {
                                 
                             </div>
                             <div className="Left-Button">
-                                <Link to={'/Theory'}>
-                                    <Button variant='contained'>
+                                <Link to={'/aboutUs'}>
+                                    <Button variant='contained' className='HomeScreenButton'>
                                         გაიგე მეტი
                                     </Button>
                                 </Link>
-                                <Link to={'/Theory'}>
-                                    <Button 
+                                <Link to={'/'}>
+                                    <Button
+                                     className='HomeScreenButton' 
                                     color='primary'
                                     variant='contained'>
                                         მოგვწერე წერილი

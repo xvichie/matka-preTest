@@ -1,0 +1,237 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #8b8b8b;
+$Second-Background-Color: #f1f0f3;
+$Ad-Background-Color: #cfcfcf;
+$Big-Text-Subtle-Color: #555555;
+
+.TeacherPreview{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: $Main-Text-Color 1px solid;
+    border-radius: 10px;
+    height: 232px;
+    width: 98%;
+    transition: all 0.2s ease;
+    .TeacherPreview-Wrapper{
+        width: 95%;
+        height: 90%;
+        display: flex;
+        align-items: center;
+        .TeacherPreview-Left{
+            align-items: center;
+            height: 100%;
+            img{
+                border: 1px solid $Main-Text-Color;
+                max-height: 100%; /* Set the image height to 100% of its parent container */
+                width: auto; /* Allow the width to adjust proportionally based on the height */
+                display: block; /* Remove any extra space that might appear below the image */
+                margin: 0 auto; /* Center the image horizontally within the container */
+                border-radius: 20px;
+            }
+        }
+        .TeacherPreview-Right{
+            width: 100%;
+            height: 100%;
+            margin-left: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .Right-Top{
+                .Top-Occupation{
+                    align-items: center;
+                    color: $Subtle-Text-Color;
+                    transition: all 0.1s ease;
+                }
+                .Top-Occupation:hover{
+                    color: $Big-Text-Subtle-Color;
+                }
+                .Top-Name{
+                    font-size: 2rem;
+                    color: $Background-Color;
+                    font-weight: bold;
+                }
+                .Top-Descpription{
+                    color: $Big-Text-Subtle-Color;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+                    white-space: pre-wrap; /* let the text wrap preserving spaces */
+                }
+            }
+            .Right-Bottom{
+                .Bottom-Bottom{
+                    display: flex;
+                    justify-content: space-between;
+                    .Bottom-Price{
+                        transition: all 0.3s ease;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        color: $Background-Color;
+                        background-color: $Background-Color;
+                        padding: 7px;
+                        border-radius: 10px;
+                        h3{
+                            font-size: 20px;
+                            margin-bottom: 0;
+                            color: white;
+                            .Price-Currency{
+                                color: $Main-Text-Color;
+                            }
+                        }
+                    }
+                    .Bottom-Price:hover{
+                        background-color: $Main-Text-Color;
+                        h3{
+                            color: $Background-Color;
+                            .Price-Currency{
+                                color: white;
+                            }
+                        }
+                    }
+                    .More-Button{
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.TeacherPreview:hover{
+    cursor: pointer;
+    background-color: $Second-Background-Color;
+}
+
+
+@media (max-width: 750px) {
+    .Top-Occupation{
+        font-size: 16px !important;
+    }
+    .Top-Name{
+        font-size: 1.5rem !important;
+    }
+    .Top-Descpription{
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .TeacherPreview{
+        height: 196px !important;
+        .Bottom-Price{
+            h3{
+                font-size: 16px !important;
+            }
+        }
+        .More-Button{
+            color: white;
+            scale: 0.9 !important;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .TeacherPreview{
+        height: 180px !important;
+        .Bottom-Price{
+            h3{
+                font-size: 14px !important;
+            }
+        }
+        .More-Button{
+            color: white;
+            scale: 0.8 !important;
+        }
+        .Top-Occupation{
+            font-size: 12px !important;
+        }
+        .Top-Name{
+            font-size: 1.2rem !important;
+        }
+        .Top-Descpription{
+            font-size: 12px !important;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .TeacherPreview{
+        height: 164px !important;
+        .Bottom-Price{
+            padding: 3px 5px !important;
+            h3{
+                font-size: 12px !important;
+            }
+        }
+    }
+    
+}
+
+@media (max-width: 420px) {
+    .TeacherPreview{
+        height: 128px !important;
+        .TeacherPreview-Wrapper{
+            width: 95% !important;
+            .More-Button{
+                color: white;
+                scale: 0.6 !important;
+            }
+            .Top-Occupation{
+                font-size: 10px !important;
+            }
+            .Top-Name{
+                font-size: 1rem !important;
+            }
+            .Top-Descpription{
+                font-size: 10px !important;
+            }
+            .Occupation-Icon{
+                height: 16px !important;
+                width: 16px !important;
+            }
+            .Bottom-Price{
+                padding: 0px 5px !important;
+                height: 25px !important;
+                h3{
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    font-size: 10px !important;
+                }
+            }
+            .Bottom-Bottom{
+                align-items: center !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .TeacherPreview{
+        height: 120px !important;
+        .TeacherPreview-Wrapper{
+            width: 95% !important;
+            .More-Button{
+                color: white;
+                scale: 0.5 !important;
+            }
+            .Top-Occupation{
+                font-size: 8px !important;
+            }
+            .Top-Name{
+                font-size: 0.8rem !important;
+            }
+            .Top-Descpription{
+                font-size: 8px !important;
+            }
+            .Occupation-Icon{
+                height: 12px !important;
+                width: 12px !important;
+            }
+        }
+    }
+}

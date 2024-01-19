@@ -16,7 +16,9 @@ $Background-Color-Darker: #f8f6f4;
                 outline: 1px solid $Main-Text-Color;
                 width: 230px;
                 border-radius: 5px;
-                // background-color: $Background-Color-Accent;
+                .Current-Selection{
+                    color: $Background-Color;
+                }
             }
         }
         .TheoryScreen-Thesis-Search {

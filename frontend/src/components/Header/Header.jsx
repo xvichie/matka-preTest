@@ -15,6 +15,7 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import LoginIcon from '@mui/icons-material/Login';
+import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -63,6 +64,13 @@ function Header() {
                                     </>
                                 </LinkContainer>
                             </NavLink>
+                            <NavLink to={'/solutions'} className='Nav-Item'>
+                                <LinkContainer to={'/solutions'}>
+                                    <>
+                                            <EmojiObjectsIcon sx={{ mr: 0 }}></EmojiObjectsIcon> ამოხსნები
+                                    </>
+                                </LinkContainer>
+                            </NavLink>
                             <NavLink to={'/test'} className='Nav-Item'>
                                 <LinkContainer to={'/test'}>
                                     <>
@@ -70,6 +78,7 @@ function Header() {
                                     </>
                                 </LinkContainer>
                             </NavLink>
+                            
                             {isAuthenticated == false ?
                             
                                 <Link to={'/'}  onClick={loginWithPopup} className='Nav-Login'>

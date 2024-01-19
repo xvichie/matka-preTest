@@ -75,7 +75,7 @@ function ThesisScreen() {
                         </Link>
                         <Typography
                             sx={{ display: 'flex', alignItems: 'center' }}
-                            color="text.primary"
+                            className='Current-Selection'
                         >
                             <CalculateIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                             თეზისები

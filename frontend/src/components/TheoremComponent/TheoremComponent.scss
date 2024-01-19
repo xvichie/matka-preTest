@@ -1,7 +1,28 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+$Background-Color-Accent: #ffffff;
+$Background-Color-Darker: #f8f6f4;
+
 .TheoremComponent{
     display: flex;
     justify-content: center;
     .TheoremComponent-Wrapper{
         width: 85%;
+        .TheoremComponent-Breadcrumbs{
+            margin: 20px 0;
+            // width: 100%;
+            .Breadcrumbs-Breadcrumbs{
+                padding: 10px;
+                outline: 1px solid $Main-Text-Color;
+                width: fit-content;
+                border-radius: 5px;
+                // background-color: $Background-Color-Accent;
+                .Current-Selection{
+                    color: $Background-Color;
+                }
+            }
+        }
     }
 }

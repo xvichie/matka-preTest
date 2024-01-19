@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { setAnswers, setComponentOrder, setErovnuli, setIsLoading, setMaxScore, setProblems, setScore, setSimilars, setTestHasStarted, setTestIsDone, setTestType, setTime } from '../../../slices/TestSlice';
-import { Button, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select, Tab, Tabs } from '@mui/material';
+import { Button, Checkbox, FormControl, FormControlLabel, Input, InputLabel, MenuItem, Select, Tab, Tabs, TextField } from '@mui/material';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import SwipeableViews from 'react-swipeable-views';
 
@@ -11,6 +11,12 @@ import SimilarJSON from '../../../assets/SimilarsForEveryTest.json';
 import TestGenConfig from '../../../config/Test/TestGeneratationConfig.json';
 
 import './StartTestComponent.scss';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+import { toast } from 'react-toastify';
+import AdPlaceholderComponent from '../../AdPlaceholderComponent/AdPlaceholderComponent';
+
 
 console.log(SimilarJSON);
 
@@ -425,15 +431,50 @@ function StartTestComponent({ isLoadingSetter }) {
         setGenType(event.target.value);
     }
 
+    const [FindTestError, SetFindTestError] = useState('');
+    const [TestIdTextField,SetTestIdTextField] = useState('');
+
+    const navigate = useNavigate();
+
+    const handleTestFind = async () => {
+        const testId = TestIdTextField; // Replace this with the actual _id you want to retrieve
+
+        try{
+            const response = await axios.get('http://localhost:5000/api/userTests/getTestById/'+testId);
+            console.log(response.status);
+            if(response.status == 200){
+                navigate('/test/'+testId);
+            }else{
+                SetFindTestError("ასეთი ტესტი ვერ მოიძება!");
+                console.log("aseti testi ar arsebobs")
+            }
+        }
+        catch{
+            console.error("Error Finding Test!");
+            toast.error('ასეთი ტესტი ვერ მოიძებნა', {
+                position: "bottom-left",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+    }
+
     return (
         <>
             <div className="StartTestComponent">
                 <div className="StartTestComponent-Wrapper">
                     <div className="ChooseTest">
-                        <Tabs value={value} onChange={handleChange} aria-label="disabled tabs example">
+                        <Tabs value={value} onChange={handleChange} aria-label="disabled tabs example" style={{marginBottom:'10px'}}>
                             <Tab label="ტესტის გენერატორი" style={{fontWeight:'bold'}} />
                             <Tab label="ეროვნული გამოცდები" style={{fontWeight:'bold'}}/>
+                            <Tab label="სხვისი ტესტები" style={{fontWeight:'bold'}}/>
                         </Tabs>
+                        <AdPlaceholderComponent AdId={3}></AdPlaceholderComponent>
                         <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
                             <div className='StartTest-TestGenerator' value={value} index={0}>
                                 <div className="TestGenerator-Label">
@@ -596,13 +637,35 @@ function StartTestComponent({ isLoadingSetter }) {
                                     </div>
                                 </div>
                             </div>
+                            <div className="StartTest-ViewTest" value={value} index={2}>
+                                <div className="ViewTest-Label">
+                                    <h1>ნახე მეგობრის ტესტები</h1>
+                                </div>
+                                <div className="ViewTest-Content">
+                                        <TextField 
+                                        variant='outlined' 
+                                        label='ჩაწერე მეგობრის ტესტის ID'
+                                        className='Content-TextField'
+                                        required
+                                        fullWidth
+                                        value={TestIdTextField}
+                                        onChange={(e) => SetTestIdTextField(e.target.value)}
+                                        ></TextField>
+                                        <Button
+                                        variant='contained'
+                                        onClick={handleTestFind}
+                                        className='TestFind-Button'
+                                        >ძებნა</Button>
+                                </div>
+                            </div>
                         </SwipeableViews>
                     </div>
                     <div className="StartTest-Button">
                         <div
                         style={{marginBottom:'5px'}}
                         >*დრო ჩაირთვება ტესტის ეკრანზე ჩატვირთვისთანავე</div>
-                        <Button variant='contained' color='primary' style={{ color: 'white' }} onClick={handleStart}>ტესტის დაწყება</Button>
+                        <Button disabled={value==2} variant='contained' color='primary' style={{ color: 'white' }} onClick={handleStart}>ტესტის დაწყება</Button>
+                        
                     </div>
                 </div>
             </div>

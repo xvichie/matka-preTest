@@ -13,7 +13,7 @@ $Second-Background-Color: #f7e8d5;
 
 .HomeScreen{
     .HomeScreen-Main{
-        height: 100vh;
+        height: calc(100vh - 56px);
         // width: 100vw;
         // overflow: hidden;
         position: relative; /* requires for to position video properly */
@@ -299,14 +299,9 @@ $Second-Background-Color: #f7e8d5;
     }
 }
 
-// #Title {
-//     transition: color 0.4s ease, -webkit-text-stroke 0.4s ease;
-//     /* Add initial color and text stroke properties here */
-//     /* For example: */
-//     color: $Main-Text-Color;
-//     -webkit-text-stroke: 0px $Main-Text-Color;
-// }
-
+.HomeScreenButton{
+    // color: white !important;
+}
 #Title:hover {
     cursor: pointer;
     color: rgba($Main-Text-Color, 0.1) !important;

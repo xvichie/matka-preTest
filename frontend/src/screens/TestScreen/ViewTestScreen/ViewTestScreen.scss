@@ -3,37 +3,38 @@ $Main-Text-Color: #F97432;
 $Subtle-Text-Color: #ffe5d9;
 $Second-Background-Color: #f7e8d5;
 
-.MyTests {
-    margin-bottom: 20px;
-    .MyTests-Dropdown{
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: space-between;
-        .Dropdown-Top{
-            display: flex;
-            flex-direction: row;
-            height: 40px;
-        }
-        .Dropdown-Bottom{
-            .Share-Button{
-                height: 100%;
-                margin-left: 10px;
-            }
-            .Share-Button:hover{
-                background-color: $Main-Text-Color;
-                color: white;
-                cursor: pointer;
-                .Placeholder-Icon{
-                    color: white;
+
+.ViewTestScreen{
+    display: flex;
+    justify-content: center;
+    .ViewTestScreen-Wrapper{
+        width: 90%;
+        .ViewTestScreen-Labels{
+            margin-top: 20px;
+            text-align: center;
+            h1{
+                font-size: 32px;
+                font-weight: bold;
+                span{
+                    color: $Main-Text-Color;
                 }
             }
         }
+
     }
+}
+
+
+
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+
+
     .MyTests-TestViewer {
-        border: 2px solid $Main-Text-Color;
-        border-radius: 10px;
         .MyTests-TestViewer-Tests {
-            height: 700px;
+            // height: 700px;
             overflow: scroll;
             position: relative;
 
@@ -92,25 +93,6 @@ $Second-Background-Color: #f7e8d5;
             color: white;
         }
     }
-}
-
-@media (max-width:950px) {
-    .MyTests-Dropdown{
-        flex-direction: column !important;
-        .Dropdown-Top{
-            display: grid !important;
-            grid-template-columns: 1fr 1fr !important;
-        }
-        .Dropdown-Bottom{
-            margin-top: 10px;
-            height: 40px;
-            .Share-Button{
-                margin-left: 0 !important;
-                width: 100%;
-            }
-        }
-    }
-}
 
 @media (max-width:600px) {
     .ChooseTest-Placeholder{
@@ -122,24 +104,15 @@ $Second-Background-Color: #f7e8d5;
     }
 }
 
-@media (max-width:625px) {
+@media (max-width:500px) {
     #dropdown-basic{
         width: 100% !important;
         margin-bottom: 10px !important;
     }
     .MyTests-Dropdown{
-        .Dropdown-Top{
-            display: flex !important;
-            flex-direction: column !important;
-            height: auto !important;
-            margin-bottom: 10px;
-            button{
-                height: 40px !important;
-            }
-        }
-        .Dropdown-Bottom{
-            margin-top: 0 !important;
-        }
+        flex-direction: column !important;
+        height: auto !important;
+        margin-bottom: 10px;
     }
     .ChooseTest-Placeholder{
         margin-left: 0 !important;

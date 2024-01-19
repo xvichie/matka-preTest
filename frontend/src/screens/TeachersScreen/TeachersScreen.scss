@@ -1,0 +1,60 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+$Ad-Background-Color: #cfcfcf;
+
+.TeachersScreen{
+    display: flex;
+    justify-content: center;
+    .TeachersScreen-Wrapper{
+        width: 85%;
+        .TeachersScreen-Ad{
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .Ad-Ad{
+                width: 100%;
+                background-color: $Ad-Background-Color;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+            }
+        }
+        .TeachersScreen-Label{
+            text-align: center;
+            h1{
+                color: $Main-Text-Color;
+            }
+            h3{
+                font-size: 16px;
+                color: $Background-Color;
+                transition: all 0.4s ease;
+                a:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+        .TeachersScreen-Content{
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 10px;
+        }
+    }
+}
+
+@media (max-width:1165px) {
+    .TeachersScreen-Wrapper{
+        width: 95% !important;
+    }
+}
+
+@media (max-width:1050px) {
+    .TeachersScreen-Content{
+        grid-template-columns: 1fr !important;
+    }
+}

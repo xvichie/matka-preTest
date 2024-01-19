@@ -3,7 +3,7 @@ $Main-Text-Color: #F97432;
 
 header {
     background-color: white;
-
+    // height: 55px;
     .navbar-brand{
         text-align: center;
         margin-right: 0;
@@ -13,7 +13,7 @@ header {
         align-items: center !important;
         display: flex;
         justify-content: center;
-        margin: 0 10px;
+        margin: 0 8px;
         color:$Text-Color;
         transition: all 0.25s ease;
     }

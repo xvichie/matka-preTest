@@ -3,11 +3,8 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import { useSpring, animated } from '@react-spring/web';
-import { IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import PDFViewer from '../../../TestComponent/ProblemComponent/PDFViewer';
-import { useSelector } from 'react-redux';
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { translateAnswer } from '../../../../services/translateAnswers';
 
@@ -19,7 +16,7 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-import './AnswerSheetModalComponent.scss';
+import './AnswerSheetModal.scss';
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
@@ -76,7 +73,7 @@ const style = {
     overflow: 'scroll'
 };
 
-export default function AnswerSheetModalComponent({  ButtonIcon, currentTest }) {
+export default function AnswerSheetModal({ index, ButtonIcon, Test }) {
     const [open, setOpen] = React.useState(false);
     const [imgOpen, setImgOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -97,8 +94,8 @@ export default function AnswerSheetModalComponent({  ButtonIcon, currentTest }) 
     });
     };
 
-    //console.log(Problems);
-    const test = useSelector((state) => state.userTests.tests[currentTest].test[0]);
+    console.log(Test);
+    const test = Test.test[0];
     //console.log(test);
     useEffect(() => {
         const newRows = [];
@@ -126,7 +123,7 @@ export default function AnswerSheetModalComponent({  ButtonIcon, currentTest }) 
     console.log("ImageRows: ",ImageRows);
     return (
         <div className='AnswerSheet-Button'>
-            <Button className='Test-AnswerSheetButton' variant='outlined' onClick={handleOpen}>პასუხების ფურცელი <ButtonIcon sx={{ml:1.5}}  /></Button>
+            <Button className='Test-AnswerSheetButton' variant='outlined' onClick={handleOpen}>პასუხების ფურცელი <ButtonIcon /></Button>
             <Modal
                 aria-labelledby="spring-modal-title"
                 aria-describedby="spring-modal-description"

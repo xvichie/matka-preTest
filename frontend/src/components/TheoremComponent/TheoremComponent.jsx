@@ -19,7 +19,7 @@ function TheoremComponent({ TheoremAlgGeo }) {
         <div className='TheoremComponent'>
             <div className="TheoremComponent-Wrapper">
                 <div className="TheoremComponent-Breadcrumbs">
-                    <Breadcrumbs aria-label="breadcrumb">
+                    <Breadcrumbs aria-label="breadcrumb" className='Breadcrumbs-Breadcrumbs'>
                         <Link style={{ textDecoration: 'none' }}
                             underline="hover"
                             sx={{ display: 'flex', alignItems: 'center' }}
@@ -40,7 +40,7 @@ function TheoremComponent({ TheoremAlgGeo }) {
                         </Link>
                         <Typography
                             sx={{ display: 'flex', alignItems: 'center' }}
-                            color="text.primary"
+                            className='Current-Selection'
                         >
                             <InterestsIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                             {TheoremsInfoJSON[TheoremAlgGeo.toLowerCase()][TheoremId - 1].title}

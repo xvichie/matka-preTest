@@ -194,7 +194,7 @@ function AnswerComponent(props) {
                                 hidden
                                 onClick={(e) => e.target.value = ''}
                                 onChange={handleImageChange}
-                                accept=".jpg,.jpeg,.png,.doc,.docx,.pdf"
+                                accept=".jpg,.jpeg,.png,.pdf"
                             />
                             <label htmlFor={"inputId-" + props.NumberOfAProblem}>
                                 <IconButton component="span">

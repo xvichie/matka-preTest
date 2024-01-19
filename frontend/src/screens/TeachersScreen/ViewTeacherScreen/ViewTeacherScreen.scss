@@ -1,0 +1,183 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #8b8b8b;
+$Second-Background-Color: #f1f0f3;
+$Ad-Background-Color: #cfcfcf;
+$Big-Text-Subtle-Color: #555555;
+
+
+.ViewTeacherScreen{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    .ViewTeacherScreen-Wrapper{
+        width: 85%;
+        .ViewTeacherScreen-Ad{
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .Ad-Ad{
+                width: 100%;
+                background-color: $Ad-Background-Color;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+            }
+        }
+        .ViewTeacherScreen-Teacher{
+            display: flex;
+            justify-content: space-between;
+            .Teacher-ImageDiv{
+                img{
+                    height: 432px;
+                    width: 432px;
+                    border-radius: 15px;
+                }
+            }
+            .Teacher-Right{
+                display: grid;
+                grid-template-columns: 3fr 2fr;
+                .Teacher-Main{
+                    margin-left: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .Main-Top{
+                        .Main-Occupation{
+                            color: $Subtle-Text-Color;
+                            font-size: 24px;
+                            .Occupation-Icon{
+                                height: 32px;
+                                width: 32px;
+                            }
+                        }
+                        .Main-Name{
+                            font-size: 48px;
+                            color: $Background-Color;
+                            font-weight: bold;
+                        }
+                        .Main-Description{
+                            color: $Big-Text-Subtle-Color;
+                        }
+                    }
+                    .Main-Bottom{
+                        .Main-Price{
+                            width: fit-content;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            color: $Background-Color;
+                            background-color: $Background-Color;
+                            padding: 7px;
+                            border-radius: 10px;
+                            h3{
+                                font-size: 24px;
+                                margin-bottom: 0;
+                                color: white;
+                                .Price-Currency{
+                                    color: $Main-Text-Color;
+                                }
+                            }
+                        }
+                        .Main-Price:hover{
+                            background-color: $Main-Text-Color;
+                            h3{
+                                color: $Background-Color;
+                                .Price-Currency{
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+                .Label{
+                    color: $Main-Text-Color;
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+                .Info-Div{
+                    color: $Background-Color;
+                }
+                .Teacher-Information{
+                    border-radius: 10px;
+                    height: fit-content;
+                    border: 1px solid $Main-Text-Color;
+                    padding: 15px;
+                    .Information-Label{
+                        color: $Background-Color;
+                        font-weight: bold;
+                        font-size: 24px;
+                        text-align: center;
+                        border-bottom: 1px solid $Main-Text-Color;
+                        padding-bottom: 5px;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1200px) {
+    .ViewTeacherScreen-Teacher{
+        flex-direction: column !important;
+        .Teacher-ImageDiv{
+            text-align: center;
+            img{
+                height: 388px !important;
+                width: 388px !important;
+            }
+        }
+        .Teacher-Main{
+            margin-left: 0 !important;
+        }
+    }
+}
+
+@media (max-width:850px) {
+    .Teacher-Right{
+        grid-template-columns: 1fr !important;
+        row-gap: 15px;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width:600px) {
+    .ViewTeacherScreen-Wrapper{
+        width: 90% !important;
+    }
+    .ViewTeacherScreen-Teacher{
+        .Teacher-ImageDiv{
+            img{
+                height: 256px !important;
+                width: 256px !important;
+            }
+        }
+        .Main-Top{
+            .Main-Occupation{
+                font-size: 20px !important;
+                .Occupation-Icon{
+                    height: 24px !important;
+                    width: 24px !important;
+                }
+            }
+            .Main-Name{
+                font-size: 32px !important;
+            }
+            .Main-Description{
+                font-size: 16px !important;
+                margin-bottom: 10px !important;
+            }
+        }
+        .Main-Price{
+            h3{
+                font-size: 16px !important;
+                
+            }
+        }
+    }
+}

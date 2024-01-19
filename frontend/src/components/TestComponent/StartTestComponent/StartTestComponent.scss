@@ -1,7 +1,13 @@
 $Purple-Text: #52389d;
 $Main-Orange: #f97432;
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+$Ad-Background-Color: #cfcfcf;
 
 .StartTestComponent {
+    width: 99vw !important;
     display: flex;
     justify-content: center;
     .StartTestComponent-Wrapper{
@@ -109,8 +115,44 @@ $Main-Orange: #f97432;
             }
         }
 
+        .StartTest-ViewTest{
+            .ViewTest-Label{
+                text-align: center;
+                color: $Main-Orange;
+                h1{
+                    font-weight: bold;
+                    font-size: 40px;
+                }
+            }
+            .ViewTest-Content{
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                .TestFind-Button{
+                    color: white;
+                }
+            }
+        }
+
         .StartTest-Button{
             margin: 10px 0 40px 0;
+        }
+
+        .StartTestComponent-Ad{
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .Ad-Ad{
+                width: 100%;
+                background-color: $Ad-Background-Color;
+                height: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+            }
         }
     }
 }

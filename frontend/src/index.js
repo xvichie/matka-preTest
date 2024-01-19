@@ -18,12 +18,20 @@ import AlgebraScreen from './screens/TheoryScreen/AlgebraScreen/AlgebraScreen';
 import TheoremComponent from './components/TheoremComponent/TheoremComponent';
 import ThesisScreen from './screens/TheoryScreen/ThesisScreen/ThesisScreen';
 import TeachersScreen from './screens/TeachersScreen/TeachersScreen';
+import ViewTestScreen from './screens/TestScreen/ViewTestScreen/ViewTestScreen.jsx';
+import AboutUsScreen from './screens/AboutUsScreen/AboutUsScreen.jsx';
+import ViewTeacherScreen from './screens/TeachersScreen/ViewTeacherScreen/ViewTeacherScreen.jsx';
+import SolutionsScreen from './screens/SolutionsScreen/SolutionsScreen.jsx';
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<App />}>
     <Route index={true} path='/' element={<HomeScreen />}></Route>
     <Route path='profile' element={<ProfileScreen />}></Route>
-    <Route path='test' element={<Test />}></Route>
+    <Route path='aboutUs' element={<AboutUsScreen />}></Route>
+    <Route path='test'>
+      <Route index={true} element={<Test />}></Route>
+      <Route path=":TestId" element={<ViewTestScreen />} />
+    </Route>
     <Route path='theory'>
       <Route index={true} element={<TheoryScreen />}></Route>
       <Route path='geometry'>
@@ -41,6 +49,10 @@ const router = createBrowserRouter(createRoutesFromElements(
     </Route>
     <Route path='teachers'>
       <Route index={true} element={<TeachersScreen />}></Route>
+      <Route path=':TeacherId' element={<ViewTeacherScreen />}></Route>
+    </Route>
+    <Route path='solutions'>
+      <Route index={true} element={<SolutionsScreen />}></Route>
     </Route>
   </Route>
 ))

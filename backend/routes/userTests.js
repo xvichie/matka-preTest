@@ -32,4 +32,22 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/getTestById/:id', async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      // Assuming YourModel is the Mongoose model representing your MongoDB collection
+      const test = await userModel.findById(id);
+  
+      if (!test) {
+        return res.status(404).json({ message: 'Test not found' });
+      }
+  
+      // If the test with the given _id is found, return it
+      res.status(200).json(test);
+    } catch (error) {
+      // Handle any potential errors
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
 module.exports = router;
