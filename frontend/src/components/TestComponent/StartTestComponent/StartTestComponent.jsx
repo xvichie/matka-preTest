@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 import AdPlaceholderComponent from '../../AdPlaceholderComponent/AdPlaceholderComponent';
+import { GetVersions } from '../../../services/test/GetTestInfo';
 
 
 console.log(SimilarJSON);
@@ -410,6 +411,7 @@ function StartTestComponent({ isLoadingSetter }) {
 
     const handleYearChange = (event) => {
         setYear(event.target.value);
+        setVersion(1)
         console.log(year);
     };
     const handleVersionChange = (event) => {
@@ -417,11 +419,6 @@ function StartTestComponent({ isLoadingSetter }) {
         console.log(version);
     };
     console.log(value);
-
-    const getVersions = (Year) => {
-        const VersionInfoJSON = require('../../../assets/' + Year + '/info.json');
-        return Array.from({ length: VersionInfoJSON['NumberOfVersionsInThatYear'] }, (_, i) => i + 1)
-    }
 
     console.log(useSelector((state) => state.test.problems))
 
@@ -606,7 +603,7 @@ function StartTestComponent({ isLoadingSetter }) {
                                             label="Version"
                                             onChange={handleVersionChange}
                                         >
-                                            {getVersions(year).map((Version, index) => {
+                                            {GetVersions(year).map((Version, index) => {
                                                 return (<MenuItem value={Version}>{Version == 1 ? 'I' : Version == 2 ? 'II' : 'III'} ვარიანტი</MenuItem>)
                                             })}
                                         </Select>

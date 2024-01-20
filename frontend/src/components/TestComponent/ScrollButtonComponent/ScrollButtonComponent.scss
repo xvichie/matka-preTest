@@ -8,16 +8,24 @@
     overflow: scroll;
     max-height: 100%;
     width: 75px;
-
+    
+    
     .ScrollButtons-Div {
         display: flex;
         flex-direction: column;
         justify-content: center;
-
-        .ScrollButtons-Button {
-            max-width: 40px;
-            height: 40px;
+        align-items: center;
+        .ScrollButtons-Button{
+            width: 60px !important;
+            height: 40px !important;
+            align-items: center;
+            display: flex;
+            justify-content: center;
             margin-bottom: 2px;
+            border-radius: 5px;
+        }
+        .ScrollButtons-Button:hover{
+            cursor: pointer;
         }
     }
 }
@@ -30,10 +38,22 @@
     background: gray;
 }
 
-@media only screen and (max-width: 1000px) {
-    .ScrollButtons-Button {
-        width: 20px;
-        height: 20px;
+
+@media (max-width: 1000px) {
+    .ScrollButtons {
+        width: 50px !important;
+        right: 0px !important;
+        .ScrollButtons-Div {
+            width: 100%;
+            .ScrollButtons-Button {
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 14px !important;
+            }
+        }
+    }
+    .ScrollButtons::-webkit-scrollbar {
+        width: 0px !important;
     }
 }
 

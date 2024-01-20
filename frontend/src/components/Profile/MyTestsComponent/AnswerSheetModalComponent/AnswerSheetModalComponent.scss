@@ -22,9 +22,97 @@ $Second-Background-Color: #f7e8d5;
     color: white;
 }
 
+.AnswerSheetModal-TopStats{
+    .TopStats-Label{
+        text-align: center;
+        margin-bottom: 30px;
+        h1{
+            color: $Main-Text-Color;
+            font-weight: bold;
+        }
+        h3{
+            color: $Background-Color;
+            font-size: 20px;
+        }
+    }
+    .CloseButton{
+        color: white;
+        margin-top: 20px;
+    }
+}
+
+.AnswerSheet-Box{
+    width: 80%;
+    height: 90%;
+    border: 2px solid #000;
+    box-shadow: 24px;
+    overflow: scroll;
+    border-radius: 10px;
+}
+
+.AnswersLabel{
+    text-align: center;
+    font-size: 30px;
+    margin: 30px 0;
+    color: $Main-Text-Color;
+    font-weight: bold;
+}
+
+@media (max-width:1000px) {
+    .AnswerSheet-Box{
+        width: 95% !important;
+        height: 90%;
+    }
+}
+
 @media (max-width:950px) {
     .AnswerSheet-Button{
         width: 100% !important;
         margin-left: 0px !important;
+    }
+}
+
+@media (max-width:700px) {
+    .RowContent{
+        font-size: 20px !important;
+            h5{
+                font-size: 16px !important;
+            }
+    }
+    .Main-Table{
+        max-width: 95% !important;
+    }
+    .css-3r0zdw-MuiTable-root{
+        min-width: 95% !important;
+    }
+    .AnswerSheet-Box{
+        height: 98% !important;
+    }
+}
+
+@media (max-width:420px) {
+    .css-1lvjgg8-MuiTable-roo{
+        max-width: 90% !important;
+    }
+    .RowContent{
+        font-size: 10px !important;
+            h5{
+                font-size: 10px !important;
+            }
+    }
+    .Main-Table{
+        max-width: 100% !important;
+    }
+    .css-3r0zdw-MuiTable-root{
+        min-width: 95% !important;
+    }
+    .TableCrits{
+        font-size: 10px !important;
+        line-height: 14px !important;
+
+            h5{
+                font-size: 10px !important;
+                line-height: 12px !important;
+            }
     }
 }

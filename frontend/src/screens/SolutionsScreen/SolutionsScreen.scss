@@ -1,7 +1,136 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+$Ad-Background-Color: #cfcfcf;
+
 .SolutionsScreen{
     display: flex;
     justify-content: center;
     .SolutionsScreen-Wrapper{
         width: 85%;
+        .SolutionsScreen-Label{
+            text-align: center;
+            margin-bottom: 20px;
+            h1{
+                font-size: 48px;
+                font-weight: bold;
+                color: $Main-Text-Color;
+            }
+        }
+        .SolutionsScreen-Content{
+            .Content-Choose{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                row-gap: 10px;
+                column-gap: 10px;
+                margin-bottom: 10px;
+                .SearchProblemButton{
+                    color: white;
+                    height: 56px !important;
+                }
+            }
+            .Content-Statement {
+                position: relative;
+                margin-bottom: 20px;
+
+                .ProblemLabel {
+                    position: absolute;
+                    top: 6.4%;
+                    left: 4.25%;
+                    z-index: 1;
+    
+                    h3 {
+                        font-size: 28px;
+                    }
+                }
+    
+                .PDFButtons {
+                    width: 100%;
+                    display: flex;
+                    position: absolute;
+                    bottom: 10%;
+                    justify-content: center;
+                }
+            }
+            .Content-Statement-Placeholder{
+                margin: 20px 0;
+                height: 250px;
+                border: 2px solid $Main-Text-Color;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 48px;
+                border-radius: 15px;
+                color: $Main-Text-Color;
+                transition: all 0.3s ease;
+                .SearchIcon{
+                    height: 128px;
+                    width: 128px;
+                    color: $Main-Text-Color;
+                    transition: all 0.3s ease;
+                }
+            }
+            .Content-Statement-Placeholder:hover{
+                background-color: $Main-Text-Color;
+                color: white;
+                cursor: pointer;
+                .SearchIcon{
+                    color: white;
+                }
+            }
+        }
     }
 }
+
+.WholeDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width:800px) {
+    .Content-Statement-Placeholder{
+        font-size: 32px !important;
+        .SearchIcon{
+            height: 96px !important;
+            width: 96px !important;
+        }
+    }
+}
+
+@media (max-width:630px) {
+    .Content-Choose{
+        grid-template-columns: 1fr !important;
+        row-gap: 15px !important;
+    }
+}
+
+@media (max-width:600px) {
+    .SolutionsScreen-Wrapper{
+        width: 95% !important;
+    }
+    .Content-Statement-Placeholder{
+        font-size: 28px !important;
+        .SearchIcon{
+            height: 80px !important;
+            width: 80px !important;
+        }
+    }
+}
+
+@media (max-width:450px) {
+    .SolutionsScreen-Wrapper{
+        width: 95% !important;
+    }
+    .Content-Statement-Placeholder{
+        font-size: 20px !important;
+        .SearchIcon{
+            height: 64px !important;
+            width: 64px !important;
+        }
+    }
+}
+
+
+

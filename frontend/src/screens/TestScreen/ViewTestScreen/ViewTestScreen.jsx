@@ -17,6 +17,9 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
+import SolutionsJSON from '../../../assets/SolutionURLsForEveryTest.json';
+import SolutionComponent from '../../../components/TestComponent/SolutionComponent/SolutionComponent';
+
 function ViewTestScreen() {
 
   const params = useParams();
@@ -89,8 +92,7 @@ function ViewTestScreen() {
                                         Problem={problem} />
                                     <div className="PDFButtons">
                                         <ButtonGroup variant="outlined" aria-label="outlined primary button group">
-                                            {/* <Button className='Test-SolutionButton' style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}><EmojiObjectsIcon></EmojiObjectsIcon>ამოხსნა</Button> */}
-                                            {/* <SimilarModalComponent ButtonIcon={ContentCopyIcon} index={index} currentTest={currentTest} ViewedIn={'MyTests'}></SimilarModalComponent> */}
+                                            <SolutionComponent color='secondary' ViewedIn={'TestViewer'} index={index} ButtonIcon={EmojiObjectsIcon} VideoURL={SolutionsJSON[problem.Year][problem.Version][problem.Problem+1]} ></SolutionComponent>
                                         </ButtonGroup>
                                     </div>
                                 </div>

@@ -4,69 +4,52 @@ $Subtle-Text-Color: #ffe5d9;
 $Second-Background-Color: #f7e8d5;
 $Ad-Background-Color: #cfcfcf;
 
-.SolutionOuterBox{
+.SimilarOuterBox{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 90%;
-    height: "90%";
-    border: '2px solid #000';
+    height: 90%;
+    border: 2px solid #000;
     box-shadow: 24px;
     padding: 4px;
-    overflow: 'scroll';
+    overflow: scroll;
     border-radius: 10px;
-    .SolutionBox{
+    .SimilarBox{
         text-align: center;
         align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         height: 95%;
         width: 95%;
-        .SolutionBox-Title{
+        .SimilarBox-Title{
+            width: 100%;
+            margin-bottom: 20px;
             h1{
                 font-weight: bold;
                 color: $Background-Color;
             }
-        }
-        .SolutionBox-VideoPlayer{
-            width: 100% !important;
-            height: 80% !important;
-        }
-        .SolutionBox-Bottom{
-            width: 100%;
-            display: flex;
-            height: 50px;
-            justify-content: space-between;
-            align-items: center;
-            h5{
-                color: $Background-Color;
-                margin-bottom: 0;
-            }
             .CloseModalButton{
                 color: white;
-            }
-            a:hover{
-                text-decoration: underline;
             }
         }
     }
 }
 
 
+.EmptySimilarsPlaceholder{
+    .NotFoundIcon{
+        height: 64px;
+        width: 64px;
+    }
+    font-size: 24px;
+    font-weight: bold;
+    color: $Background-Color;
+}
+
 @media (max-width: 650px) {
-    .SolutionOuterBox{ 
+    .SimilarOuterBox{ 
         width: 95% !important;
         height: 95% !important;
-        
-        .SolutionBox-Bottom{
-            flex-direction: column !important;
-            height: 120px !important;
-            justify-content: space-around !important;
-            .CloseModalButton{
-                width: 100%;
-            }
-        }
     }    
 }
 

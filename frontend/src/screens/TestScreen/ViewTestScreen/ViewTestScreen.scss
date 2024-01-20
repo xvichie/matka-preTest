@@ -1,7 +1,9 @@
 $Background-Color: #52389D;
 $Main-Text-Color: #F97432;
-$Subtle-Text-Color: #ffe5d9;
-$Second-Background-Color: #f7e8d5;
+$Subtle-Text-Color: #8b8b8b;
+$Second-Background-Color: #f1f0f3;
+$Ad-Background-Color: #cfcfcf;
+$Big-Text-Subtle-Color: #555555;
 
 
 .ViewTestScreen{
@@ -15,8 +17,17 @@ $Second-Background-Color: #f7e8d5;
             h1{
                 font-size: 32px;
                 font-weight: bold;
+                color: $Big-Text-Subtle-Color;
                 span{
                     color: $Main-Text-Color;
+                }
+            }
+            h3{
+                font-size: 20px;
+                font-weight: bold;
+                color: $Big-Text-Subtle-Color;
+                span{
+                    color: $Background-Color;
                 }
             }
         }
@@ -37,7 +48,7 @@ $Second-Background-Color: #f7e8d5;
             // height: 700px;
             overflow: scroll;
             position: relative;
-
+            margin-top: 10px;
             .MyTests-TestViewer-Test {
                 position: relative;
 
@@ -94,6 +105,17 @@ $Second-Background-Color: #f7e8d5;
         }
     }
 
+@media (max-width:700px) {
+    .ViewTestScreen-Labels{
+        h1{
+            font-size: 20px !important;
+        }
+        h3{
+            font-size: 14px !important;
+        }
+    }
+}
+
 @media (max-width:600px) {
     .ChooseTest-Placeholder{
         font-size: 40px !important;
@@ -101,6 +123,9 @@ $Second-Background-Color: #f7e8d5;
             height: 72px !important;
             width: 72px !important;
         }
+    }
+    .MyTests-TestViewer-Tests {
+        margin-top: 20px !important;
     }
 }
 

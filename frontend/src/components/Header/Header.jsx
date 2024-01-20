@@ -16,6 +16,7 @@ import CoPresentIcon from '@mui/icons-material/CoPresent';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import LoginIcon from '@mui/icons-material/Login';
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
+import InfoIcon from '@mui/icons-material/Info';
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -48,7 +49,7 @@ function Header() {
                     <Navbar.Collapse id='basic-navbar-nav'>
                         <Nav className="ms-auto">
 
-                            <MuiSwitch></MuiSwitch>
+                            {/* <MuiSwitch></MuiSwitch> */}
 
                             <NavLink to={'/teachers'} className='Nav-Item'>
                                 <LinkContainer to={'/teachers'}>
@@ -71,13 +72,13 @@ function Header() {
                                     </>
                                 </LinkContainer>
                             </NavLink>
-                            <NavLink to={'/test'} className='Nav-Item'>
+                            <NavLink to={'/test'} className='Nav-Item' style={{marginRight:'15px'}}>
                                 <LinkContainer to={'/test'}>
                                     <>
                                             <AssignmentIcon sx={{ mr: 0.5 }}></AssignmentIcon> ტესტი
                                     </>
                                 </LinkContainer>
-                            </NavLink>
+                            </NavLink >
                             
                             {isAuthenticated == false ?
                             

@@ -11,6 +11,8 @@ import PDFViewer from '../../TestComponent/ProblemComponent/PDFViewer';
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
+import SolutionsJSON from '../../../assets/SolutionURLsForEveryTest.json';
+
 import {toast} from 'react-toastify';
 
 import './MyTestsComponent.scss';
@@ -22,6 +24,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import SimilarModalComponent from './SimilarModalComponent/SimilarModalComponent';
 import { useTheme } from '@emotion/react';
 import AnswerSheetModalComponent from './AnswerSheetModalComponent/AnswerSheetModalComponent';
+import SolutionComponent from '../../TestComponent/SolutionComponent/SolutionComponent';
 
 function MyTestsComponent() {
 
@@ -97,12 +100,12 @@ function MyTestsComponent() {
                 <div className="Dropdown-Top">
                     <Dropdown >
                         <Dropdown.Toggle style={{ backgroundColor: theme.palette.primary.main,height:'100%' }} disabled={!(tests.length > 0)} variant="success" id="dropdown-basic">
-                            {currentTest === null ? ("აირჩიე ტესტი") : tests[currentTest]._id}
+                            {currentTest === null ? ("აირჩიე ტესტი") : 'ტესტი #'+(currentTest+1)+' ('+tests[currentTest]._id+')'}
                         </Dropdown.Toggle>
                         <Dropdown.Menu style={{ maxHeight: '200px', overflow: 'scroll' }}>
                             {tests.map((test, index) => (
                                 <div key={test._id}>
-                                    <Dropdown.Item eventKey={index} onClick={() => setCurrentTest(index)}>ტესტი:{test._id}</Dropdown.Item>
+                                    <Dropdown.Item eventKey={index} onClick={() => setCurrentTest(index)}>ტესტი #{(index+1)}{' ('}{test._id}{')'}</Dropdown.Item>
                                 </div>
                             ))}
                         </Dropdown.Menu>
@@ -149,7 +152,7 @@ function MyTestsComponent() {
                                         Problem={problem} />
                                     <div className="PDFButtons">
                                         <ButtonGroup variant="outlined" aria-label="outlined primary button group">
-                                            <Button className='Test-SolutionButton' style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}><EmojiObjectsIcon></EmojiObjectsIcon>ამოხსნა</Button>
+                                            <SolutionComponent color='secondary' ViewedIn={'Test'} index={index} ButtonIcon={EmojiObjectsIcon} VideoURL={SolutionsJSON[problem.Year][problem.Version][problem.Problem+1]} ></SolutionComponent>
                                             <SimilarModalComponent ButtonIcon={ContentCopyIcon} index={index} currentTest={currentTest} ViewedIn={'MyTests'}></SimilarModalComponent>
                                         </ButtonGroup>
                                     </div>

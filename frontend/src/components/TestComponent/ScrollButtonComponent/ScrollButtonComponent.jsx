@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import './ScrollButtonComponent.scss';
 import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
-import { useTheme } from '@emotion/react';
 
 function ScrollButtonComponent({ problems }) {
     const containerRef = useRef(null);
@@ -54,7 +53,6 @@ function ScrollButtonComponent({ problems }) {
         };
     }, []);
 
-    const theme = useTheme()
 
     return (
         <div style={{ top: hasScrolled ? '0px' : '60px' }} className='ScrollButtons' ref={containerRef}>
@@ -63,11 +61,29 @@ function ScrollButtonComponent({ problems }) {
                     // console.log('chosenAnswers ', index, '-', chosenAnswers[index]);
                     // console.log(translateAnswer(answers[index]));
                     return (
-                        <Button
-                            color={
-                                (chosenAnswers[index] !== '') ? (translateAnswer(answers[index]) !== '' ? (chosenAnswers[index] === translateAnswer(answers[index]) ? 'success' : 'error') : 'success') : 'custom_gray'
-                            }
-                            style={{ border: '1.5px solid', fontWeight: 'bold' }}
+                        <div
+                            style={{
+                                border: `2px solid ${
+                                    chosenAnswers[index] !== ''
+                                        ? translateAnswer(answers[index]) !== ''
+                                            ? chosenAnswers[index] === translateAnswer(answers[index])
+                                                ? '#4caf50'
+                                                : '#ba000d'
+                                            : '#4caf50'
+                                        : '#828282'
+                                }`,
+                                fontWeight: chosenAnswers[index] !== ''
+                                    ? 'bold'
+                                    : '200',
+                                color: 
+                                    chosenAnswers[index] !== ''
+                                        ? translateAnswer(answers[index]) !== ''
+                                            ? chosenAnswers[index] === translateAnswer(answers[index])
+                                                ? '#4caf50'
+                                                : '#ba000d'
+                                            : '#4caf50'
+                                        : '#828282'
+                            }}
                             className='ScrollButtons-Button'
                             // variant={(chosenAnswers[index] !== '') ? 'contained' : 'outlined'}
                             variant='outlined'
@@ -80,7 +96,8 @@ function ScrollButtonComponent({ problems }) {
                             }}
                         >
                             {index + 1}
-                        </Button>
+                        </div>
+
                     )
                 })}
             </div>

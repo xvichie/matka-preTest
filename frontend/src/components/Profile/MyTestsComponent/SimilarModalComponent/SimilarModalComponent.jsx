@@ -10,6 +10,10 @@ import PDFViewer from '../../../TestComponent/ProblemComponent/PDFViewer';
 import { useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 
+import SearchOffIcon from '@mui/icons-material/SearchOff';
+
+import './SimilarModalComponent.scss';
+
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
         children,
@@ -56,13 +60,8 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '80%',
-    height: '90%',
     bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
     p: 4,
-    overflow: 'scroll'
 };
 
 export default function SimilarModalComponent({ index, ButtonIcon, currentTest, ViewedIn }) {
@@ -113,10 +112,11 @@ export default function SimilarModalComponent({ index, ButtonIcon, currentTest, 
         }
     }, [])
 
+    console.log(objectProblems);
+
     return (
-        <div>
+        <div className='WholeDiv'>
             <Button className='Test-SimilarsButton' style={{ borderTopRightRadius: '50px', borderBottomRightRadius: '50px' }} onClick={handleOpen}>მსგავსი <ButtonIcon /></Button>
-            {/* <IconButton style={{ padding: 0 }} onClick={handleOpen}><ButtonIcon /></IconButton> */}
             <Modal
                 aria-labelledby="spring-modal-title"
                 aria-describedby="spring-modal-description"
@@ -131,11 +131,29 @@ export default function SimilarModalComponent({ index, ButtonIcon, currentTest, 
                 }}
             >
                 <Fade in={open}>
-                    <Box sx={style}>
-                        {objectProblems !== null && objectProblems !== undefined && objectProblems.map((problem, index) => {
-                            //console.log(problem)
-                            return (<PDFViewer id={'problem-' + index} key={'problem- ' + index} Problem={problem}></PDFViewer>)
-                        })}
+                    <Box sx={style} className='SimilarOuterBox'>
+                        <div className="SimilarBox">
+                            <div className="SimilarBox-Title">
+                                <h1>
+                                    მსგავსი ამოცანები
+                                </h1>
+                                <Button 
+                                fullWidth
+                                variant='contained' className='CloseModalButton' onClick={handleClose}>
+                                    დახურვა
+                                </Button>
+                            </div>
+                            {objectProblems !== null && objectProblems !== undefined && objectProblems.length === 0 ? (
+                                <div className="EmptySimilarsPlaceholder">
+                                    <SearchOffIcon className='NotFoundIcon'></SearchOffIcon>სამწუხაროდ, მსგავსი ამოცანები ვერ მოიძებნა
+                                </div>
+                            ) : (
+                                objectProblems.map((problem, index) => {
+                                    console.log(problem);
+                                    return <PDFViewer id={'problem-' + index} key={'problem-' + index} Problem={problem}></PDFViewer>;
+                                })
+                            )}
+                        </div>
                     </Box>
                 </Fade>
             </Modal>

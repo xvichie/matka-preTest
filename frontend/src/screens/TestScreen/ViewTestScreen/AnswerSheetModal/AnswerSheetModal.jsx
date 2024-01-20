@@ -96,6 +96,7 @@ export default function AnswerSheetModal({ index, ButtonIcon, Test }) {
 
     console.log(Test);
     const test = Test.test[0];
+    const testId=test._id;
     //console.log(test);
     useEffect(() => {
         const newRows = [];
@@ -137,17 +138,58 @@ export default function AnswerSheetModal({ index, ButtonIcon, Test }) {
                     },
                 }}
             >
+                
                 <Fade in={open}>
                     <Box sx={style}>
+                        <div className="AnswerSheetModal-TopStats">
+                            <div className="TopStats-Label">
+                                <h1>პასუხების ფურცელი</h1>
+                                <h3>ტესტის Id: {testId}</h3>
+                            </div>
+                            <div className="TopStats-Stats">
+                                <TableContainer component={Paper}>
+                                    <Table>
+                                        <TableHead>
+                                            <TableRow>
+                                                <TableCell className='TableCrits' align="center"><strong>ტესტის #</strong></TableCell>
+                                                <TableCell className='TableCrits' align="center"><strong>მაქს. ქულა</strong></TableCell>
+                                                <TableCell className='TableCrits' align="center"><strong>აღებული ქულა</strong></TableCell>
+                                                <TableCell className='TableCrits' align="center"><strong>გასული დრო:</strong></TableCell>
+                                            </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell align="center">{1}</TableCell>
+                                                <TableCell align="center">{test.maxScore}</TableCell>
+                                                <TableCell align="center">{test.score} </TableCell>
+                                                <TableCell align="center">{(test.time/60/100).toFixed(0)} წთ</TableCell>
+                                                {/* <TableCell align="center">{test.time} წთ</TableCell> */}
+                                            </TableRow>
+                                        </TableBody>
+                                    </Table>
+                                </TableContainer>
+                            </div>
+                            <Button
+                            fullWidth
+                            variant='contained'
+                            className='CloseButton'
+                            onClick={handleClose}
+                            >
+                            დახურვა
+                            </Button>
+                        </div>
+                        <h1 className='AnswersLabel'>
+                            პასუხები
+                        </h1>
                         <TableContainer component={Paper}>
-                            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                                <TableHead>
-                                <TableRow>
-                                    <TableCell align="center"><strong>#</strong></TableCell>
-                                    <TableCell align="center"><strong>არჩეული პასუხი</strong></TableCell>
-                                    <TableCell align="center"><strong>სწორი პასუხი</strong></TableCell>
-                                    <TableCell align="center"><strong>ქულა</strong></TableCell>
-                                </TableRow>
+                            <Table aria-label="simple table" className='Main-Table'>
+                                <TableHead className='TableHead'>
+                                    <TableRow>
+                                        <TableCell className='TableCrits' align="center"><strong>#</strong></TableCell>
+                                        <TableCell className='TableCrits' align="center"><strong>არჩეული პასუხი</strong></TableCell>
+                                        <TableCell className='TableCrits' align="center"><strong>სწორი პასუხი</strong></TableCell>
+                                        <TableCell className='TableCrits' align="center"><strong>ქულა</strong></TableCell>
+                                    </TableRow>
                                 </TableHead>
                                 <TableBody>
                                 {rows.map((row) => (
@@ -155,20 +197,28 @@ export default function AnswerSheetModal({ index, ButtonIcon, Test }) {
                                     key={test._id+' '+row[0]+" "+row[1]+" "+row[2]}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
-                                        <TableCell align="center" component="th" scope="row">
+                                        <TableCell 
+                                        className='RowContent'
+                                        align="center" component="th" scope="row">
                                             <h5>{row[0]+1}</h5>
                                         </TableCell>
-                                        <TableCell align="center">
+                                        <TableCell 
+                                        className='RowContent'
+                                        align="center">
                                             <h5>
                                             {translateAnswer(row[2]) !== '' ? translateAnswer(row[2]) : 'არ იყო არჩეული'}
                                             </h5>
                                         </TableCell>
-                                        <TableCell align="center">
+                                        <TableCell 
+                                        className='RowContent'
+                                        align="center">
                                             <h5>
                                             {translateAnswer(row[1])}
                                             </h5>
                                         </TableCell>
-                                        <TableCell align="center">
+                                        <TableCell 
+                                        className='RowContent'
+                                        align="center">
                                             <h5>
                                             {translateAnswer(row[1]) == translateAnswer(row[2]) ?
                                                 <CheckCircleIcon color='success'></CheckCircleIcon>
@@ -181,13 +231,18 @@ export default function AnswerSheetModal({ index, ButtonIcon, Test }) {
                                 ))}
                                 {ImageRows.map((imageRow,index) => (
                                     <TableRow
+                                    className='RowContent'
                                     key={index+' '+imageRow[0]+" "+imageRow[1]+" "}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
-                                        <TableCell align="center" component="th" scope="row">
+                                        <TableCell
+                                        className='RowContent'
+                                        align="center" component="th" scope="row">
                                             <h5>{imageRow[0]+1}</h5>
                                         </TableCell>
-                                        <TableCell align="center" component="th" scope="row">
+                                        <TableCell 
+                                        className='RowContent'
+                                        align="center" component="th" scope="row">
                                             <h5>
                                                 {imageRow[1] !== '' ? (
                                                 <>
@@ -206,9 +261,13 @@ export default function AnswerSheetModal({ index, ButtonIcon, Test }) {
                                                 )}
                                             </h5>
                                             </TableCell>
-                                        <TableCell align="center" component="th" scope="row">
+                                        <TableCell
+                                        className='RowContent'
+                                        align="center" component="th" scope="row">
                                         </TableCell>
-                                        <TableCell align="center" component="th" scope="row">
+                                        <TableCell
+                                        className='RowContent'
+                                        align="center" component="th" scope="row">
                                             {imageRow[1] != '' ?
                                                 <CheckCircleIcon color='success'></CheckCircleIcon>
                                                 :

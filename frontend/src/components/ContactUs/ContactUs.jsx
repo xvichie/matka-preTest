@@ -72,7 +72,7 @@ function ContactUs() {
   };
 
   return (
-    <div className='ContactUs'>
+    <div className='ContactUs' id='contactUsComponent'>
         <div className="ContactUs-Wrapper">
             <div className="ContactUs-Label">
                 <h1>დაგვიკავშირდით</h1>

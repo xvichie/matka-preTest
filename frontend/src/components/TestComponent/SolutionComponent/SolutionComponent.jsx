@@ -62,16 +62,10 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: "90%",
-    height: "90%",
     bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-    overflow: 'scroll'
 };
 
-export default function SolutionComponent({ ButtonIcon, VideoURL }) {
+export default function SolutionComponent({ ButtonIcon, VideoURL, ViewedIn }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -82,9 +76,21 @@ export default function SolutionComponent({ ButtonIcon, VideoURL }) {
     style.height = height*90/100;
     //console.log(VideoURL);
     return (
-        <div>
+        <div className='WholeDiv'>
             {/* <Button onClick={handleOpen}><ButtonIcon /></Button> */}
-            <Button style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px'  }} variant='outlined' onClick={handleOpen}><ButtonIcon />ამოხსნა</Button>
+                <Button
+                    className='OuterButton'
+                    style={{
+                        borderTopLeftRadius: '50px',
+                        borderBottomLeftRadius: '50px',
+                        borderTopRightRadius: ViewedIn === 'TestViewer' ? '50px' : '0',
+                        borderBottomRightRadius: ViewedIn === 'TestViewer' ? '50px' : '0'
+                    }}
+                    variant='outlined'
+                    onClick={handleOpen}
+                >
+                <ButtonIcon className='OuterIcon' />ამოხსნა
+                </Button>
             <Modal
                 aria-labelledby="spring-modal-title"
                 aria-describedby="spring-modal-description"
@@ -119,7 +125,7 @@ export default function SolutionComponent({ ButtonIcon, VideoURL }) {
                                         გადადი თეორიების გვერდზე
                                     </a>
                                 </h5>
-                                <Button variant='contained' onClick={handleClose}>
+                                <Button variant='contained' className='CloseModalButton' onClick={handleClose}>
                                     დახურვა
                                 </Button>
                             </div>

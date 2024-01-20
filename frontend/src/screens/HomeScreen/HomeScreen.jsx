@@ -32,14 +32,22 @@ function HomeScreen() {
                                 >ტესტის დაწყება</Button>
                             </Link>
                         </div>
+                        <div class="mouse"
+                        onClick={() => {
+                            const element = document.getElementById(`HomeScreenStats`);
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        ><span></span></div>
                     </div>
                 </div>
             </div>
-            <div className="HomeScreen-Stats">
+            <div className="HomeScreen-Stats" id='HomeScreenStats'>
                 <div className="Stats-Wrapper">
                     <div className='Stats-Div'>
                         <div className="Stats-Icon">
-                            <Link to={'/test'}>
+                            <Link to={'/solutions'}>
                                 <PercentIcon className='Icon'></PercentIcon>
                             </Link>
                         </div>
@@ -224,6 +232,12 @@ function HomeScreen() {
                                     <Button
                                      className='HomeScreenButton' 
                                     color='primary'
+                                    onClick={() => {
+                                        const element = document.getElementById(`contactUsComponent`);
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
                                     variant='contained'>
                                         მოგვწერე წერილი
                                     </Button>

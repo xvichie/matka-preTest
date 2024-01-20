@@ -1,7 +1,212 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #8b8b8b;
+$Second-Background-Color: #f1f0f3;
+$Ad-Background-Color: #cfcfcf;
+$Big-Text-Subtle-Color: #555555;
+
 .AboutUsScreen{
     display: flex;
     justify-content: center;
     .AboutUsScreen-Wrapper{
         width: 85%;
+        .AboutUs-Labels{
+            margin-top: 10px;
+            h1{
+                text-align: center;
+                color: $Main-Text-Color;
+                font-weight: bold;
+            }
+        }
+        .AboutUs-AboutMain{
+            h3{
+                color: $Main-Text-Color;
+                font-weight: bold;
+            }
+            h6{
+                color: $Big-Text-Subtle-Color;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+        }
+        .AboutUs-OurTeam{
+            h1{
+                color: $Main-Text-Color;
+                text-align: center;
+                font-weight: bold;
+                margin: 30px 0;
+            }
+        }
+        .AboutUs-OurTeam-Content{
+            display: grid;
+            ul{
+                list-style-type: none;
+                padding-left: 0;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                row-gap: 15px;
+                .OurTeam-Label{
+                    text-align: center;
+                    h3{
+                        color: $Main-Text-Color;
+                        font-weight: bold;
+                    }
+                    h6{
+                        color: $Background-Color
+                    }
+                }
+                .OurTeam-Job{
+                    color: $Big-Text-Subtle-Color;
+                    ul{
+                        text-align: center;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+        .AboutUs-Companies{
+            margin: 10px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            img{
+                background-color: $Background-Color;
+                border: 10px solid $Main-Text-Color;
+                padding: 10px;
+                border-radius: 20px;
+                width: 95;
+                transition: all 0.3s ease;
+            }
+            img:hover{
+                background-color: $Main-Text-Color;
+                cursor: pointer;
+            }
+            h1{
+                text-align: center;
+                font-size: 64px;
+                font-weight: bold;
+                background-color: $Background-Color;
+                height: 100%;
+                width: 95%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border: 10px solid $Main-Text-Color;
+                padding: 10px;
+                border-radius: 20px;
+                color: white;
+                transition: all 0.3s ease;
+            }
+            h1:hover{
+                background-color: $Main-Text-Color;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (max-width:700px) {
+    .AboutUsScreen-Wrapper{
+        width: 95% !important;
+        .AboutUs-OurTeam-Content{
+            ul{
+                grid-template-columns: 1fr 1fr !important;
+            }
+        }
+        .AboutUs-Companies{
+            grid-template-columns: 1fr !important;
+            align-items: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            img{
+                width: 90% !important;
+                margin-bottom: 20px !important;
+            }
+            h1{
+                height: 300px !important;
+                width: 90% !important;
+            }
+        }
+    }
+}
+
+
+@media (max-width:500px) {
+    .AboutUsScreen-Wrapper{
+        width: 95% !important;
+        .AboutUs-OurTeam-Content{
+            ul{
+                grid-template-columns: 1fr !important;
+            }
+        }
+        .AboutUs-Companies{
+            grid-template-columns: 1fr !important;
+            align-items: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            img{
+                width: 95% !important;
+                height: 250px !important;
+            }
+            h1{
+                height: 250px !important;
+                width: 95% !important;
+                font-size: 56px !important;
+            }
+        }
+    }
+}
+
+@media (max-width:400px) {
+    .AboutUsScreen-Wrapper{
+        width: 95% !important;
+        .AboutUs-Labels{
+            margin: 20px 0 !important;
+            h1{
+                text-align: center;
+                color: $Main-Text-Color;
+                font-weight: bold;
+            }
+        }
+        .AboutUs-AboutMain{
+            h3{
+                color: $Main-Text-Color;
+                font-weight: bold;
+                font-size: 20px !important;
+            }
+            h6{
+                color: $Big-Text-Subtle-Color;
+                font-size: 14px !important;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+        }
+        .AboutUs-OurTeam-Content{
+            ul{
+                grid-template-columns: 1fr !important;
+            }
+        }
+        .AboutUs-Companies{
+            grid-template-columns: 1fr !important;
+            align-items: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            img{
+                width: 95% !important;
+                height: 200px !important;
+            }
+            h1{
+                height: 200px !important;
+                width: 95% !important;
+                font-size: 56px !important;
+            }
+        }
     }
 }
