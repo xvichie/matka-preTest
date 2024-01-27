@@ -3,7 +3,6 @@ $Main-Text-Color: #F97432;
 
 header {
     background-color: white;
-    // height: 55px;
     .navbar-brand{
         text-align: center;
         margin-right: 0;
@@ -16,11 +15,22 @@ header {
         margin: 0 8px;
         color:$Text-Color;
         transition: all 0.25s ease;
+        padding: 5px 0;
     }
     .Nav-Login{
         align-items: center !important;
         display: flex;
         justify-content: center;
+        border: 1px solid $Main-Text-Color;
+        padding: 7px 5px;
+        border-radius: 7px;
+        transition: all 0.15s ease;
+    }
+    // And from the left
+    .Nav-Login:hover,
+    .Nav-Login:focus {
+        box-shadow: inset 6.5em 0 0 0 $Main-Text-Color;
+        color: white;
     }
     
     .Nav-Item:hover{
@@ -65,6 +75,9 @@ header {
         // grid-template-columns: 1fr 1fr 1fr;
         .Nav-Item{
             padding: 15px 0;
+        }
+        .Nav-Login{
+            margin: 10px 0;
         }
     }
 }

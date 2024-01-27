@@ -116,7 +116,7 @@ export default function SimilarModalComponent({ index, ButtonIcon, currentTest, 
 
     return (
         <div className='WholeDiv'>
-            <Button className='Test-SimilarsButton' style={{ borderTopRightRadius: '50px', borderBottomRightRadius: '50px' }} onClick={handleOpen}>მსგავსი <ButtonIcon /></Button>
+            <Button className='Test-SimilarsButton OuterButton' variant='outlined' style={{ borderTopRightRadius: '50px', borderBottomRightRadius: '50px' }} onClick={handleOpen}>მსგავსი <ButtonIcon className='OuterIcon' /></Button>
             <Modal
                 aria-labelledby="spring-modal-title"
                 aria-describedby="spring-modal-description"

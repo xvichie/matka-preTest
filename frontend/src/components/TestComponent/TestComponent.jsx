@@ -119,59 +119,49 @@ function TestComponent() {
                 ) : componentOrder === 'Start' ? (
                     <StartTestComponent isLoadingSetter={setIsLoading} />
                 ) : componentOrder === 'Test' ? (
-                    <>
-                        {problems.map((problem, index) => {
-                            //console.log(SolutionsJSON[problem.Year][problem.Version][problem.Problem+1]);
-                            // console.log(index);
-                            // console.log(require('../../assets/' + problem.Year + '/info.json'));
-                            // console.log(require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']);
-                            return (
-                                <div key={'problem-div-' + index} className='TestComponent-Problem'>
-                                    <div className='ProblemLabel'>
-                                        <h3>
-                                            {problem.Problem <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 ? "(1)"
-                                                :
-                                                problem.Problem <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems']
-                                                    ? "(2)"
-                                                    :
-                                                    problem.Problem <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']
-                                                        ? "(3)"
+                    <div className='Test'>
+                        <div className="TestProblems">
+                            <div className="Problems-Problems">
+                                {problems.map((problem, index) => {
+                                    //console.log(SolutionsJSON[problem.Year][problem.Version][problem.Problem+1]);
+                                    // console.log(index);
+                                    // console.log(require('../../assets/' + problem.Year + '/info.json'));
+                                    // console.log(require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']);
+                                    return (
+                                        <div key={'problem-div-' + index} className='TestComponent-Problem'>
+                                            <div className='ProblemLabel'>
+                                                <h3>
+                                                    {problem.Problem <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 ? "(1)"
                                                         :
-                                                        "(4)"}
-                                                        {(index + 1)}
-                                        </h3>
-                                    </div>
-                                    <PDFViewer id={'problem-' + index} key={'problem-' + index} Problem={problem} />
-                                    <div key={'problem-button' + index} className="PDFButtons">
-                                        <ButtonGroup variant="outlined" aria-label="outlined primary button group">
-                                            {/* <Button variant='outlined' color='secondary' className='Test-SolutionButton' style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}><EmojiObjectsIcon></EmojiObjectsIcon>ამოხსნა</Button> */}
-                                            <SolutionComponent color='secondary' ViewedIn={'Test'} index={index} ButtonIcon={EmojiObjectsIcon} VideoURL={SolutionsJSON[problem.Year][problem.Version][problem.Problem+1]} ></SolutionComponent>
-                                            <SimilarModalComponent color='secondary' ButtonIcon={ContentCopyIcon} index={index} ViewedIn={'Test'}></SimilarModalComponent>
-                                        </ButtonGroup>
-                                    </div>
-                                </div>)
-                        })}
-
-                        <Fab
-                            variant="extended"
-                            onClick={toggleDrawer("left", true)}
-                            className='AnswersButton'
-                            color='secondary'
-                        >
-                            <ArticleIcon sx={{ mr: 1 }} />
-                            პასუხები
-                        </Fab>
-                        <Drawer
-                            onRequestChange={(open) => toggleDrawer("left", open)}
-                            anchor={"left"}
-                            open={state["left"]}
-                            onClose={toggleDrawer("left", false)}
-                        >
-                            {list("left")}
-                        </Drawer>
-                        <ScrollButtonComponent problems={problems} />
-                        <ScoreComponent></ScoreComponent>
-                    </>
+                                                        problem.Problem <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems']
+                                                            ? "(2)"
+                                                            :
+                                                            problem.Problem <= require('../../assets/' + problem.Year + '/info.json')['NumberOf1PointProblems'] - 1 + require('../../assets/' + problem.Year + '/info.json')['NumberOf2PointProblems'] + require('../../assets/' + problem.Year + '/info.json')['NumberOf3PointProblems']
+                                                                ? "(3)"
+                                                                :
+                                                                "(4)"}
+                                                                {(index + 1)}
+                                                </h3>
+                                            </div>
+                                            <PDFViewer id={'problem-' + index} key={'problem-' + index} Problem={problem} />
+                                            <div key={'problem-button' + index} className="PDFButtons">
+                                                <ButtonGroup variant="outlined" aria-label="outlined primary button group">
+                                                    {/* <Button variant='outlined' color='secondary' className='Test-SolutionButton' style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}><EmojiObjectsIcon></EmojiObjectsIcon>ამოხსნა</Button> */}
+                                                    <SolutionComponent color='secondary' ViewedIn={'Test'} index={index} ButtonIcon={EmojiObjectsIcon} VideoURL={SolutionsJSON[problem.Year][problem.Version][problem.Problem+1]} ></SolutionComponent>
+                                                    <SimilarModalComponent color='secondary' ButtonIcon={ContentCopyIcon} index={index} ViewedIn={'Test'}></SimilarModalComponent>
+                                                </ButtonGroup>
+                                            </div>
+                                        </div>)
+                                })}
+                            </div>
+                            <div className="Problems-Score">
+                                <ScoreComponent></ScoreComponent>
+                            </div>
+                        </div>
+                        <div className="TestProblemsScroll">
+                            <ScrollButtonComponent problems={problems} />
+                        </div>
+                    </div>
                 ) : (
                     <TestDoneComponent />
                 )}

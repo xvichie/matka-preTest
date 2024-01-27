@@ -1,0 +1,180 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+$Ad-Background-Color: #cfcfcf;
+$Big-Text-Subtle-Color: #555555;
+
+
+.TestDoneComponent{
+    display: flex;
+    justify-content: center;
+    .TestDoneComponent-Wrapper{
+        width: 85%;
+        .TestDone-Label{
+            color: $Main-Text-Color;
+            h1{
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+        .TestDone-Buttons{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 5px;
+            margin: 30px 0;
+            .TestDone-Button{
+                transition: all 0.3s ease;
+            }
+            .TestDone-Button:hover{
+                background-color: $Main-Text-Color;
+                color: white;
+            }
+        }
+        .TestDone-Content{
+            display: flex;
+            justify-content: space-around;
+            .Content-Left{
+                img{
+                    height: 356px;
+                    margin-bottom: 20px;
+                }
+            }
+            .Content-Right{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .Right-Top{
+                    h2{
+                        font-size: 48px;
+                        font-weight: bold;
+                        color: $Background-Color;
+                    }
+                }
+                .Right-Bottom{
+                    ul{
+                        li{
+                            h5{
+                                color: $Big-Text-Subtle-Color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1000px) {
+    .TestDone-Content{
+        flex-direction: column !important;
+        .Content-Left{
+            text-align: center;
+            img{
+                height: 356px;
+                margin-bottom: 20px;
+            }
+        }
+        .Content-Right{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .Right-Top{
+                text-align: center;
+                h2{
+                    font-size: 48px;
+                    font-weight: bold;
+                    color: $Background-Color;
+                }
+            }
+            .Right-Bottom{
+                ul{
+                    li{
+                        h5{
+                            color: $Big-Text-Subtle-Color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .TestDone-Buttons{
+        display: grid;
+        grid-template-columns: 1fr !important;
+        row-gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .TestDoneComponent-Wrapper{
+        width: 95% !important;
+        .TestDone-Content{
+            .Content-Left{
+                img{
+                    height: 256px !important;
+                }
+            }
+            .Content-Right{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .Right-Top{
+                    h2{
+                        font-size: 40px !important;
+                        font-weight: bold;
+                        color: $Background-Color;
+                    }
+                }
+                .Right-Bottom{
+                    ul{
+                        li{
+                            h5{
+                                color: $Big-Text-Subtle-Color;
+                                font-size: 20px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .TestDoneComponent-Wrapper{
+        width: 95% !important;
+        .TestDone-Content{
+            .Content-Left{
+                img{
+                    height: 172px !important;
+                }
+            }
+            .Content-Right{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .Right-Top{
+                    h2{
+                        font-size: 32px !important;
+                        font-weight: bold;
+                        color: $Background-Color;
+                    }
+                }
+                .Right-Bottom{
+                    ul{
+                        li{
+                            h5{
+                                color: $Big-Text-Subtle-Color;
+                                font-size: 18px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

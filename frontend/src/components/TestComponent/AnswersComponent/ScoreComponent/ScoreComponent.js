@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button, Fab } from '@mui/material';
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Drawer, Fab } from '@mui/material';
 
 import { resetChosenAnswers, setComponentOrder, setScore, setTestHasStarted, setTime } from '../../../../slices/TestSlice';
 
@@ -13,13 +13,16 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SportsScoreIcon from '@mui/icons-material/SportsScore';
 import CreditScoreIcon from '@mui/icons-material/CreditScore';
+import ArticleIcon from '@mui/icons-material/Article';
+
 
 import './ScoreComponent.scss';
 import { useTheme } from '@emotion/react';
+import AnswersComponent from '../AnswersComponent';
 
 function ScoreComponent() {
 
-    const { user } = useAuth0();
+    const { user, loginWithRedirect } = useAuth0();
     const dispatch = useDispatch();
 
     const problems = useSelector((state) => state.test.problems);
@@ -82,12 +85,13 @@ function ScoreComponent() {
 
             })
                 .catch(err => console.error(err));
+            dispatch(setComponentOrder('Done'));
+            dispatch(setTestHasStarted(false));
+            localStorage.setItem('TestHasStarted', false);
+            localStorage.clear('TestObject');
+        } else{
+            handleClickOpen();
         }
-        dispatch(setComponentOrder('Done'));
-        dispatch(setTestHasStarted(false));
-        localStorage.setItem('TestHasStarted', false);
-        localStorage.clear('TestObject');
-
 
     }
     const handleStartOver = async () => {
@@ -144,6 +148,57 @@ function ScoreComponent() {
     };
 
     const theme = useTheme()
+
+    const [state, setState] = useState({
+        top: false,
+        left: false,
+        bottom: false,
+        right: false,
+    });
+
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({ ...state, [anchor]: open });
+    };
+
+    const list = (anchor) => (
+        <Box
+            sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 220 }}
+        >
+            <div
+                onClick={(e) => e.stopPropagation()}
+                onKeyDown={(e) => e.stopPropagation()}
+            >
+                <AnswersComponent SimilarsSheet={similars} Problems={problems} AnswersSheet={answers} />
+            </div>
+        </Box>
+    );
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleDontWantToSave = () => {
+        handleClose();
+        dispatch(setComponentOrder('Done'));
+        dispatch(setTestHasStarted(false));
+        localStorage.setItem('TestHasStarted', false);
+        localStorage.clear('TestObject');
+    };
+
+    const handleLoginToSave = () => {
+        loginWithRedirect();
+    }
+
     return (
         <div className='Score'>
             <Fab
@@ -151,14 +206,15 @@ function ScoreComponent() {
                 style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px', borderBottomRightRadius: '0', borderTopRightRadius: '0' }}
                 onClick={handleStartOver}
                 variant="extended"
+                className='NewButton'
             >
-                <ReplayIcon></ReplayIcon>
-                ახლიდან დაწყება
+                <ReplayIcon className='Icon'></ReplayIcon>
+                <span className='ButtonText-Dissapear'>ახლიდან დაწყება</span>
             </Fab>
             <div className='Score-Stats'>
                 <div className='Score-Score' style={{ backgroundColor: theme.palette.secondary.main }}>
                     <div className="Score-Score-Label">
-                        <CreditScoreIcon sx={{ mr: 1 }}></CreditScoreIcon>
+                        <CreditScoreIcon className='Icon' sx={{ mr: 1 }}></CreditScoreIcon>
                     </div>
                     <div className="Score-Score-Score">
                         {score}/{localStorage.getItem('MaxScore')}
@@ -166,7 +222,7 @@ function ScoreComponent() {
                 </div>
                 <div className="Score-Time" style={{ backgroundColor: theme.palette.secondary.main }}>
                     <div className="Score-Time-Label">
-                        <AccessTimeIcon sx={{ mr: 1 }}></AccessTimeIcon>
+                        <AccessTimeIcon className='Icon' sx={{ mr: 1 }}></AccessTimeIcon>
                     </div>
                     <div className="Score-Time-Time">
                         {hours}:{minutes.toString().padStart(2, "0")}:
@@ -175,13 +231,53 @@ function ScoreComponent() {
                 </div>
             </div>
             <Fab
+                            variant="extended"
+                            onClick={toggleDrawer("left", true)}
+                            className='AnswersButton'
+                            color='secondary'
+                        >
+                            <ArticleIcon className='Icon' sx={{ mr: 1 }} />
+                            <span className='ButtonText-Dissapear'>პასუხები</span>
+                        </Fab>
+                        <Drawer
+                            onRequestChange={(open) => toggleDrawer("left", open)}
+                            anchor={"left"}
+                            open={state["left"]}
+                            onClose={toggleDrawer("left", false)}
+                        >
+                            {list("left")}
+                        </Drawer>
+            <Fab
                 style={{ color: 'white', borderTopRightRadius: '50px', borderBottomRightRadius: '50px', borderBottomLeftRadius: '0', borderTopLeftRadius: '0' }}
                 onClick={handleFinish}
                 variant="extended"
                 color='primary'
+                className='FinishButton'
             >
-                დასრულება <SportsScoreIcon sx={{ ml: 1 }} ></SportsScoreIcon>
+                <span className='ButtonText-Dissapear'>დასრულება</span> <SportsScoreIcon className='Icon' sx={{ ml: 1 }} ></SportsScoreIcon>
             </Fab>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">
+                {"Whoops, საიტზე შესვლა დაგავიწყდა..."}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        საიტზე თუ არ შეხვედი შენ საკუთარ ანგარიშზე, ვერ ნახავ შენს დამახსოვრებულ ტესტებს და სტატისტიკას.
+                        როგორ გსურს გაგრძელება?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button variant='outlined' onClick={handleDontWantToSave}>დასრულება შენახვის გარეშე</Button>
+                    <Button variant='outlined' onClick={handleLoginToSave} autoFocus>
+                        შესვლა
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     )
 }

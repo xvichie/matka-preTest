@@ -1,14 +1,4 @@
 .Score {
-    margin-top: 10px;
-    position: fixed;
-    bottom: 30px;
-    width: fit-content;
-    z-index: 500;
-    border-radius: 50px;
-    color: white;
-
-    transform: translateX(50%);
-
     display: flex;
     flex-direction: row;
     justify-content: center !important;
@@ -47,5 +37,165 @@
                 font-size: 28px;
             }
         }
+    }
+    .AnswersButton{
+        border-radius: 0px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .Score-Stats {
+        // width: 200px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .Score-Score {
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            width: 150px;
+            height: 100%;
+            align-items: center;
+
+            .Score-Score-Score {
+                font-size: 20px !important;
+            }
+        }
+
+        .Score-Time {
+            display: flex;
+            width: 150px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            width: 150px;
+            height: 100%;
+            align-items: center;
+
+            .Score-Time-Time {
+                font-size: 20px !important;
+            }
+        }
+    }
+    .AnswersButton{
+        border-radius: 0px;
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .Score{
+        .NewButton{
+            border-radius: 0 !important;
+            font-size: 12px !important;
+            padding: 0 10px !important;
+        }
+        .FinishButton{
+            border-radius: 0 !important;
+            font-size: 12px !important;
+        }
+        .AnswersButton{
+            font-size: 12px !important;
+            padding: 0 10px !important;
+        }
+    }
+    .Score-Stats {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .Score-Score {
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            width: 100px !important;
+            height: 100%;
+            align-items: center;
+
+            .Score-Score-Score {
+                font-size: 20px !important;
+            }
+        }
+
+        .Score-Time {
+            display: flex;
+            width: auto !important;
+            padding: 0 5px !important;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            align-items: center;
+
+            .Score-Time-Time {
+                font-size: 20px !important;
+            }
+        }
+    }
+    .AnswersButton{
+        border-radius: 0px;
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .ButtonText-Dissapear{
+        display: none !important;
+    }
+    .Icon{
+        margin: 0 !important;
+    }
+    .Score{
+        .NewButton{
+            border-radius: 50px 0 0 50px !important;
+            font-size: 12px !important;
+            padding: 0 10px !important;
+        }
+        .FinishButton{
+            border-radius: 0 50px 50px 0 !important;
+            font-size: 12px !important;
+        }
+        .AnswersButton{
+            font-size: 12px !important;
+            padding: 0 10px !important;
+        }
+    }
+    .Score-Stats {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .Score-Score {
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            width: 100px !important;
+            height: 100%;
+            align-items: center;
+
+            .Score-Score-Score {
+                font-size: 20px !important;
+            }
+        }
+
+        .Score-Time {
+            display: flex;
+            width: auto !important;
+            padding: 0 5px !important;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            align-items: center;
+
+            .Score-Time-Time {
+                font-size: 20px !important;
+            }
+        }
+    }
+    .AnswersButton{
+        border-radius: 0px;
+        font-size: 14px !important;
     }
 }

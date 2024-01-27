@@ -29,7 +29,7 @@ import MuiSwitch from './HeaderComponents/MuiSwitch.jsx';
 import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
-    const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+    const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated, getAccessTokenSilently, isLoading } = useAuth0();
     const [isDark, setIsDark] = useState(false);
 
     const dispatch = useDispatch();
@@ -91,7 +91,7 @@ function Header() {
                                 </Link>
                                 :
                                 <Dropdown>
-                                    <Dropdown.Toggle style={{ backgroundColor: theme.palette.primary.main }} variant="success" id="dropdown-basic">
+                                    <Dropdown.Toggle style={{ backgroundColor: theme.palette.primary.main, alignItems:'center' }} variant="success" id="dropdown-basic">
                                         <AccountCircleIcon></AccountCircleIcon> {user && user.name.split('@')[0]}
                                     </Dropdown.Toggle>
 
