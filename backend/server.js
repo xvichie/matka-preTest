@@ -23,18 +23,18 @@ app.use('/api/userTests', userTests);
 app.use('/api/payment', payment);
 app.use('/api/upload-file-to-cloud-storage', uploadImage)
 
-const jwtCheck = jwt({
-    secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: "https://dev-qljylwgr26x23vpc.us.auth0.com/.well-known/jwks.json"
-    }),
-    audience: 'anastasia',
-    issuer: 'https://dev-qljylwgr26x23vpc.us.auth0.com/',
-    algorithms: ['RS256']
-}).unless({ path: ['/'] })
-app.use(jwtCheck);
+// const jwtCheck = jwt({
+//     secret: jwks.expressJwtSecret({
+//         cache: true,
+//         rateLimit: true,
+//         jwksRequestsPerMinute: 5,
+//         jwksUri: "https://dev-qljylwgr26x23vpc.us.auth0.com/.well-known/jwks.json"
+//     }),
+//     audience: 'anastasia',
+//     issuer: 'https://dev-qljylwgr26x23vpc.us.auth0.com/',
+//     algorithms: ['RS256']
+// }).unless({ path: ['/'] })
+// app.use(jwtCheck);
 
 app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
