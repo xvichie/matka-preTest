@@ -37,10 +37,11 @@ app.use('/api/upload-file-to-cloud-storage', uploadImage)
 // app.use(jwtCheck);
 
 // app.use(express.static(path.join(__dirname, 'frontend', 'build')));
-app.use('/', express.static(path.join(__dirname, 'frontend', 'build')));
+app.use(express.static(path.join(process.cwd(), 'frontend', 'build')));
 
+// Serve the index.html file for all routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/../frontend/build/index.html`));
+  res.sendFile(path.join(process.cwd(), 'frontend', 'build', 'index.html'));
 });
 
 
