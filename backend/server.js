@@ -35,14 +35,11 @@ const jwtCheck = jwt({
 }).unless({ path: ['/'] })
 app.use(jwtCheck);
 
-app.get('/', (req, res) => {
-    res.send('hello');
-})
+app.use(express.static(path.join(__dirname, '/../frontend/build')));
 
-app.get('/protected', (req, res) => {
-    res.send('protected');
-})
-
+app.get('*', (req, res) => {
+  res.sendFile(path.join(`${__dirname}/../frontend/build/index.html`));
+});
 const PORT = process.env.BACKEND_PORT;
 
 app.listen(PORT, () => console.log('Listening on Port:' + PORT));
