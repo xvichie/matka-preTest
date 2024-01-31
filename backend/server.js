@@ -36,12 +36,11 @@ app.use('/api/upload-file-to-cloud-storage', uploadImage)
 // }).unless({ path: ['/'] })
 // app.use(jwtCheck);
 
-app.use(express.static(path.join(__dirname, 'frontend', 'build')));
-
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/../frontend/build/index.html`));
-});
+const root = require('path').join(__dirname, 'frontend', 'build');
+app.use(express.static(root));
+app.get("*", (req, res) => {
+    res.sendfile('index.html', { root });
+})
 
 
 const PORT = process.env.BACKEND_PORT;
