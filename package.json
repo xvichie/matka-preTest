@@ -22,6 +22,7 @@
     "url": "https://github.com/xvichie/matka-test/issues"
   },
   "homepage": "https://matka.ge/",
+  
   "dependencies": {
     "@auth0/auth0-react": "^2.2.0",
     "@emailjs/browser": "^3.12.1",
