@@ -16,12 +16,12 @@ const app = express()
 app.use(cors());
 app.use(express.json());
 
-connection();
+// connection();
 //updateSimilars();
 
-app.use('/api/userTests', userTests);
-app.use('/api/payment', payment);
-app.use('/api/upload-file-to-cloud-storage', uploadImage)
+// app.use('/api/userTests', userTests);
+// app.use('/api/payment', payment);
+// app.use('/api/upload-file-to-cloud-storage', uploadImage)
 
 // const jwtCheck = jwt({
 //     secret: jwks.expressJwtSecret({
