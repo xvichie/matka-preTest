@@ -10,7 +10,6 @@ try {
   SimilarsJSON = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 } catch (err) { 
   console.error('Error reading JSON file:', err);
-  return; // Exit the function if there's an error
 }
 
 module.exports = () => {
