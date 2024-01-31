@@ -4,6 +4,7 @@ require('dotenv').config()
 const { expressjwt: jwt } = require('express-jwt');
 const jwks = require('jwks-rsa');
 const axios = require('axios');
+const path = require('path'); 
 
 const connection = require('./config/db.js');
 const updateSimilars = require('./config/updateSimilars.js');
@@ -40,6 +41,8 @@ app.use(express.static(path.join(__dirname, '/../frontend/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(`${__dirname}/../frontend/build/index.html`));
 });
+
+
 const PORT = process.env.BACKEND_PORT;
 
 app.listen(PORT, () => console.log('Listening on Port:' + PORT));
