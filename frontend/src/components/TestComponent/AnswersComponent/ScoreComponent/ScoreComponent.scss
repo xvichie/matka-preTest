@@ -1,3 +1,10 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #ffe5d9;
+$Second-Background-Color: #f7e8d5;
+$Ad-Background-Color: #cfcfcf;
+$Big-Text-Subtle-Color: #555555;
+
 .Score {
     display: flex;
     flex-direction: row;
@@ -41,6 +48,14 @@
     .AnswersButton{
         border-radius: 0px;
     }
+}
+.DialogTitle{
+    background-color: $Main-Text-Color;
+    color: white;
+    font-weight: 200;
+}
+.DialogContentText{
+    margin: 15px 0 5px 0 !important;
 }
 
 @media screen and (max-width: 900px) {
@@ -197,5 +212,17 @@
     .AnswersButton{
         border-radius: 0px;
         font-size: 14px !important;
+    }
+}
+
+@media (max-width: 450px) {
+    .DialogActions{
+        height: 100px;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        .DialogActionButton{
+            width: 100% !important;
+        }
     }
 }

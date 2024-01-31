@@ -12,6 +12,7 @@ function SpinnerComponent() {
                     <li className="book_item fourth"></li>
                     <li className="book_item fifth"></li>
                     <li className="book_item sixth"></li>
+                
                 </ul>
                 <div className="shelf"></div>
             </div>

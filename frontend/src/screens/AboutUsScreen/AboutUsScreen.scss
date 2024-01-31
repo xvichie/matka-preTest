@@ -77,7 +77,7 @@ $Big-Text-Subtle-Color: #555555;
                 border: 10px solid $Main-Text-Color;
                 padding: 10px;
                 border-radius: 20px;
-                width: 95;
+                width: 95%;
                 transition: all 0.3s ease;
             }
             img:hover{
@@ -86,7 +86,7 @@ $Big-Text-Subtle-Color: #555555;
             }
             h1{
                 text-align: center;
-                font-size: 64px;
+                font-size: 56px;
                 font-weight: bold;
                 background-color: $Background-Color;
                 height: 100%;

@@ -6,6 +6,8 @@ import { ThemeProvider, createTheme } from '@mui/material';
 
 import CloseIcon from '@mui/icons-material/Close';
 
+import {GlobalLoadingProvider} from 'react-global-loading';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
@@ -13,6 +15,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setGlobalTheme } from './slices/globalSettingsSlice';
 import Footer from './components/Footer/Footer';
 import ContactUs from './components/ContactUs/ContactUs';
+
+import { GlobalLoading, showLoading } from 'react-global-loading';
+import GlobalLoader from './components/GlobalLoader/GlobalLoader';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 const getDesignTokens = (mode) => ({
@@ -101,6 +107,34 @@ function App() {
     setTheme(createTheme(getDesignTokens(StateGlobalTheme)));
   }, [StateGlobalTheme]);
 
+
+  const style = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: '100vw',
+    height: '100vh',
+    backgroundColor: 'rgba(0, 0, 0, 1)',
+    zIndex: '10001',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  };
+
+  const {isLoading} = useAuth0();
+
+    useEffect(() => {
+      showLoading(true);
+  },[])
+
+  useEffect(() => {
+      showLoading(false);
+  },[isLoading])
+
+  showLoading(true);
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -113,6 +147,7 @@ function App() {
         <ToastContainer />
         <ContactUs></ContactUs>
         <Footer></Footer>
+        <GlobalLoading children={<GlobalLoader />} />
       </ThemeProvider>
     </>
   );

@@ -262,18 +262,18 @@ function ScoreComponent() {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">
-                {"Whoops, საიტზე შესვლა დაგავიწყდა..."}
+                <DialogTitle className='DialogTitle' id="alert-dialog-title">
+                    <>{"Whoops, საიტზე შესვლა დაგავიწყდა..."}</>
                 </DialogTitle>
                 <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
+                    <DialogContentText className='DialogContentText' id="alert-dialog-description">
                         საიტზე თუ არ შეხვედი შენ საკუთარ ანგარიშზე, ვერ ნახავ შენს დამახსოვრებულ ტესტებს და სტატისტიკას.
                         როგორ გსურს გაგრძელება?
                     </DialogContentText>
                 </DialogContent>
-                <DialogActions>
-                    <Button variant='outlined' onClick={handleDontWantToSave}>დასრულება შენახვის გარეშე</Button>
-                    <Button variant='outlined' onClick={handleLoginToSave} autoFocus>
+                <DialogActions className='DialogActions'>
+                    <Button className='DialogActionButton' variant='outlined' onClick={handleDontWantToSave}>დასრულება შენახვის გარეშე</Button>
+                    <Button className='DialogActionButton' variant='outlined' onClick={handleLoginToSave} autoFocus>
                         შესვლა
                     </Button>
                 </DialogActions>

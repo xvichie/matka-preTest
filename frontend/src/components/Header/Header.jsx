@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
@@ -22,6 +22,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { setCredentials, logoutUser } from '../../slices/authSlice.js';
 
+import { GlobalLoading, showLoading } from 'react-global-loading';
 
 import './Header.scss';
 import { useTheme } from '@emotion/react';
@@ -30,11 +31,19 @@ import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
     const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated, getAccessTokenSilently, isLoading } = useAuth0();
-    const [isDark, setIsDark] = useState(false);
 
     const dispatch = useDispatch();
     const theme = useTheme();
 
+    // useEffect(() => {
+    //     showLoading(true);
+    // },[])
+
+    // useEffect(() => {
+    //     showLoading(false);
+    // },[isLoading])
+
+    // showLoading(true);
 
     return (
         <header>

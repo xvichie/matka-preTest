@@ -23,6 +23,7 @@ import AboutUsScreen from './screens/AboutUsScreen/AboutUsScreen.jsx';
 import ViewTeacherScreen from './screens/TeachersScreen/ViewTeacherScreen/ViewTeacherScreen.jsx';
 import SolutionsScreen from './screens/SolutionsScreen/SolutionsScreen.jsx';
 
+
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<App />}>
     <Route index={true} path='/' element={<HomeScreen />}></Route>
