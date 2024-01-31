@@ -36,7 +36,7 @@ app.use('/api/upload-file-to-cloud-storage', uploadImage)
 // }).unless({ path: ['/'] })
 // app.use(jwtCheck);
 
-const root = require('path').join(__dirname, 'frontend', 'build');
+const root = require('path').join(__dirname , 'build');
 app.use(express.static(root));
 app.get("*", (req, res) => {
     res.sendfile('index.html', { root });
