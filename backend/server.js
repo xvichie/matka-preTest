@@ -4,6 +4,7 @@ require('dotenv').config()
 const { expressjwt: jwt } = require('express-jwt');
 const jwks = require('jwks-rsa');
 const axios = require('axios');
+const path = require('path');
 
 const connection = require('./config/db.js');
 const updateSimilars = require('./config/updateSimilars.js');
@@ -16,33 +17,32 @@ app.use(cors());
 app.use(express.json());
 
 connection();
-//updateSimilars();
+// updateSimilars();
 
 app.use('/api/userTests', userTests);
 app.use('/api/payment', payment);
 app.use('/api/upload-file-to-cloud-storage', uploadImage)
 
-const jwtCheck = jwt({
-    secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: "https://dev-qljylwgr26x23vpc.us.auth0.com/.well-known/jwks.json"
-    }),
-    audience: 'anastasia',
-    issuer: 'https://dev-qljylwgr26x23vpc.us.auth0.com/',
-    algorithms: ['RS256']
-}).unless({ path: ['/'] })
-app.use(jwtCheck);
+// const jwtCheck = jwt({
+//     secret: jwks.expressJwtSecret({
+//         cache: true,
+//         rateLimit: true,
+//         jwksRequestsPerMinute: 5,
+//         jwksUri: "https://dev-qljylwgr26x23vpc.us.auth0.com/.well-known/jwks.json"
+//     }),
+//     audience: 'anastasia',
+//     issuer: 'https://dev-qljylwgr26x23vpc.us.auth0.com/',
+//     algorithms: ['RS256']
+// }).unless({ path: ['/'] })
+// app.use(jwtCheck);
 
-app.get('/', (req, res) => {
-    res.send('hello');
-})
+// app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+app.use(express.static(path.join(process.cwd(), 'frontend', 'build')));
 
-app.get('/protected', (req, res) => {
-    res.send('protected');
-})
+// Serve the index.html file for all routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(process.cwd(), 'frontend', 'build', 'index.html'));
+});
+
 
 const PORT = process.env.BACKEND_PORT;
-
-app.listen(PORT, () => console.log('Listening on Port:' + PORT));
