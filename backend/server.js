@@ -4,7 +4,7 @@ require('dotenv').config()
 const { expressjwt: jwt } = require('express-jwt');
 const jwks = require('jwks-rsa');
 const axios = require('axios');
-const path = require('path'); 
+const path = require('path');
 
 const connection = require('./config/db.js');
 const updateSimilars = require('./config/updateSimilars.js');
@@ -46,5 +46,3 @@ app.get('*', (req, res) => {
 
 
 const PORT = process.env.BACKEND_PORT;
-
-app.listen(PORT, () => console.log('Listening on Port:' + PORT));
