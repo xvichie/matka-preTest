@@ -5,4 +5,4 @@ const baseUrl = process.env.REACT_APP_ENV === 'Development'
 const userTests = `${baseUrl}/userTests`;
 const getTestById = `${baseUrl}/userTests/getTestById/`;
 
-export default {userTests, getTestById };
+export default {userTests,getTestById };
