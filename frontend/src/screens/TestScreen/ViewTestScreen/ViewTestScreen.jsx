@@ -19,6 +19,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 import SolutionsJSON from '../../../assets/SolutionURLsForEveryTest.json';
 import SolutionComponent from '../../../components/TestComponent/SolutionComponent/SolutionComponent';
+import Endpoints from '../../../api/Endpoints';
 
 function ViewTestScreen() {
 
@@ -32,7 +33,7 @@ function ViewTestScreen() {
     
     const FetchTest = async () =>{
       try{
-        const response = await axios.get('http://localhost:5000/api/userTests/getTestById/'+testId);
+        const response = await axios.get(Endpoints.getTestById+testId);
         console.log(response.status);
         if(response.status == 200){
           SetTestObject(response.data);
