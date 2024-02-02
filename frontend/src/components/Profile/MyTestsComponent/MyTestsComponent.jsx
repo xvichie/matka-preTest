@@ -25,6 +25,7 @@ import SimilarModalComponent from './SimilarModalComponent/SimilarModalComponent
 import { useTheme } from '@emotion/react';
 import AnswerSheetModalComponent from './AnswerSheetModalComponent/AnswerSheetModalComponent';
 import SolutionComponent from '../../TestComponent/SolutionComponent/SolutionComponent';
+import Endpoints from '../../../api/Endpoints';
 
 function MyTestsComponent() {
 
@@ -41,7 +42,7 @@ function MyTestsComponent() {
     useEffect(() => {
         const fetchTests = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/userTests', {
+                const response = await axios.get(Endpoints.userTests, {
                     params: {
                         email: user.email,
                     },
