@@ -19,6 +19,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 import './ScoreComponent.scss';
 import { useTheme } from '@emotion/react';
 import AnswersComponent from '../AnswersComponent';
+import Endpoints from '../../../../api/Endpoints';
 
 function ScoreComponent() {
 
@@ -41,7 +42,6 @@ function ScoreComponent() {
 
     const [secondsTime, setSecondsTime] = useState(0);
 
-    let apiUrl = 'http://localhost:5000/api/userTests'
 
     const translateAnswers = () => {
         //console.log();
@@ -78,7 +78,7 @@ function ScoreComponent() {
                 }
             }
             console.log(data);
-            await axios.post(apiUrl, data, {
+            await axios.post(Endpoints.userTests, data, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
