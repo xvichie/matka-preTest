@@ -65,10 +65,8 @@ function AboutUsScreen() {
                 <ul>
                   <li>Alfa წარმომადგენელი</li>
                   <li>იდეის ავტორი</li>
-                  <li>Back End დეველოპერი</li>
-                  <li>Front End დეველოპერი</li>
-                  <li>HR</li>
-                  <li>ამოხსნების ჩაწერა</li>
+                  <li>Full Stack დეველოპერი</li>
+                  <li>Content შემგროვებელი</li>
                 </ul>
               </div>
             </li>
@@ -81,8 +79,8 @@ function AboutUsScreen() {
                 <ul>
                   <li>Alfa წარმომადგენელი</li>
                   <li>იდეის ავტორი</li>
-                  <li>AWS დეველოპერი</li>
-                  <li>ამოხსნების ჩაწერა</li>
+                  <li>DevOps</li>
+                  <li>Content შემგროვებელი</li>
                 </ul>
               </div>
             </li>
@@ -94,7 +92,7 @@ function AboutUsScreen() {
               <div className="OurTeam-Job">
                 <ul>
                   <li>დეველოპერი</li>
-                  <li>ამოხსნების ჩაწერა</li>
+                  <li>Content შემგროვებელი</li>
                 </ul>
               </div>
             </li>
@@ -106,7 +104,7 @@ function AboutUsScreen() {
               <div className="OurTeam-Job">
                 <ul>
                   <li>დეველოპერი</li>
-                  <li>ამოხსნების ჩაწერა</li>
+                  <li>Content შემგროვებელი</li>
                 </ul>
               </div>
             </li>

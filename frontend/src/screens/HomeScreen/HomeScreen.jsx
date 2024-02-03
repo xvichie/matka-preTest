@@ -228,9 +228,8 @@ function HomeScreen() {
                                         გაიგე მეტი
                                     </Button>
                                 </Link>
-                                <Link to={'/'}>
-                                    <Button
-                                     className='HomeScreenButton' 
+                                <Button
+                                    className='HomeScreenButton' 
                                     color='primary'
                                     onClick={() => {
                                         const element = document.getElementById(`contactUsComponent`);
@@ -240,8 +239,7 @@ function HomeScreen() {
                                     }}
                                     variant='contained'>
                                         მოგვწერე წერილი
-                                    </Button>
-                                </Link>
+                                </Button>
                             </div>
                         </div>
                         <div className="AboutUs-Right">

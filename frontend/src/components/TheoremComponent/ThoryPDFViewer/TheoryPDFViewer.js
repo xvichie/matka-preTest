@@ -8,14 +8,19 @@ const pdfjsVersion = packageJson.dependencies['pdfjs-dist'];
 function TheoryPDFViewer({ TheoremAlgGeo, TheoryID }) {
 
     let PDF = null;
-    if (TheoremAlgGeo === 'Algebra') {
-        PDF = require('../../../assets/theorems/algebra/algebra-' + TheoryID + '.pdf');
-    }
-    else if (TheoremAlgGeo === 'Geometry') {
-        PDF = require('../../../assets/theorems/geometry/geometry-' + TheoryID + '.pdf');
-    }
-    else {
-        PDF = require('../../../assets/theorems/thesis/thesis-' + TheoryID + '.pdf');
+    try{
+        if (TheoremAlgGeo === 'Algebra') {
+            PDF = require('../../../assets/theorems/algebra/algebra-' + TheoryID + '.pdf');
+        }
+        else if (TheoremAlgGeo === 'Geometry') {
+            PDF = require('../../../assets/theorems/geometry/geometry-' + TheoryID + '.pdf');
+        }
+        else {
+            PDF = require('../../../assets/theorems/thesis/thesis-' + TheoryID + '.pdf');
+        }
+    }catch(err)
+    {
+        console.log(err);
     }
 
     return (

@@ -103,7 +103,9 @@ function ViewTestScreen() {
             </div>
           </>
         ) : (
-          <div>No test found</div>
+          <div className='TestNotFound'>
+            
+          </div>
         )}
       </div>
     </div>

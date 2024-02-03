@@ -19,7 +19,7 @@ import AdPlaceholderComponent from '../../AdPlaceholderComponent/AdPlaceholderCo
 import { GetVersions } from '../../../services/test/GetTestInfo';
 
 
-console.log(SimilarJSON);
+// console.log(SimilarJSON);
 
 function StartTestComponent({ isLoadingSetter }) {
     const dispatch = useDispatch();
@@ -50,7 +50,7 @@ function StartTestComponent({ isLoadingSetter }) {
     }
 
     //const availableYears = [2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010]; 
-    console.log(availableYears)
+    // console.log(availableYears)
 
     const findProblemRange = (k,n) => {
         if(k==1){
@@ -113,7 +113,7 @@ function StartTestComponent({ isLoadingSetter }) {
         //GENERATE 1 POINT PROBLEMS
         while (Generated1PointProblems != NumberOf1PointProblems) {
 
-            console.log("==== GENERATING AMOCANA #",Generated1PointProblems+1," ====");
+            // console.log("==== GENERATING AMOCANA #",Generated1PointProblems+1," ====");
 
             const Year = availableYears[Math.floor(Math.random() * availableYears.length)];
             const VersionInfoJSON = require('../../../assets/' + Year + '/info.json');
@@ -122,18 +122,18 @@ function StartTestComponent({ isLoadingSetter }) {
 
             const Version = Math.floor(Math.random() * VersionInfoJSON['NumberOfVersionsInThatYear']) + 1;
 
-            console.log("Year:",Year, "Version", Version);
+            // console.log("Year:",Year, "Version", Version);
 
             let Problem = null;
 
             if(GenType === 0){
                 let ProblemRange = findProblemRange(1,Generated1PointProblems+1);
-                console.log("ProblemRange",ProblemRange);
+                // console.log("ProblemRange",ProblemRange);
 
                 //console.log(TestGenConfig);
 
-                console.log("NumberOfAllProblems",NumberOfAllProblems);
-                console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
+                // console.log("NumberOfAllProblems",NumberOfAllProblems);
+                // console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
 
                 let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["1"][ProblemRange];
                 let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["1"][ProblemRange+1];
@@ -145,7 +145,7 @@ function StartTestComponent({ isLoadingSetter }) {
                     else TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["2"]["1"]-1;
                 }
 
-                console.log("Borders: ",TestLeftBorder,TestRightBorder);
+                // console.log("Borders: ",TestLeftBorder,TestRightBorder);
 
                 Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
             }
@@ -166,7 +166,7 @@ function StartTestComponent({ isLoadingSetter }) {
                     generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1]);
                     Generated1PointProblems += 1;
     
-                    console.log("==== MORCHA GENERATING AMOCANA #",Generated1PointProblems+1," ====");
+                    // console.log("==== MORCHA GENERATING AMOCANA #",Generated1PointProblems+1," ====");
     
                 }
         }
@@ -174,7 +174,7 @@ function StartTestComponent({ isLoadingSetter }) {
         //GENERATE 3 POINT PROBLEMS
         while (Generated3PointProblems != NumberOf3PointProblems) {
 
-            console.log("==== GENERATING AMOCANA #",Generated1PointProblems+Generated3PointProblems+1," ====")
+            // console.log("==== GENERATING AMOCANA #",Generated1PointProblems+Generated3PointProblems+1," ====")
 
 
             const Year = availableYears[Math.floor(Math.random() * availableYears.length)];
@@ -189,12 +189,12 @@ function StartTestComponent({ isLoadingSetter }) {
 
             if(GenType==0){
                 let ProblemRange = findProblemRange(3,Generated1PointProblems+Generated3PointProblems+1);
-                console.log("ProblemRange",ProblemRange);
+                // console.log("ProblemRange",ProblemRange);
 
                 //console.log(TestGenConfig);
 
-                console.log("NumberOfAllProblems",NumberOfAllProblems);
-                console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
+                // console.log("NumberOfAllProblems",NumberOfAllProblems);
+                // console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
 
                 let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"][ProblemRange];
                 let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["3"][ProblemRange+1];
@@ -203,7 +203,7 @@ function StartTestComponent({ isLoadingSetter }) {
                     TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"]["1"]-1;
                 }
 
-                console.log("Borders: ",TestLeftBorder,TestRightBorder);
+                // console.log("Borders: ",TestLeftBorder,TestRightBorder);
 
                 Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
             } else if(GenType===1){
@@ -219,13 +219,13 @@ function StartTestComponent({ isLoadingSetter }) {
             };
             if (Used[Year][Version][Problem] == false) {
 
-                console.log("==== MORCHA GENERATING AMOCANA #",Generated1PointProblems+Generated3PointProblems+1," ====")
+                // console.log("==== MORCHA GENERATING AMOCANA #",Generated1PointProblems+Generated3PointProblems+1," ====")
 
 
                 generatedProblems.push(ProblemObject)
                 Used[Year][Version][Problem] = true;
 
-                console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem+1);
+                // console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem+1);
 
 
                 generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1])
@@ -252,12 +252,12 @@ function StartTestComponent({ isLoadingSetter }) {
 
             if(GenType===0){
                 let ProblemRange = findProblemRange(4,Generated1PointProblems+Generated3PointProblems+Generated4PointProblems+1);
-                console.log("ProblemRange",ProblemRange);
+                // console.log("ProblemRange",ProblemRange);
 
                 //console.log(TestGenConfig);
 
-                console.log("NumberOfAllProblems",NumberOfAllProblems);
-                console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
+                // console.log("NumberOfAllProblems",NumberOfAllProblems);
+                // console.log("Config[Range]",TestGenConfig["Ranges"][NumberOfAllProblems]);
 
                 let TestLeftBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"][ProblemRange];
                 let TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"][ProblemRange+1];
@@ -266,7 +266,7 @@ function StartTestComponent({ isLoadingSetter }) {
                     TestRightBorder = TestGenConfig["Ranges"][NumberOfAllProblems]["4"]["2"]+1;
                 }
 
-                console.log("Borders: ",TestLeftBorder,TestRightBorder);
+                // console.log("Borders: ",TestLeftBorder,TestRightBorder);
 
                 Problem = TestLeftBorder+ Math.floor(Math.random() * (TestRightBorder-TestLeftBorder)) -1;
             } else if(GenType===1){
@@ -282,16 +282,16 @@ function StartTestComponent({ isLoadingSetter }) {
 
                 generatedProblems.push(ProblemObject)
                 Used[Year][Version][Problem] = true;
-                console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem+1);
+                // console.log(ProblemObject.Year, ProblemObject.Version,ProblemObject.Problem+1);
 
                 generatedAnswers.push(AnswersJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1])
                 generatedSimilars.push(SimilarJSON[ProblemObject.Year][ProblemObject.Version][ProblemObject.Problem+1]);
                 Generated4PointProblems += 1;
             }
         }
-        console.log(generatedProblems);
-        console.log(generatedAnswers);
-        console.log(generatedSimilars);
+        // console.log(generatedProblems);
+        // console.log(generatedAnswers);
+        // console.log(generatedSimilars);
         return {
             Problems: generatedProblems,
             Answers: generatedAnswers,
@@ -350,7 +350,7 @@ function StartTestComponent({ isLoadingSetter }) {
             if (!localStorageTestObject) {
                 dispatch(setTestType('Custom'));
                 const generatedData = generateProblems();
-                console.log(generatedData);
+                // console.log(generatedData);
                 dispatch(setProblems(generatedData.Problems));
                 dispatch(setAnswers(generatedData.Answers));
                 dispatch(setSimilars(generatedData.Similars));
@@ -371,7 +371,7 @@ function StartTestComponent({ isLoadingSetter }) {
             const localStorageTestObject = localStorage.getItem('TestObject');
             if (!localStorageTestObject) {
                 const generatedData = generateErovnuli(year, version);
-                console.log(generatedData);
+                // console.log(generatedData);
                 dispatch(setProblems(generatedData.Problems));
                 dispatch(setAnswers(generatedData.Answers));
                 dispatch(setSimilars(generatedData.Similars));
@@ -412,15 +412,15 @@ function StartTestComponent({ isLoadingSetter }) {
     const handleYearChange = (event) => {
         setYear(event.target.value);
         setVersion(1)
-        console.log(year);
+        // console.log(year);
     };
     const handleVersionChange = (event) => {
         setVersion(event.target.value);
-        console.log(version);
+        // console.log(version);
     };
-    console.log(value);
+    // console.log(value);
 
-    console.log(useSelector((state) => state.test.problems))
+    // console.log(useSelector((state) => state.test.problems))
 
     const [GenType,setGenType] = useState(0);
 
@@ -466,7 +466,7 @@ function StartTestComponent({ isLoadingSetter }) {
             <div className="StartTestComponent">
                 <div className="StartTestComponent-Wrapper">
                     <div className="ChooseTest">
-                        <Tabs value={value} onChange={handleChange} aria-label="disabled tabs example" style={{marginBottom:'10px'}}>
+                        <Tabs variant='scrollable' value={value} onChange={handleChange} className='StartTest-Tabs' style={{marginBottom:'10px'}}>
                             <Tab label="ტესტის გენერატორი" style={{fontWeight:'bold'}} />
                             <Tab label="ეროვნული გამოცდები" style={{fontWeight:'bold'}}/>
                             <Tab label="სხვისი ტესტები" style={{fontWeight:'bold'}}/>

@@ -6,6 +6,9 @@ $Main-Text-Color: #F97432;
         stroke-dashoffset: 500;
         animation: dash 1s linear forwards, filling 2s ease-in forwards;
         font-size: 80px;
+        // @media (max-width: 768px) {
+        //   font-size: 40px; // Adjust the font size for smaller screens
+        // }
       }
       
       .text-line text {

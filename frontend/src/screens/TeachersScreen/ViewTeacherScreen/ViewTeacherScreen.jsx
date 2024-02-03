@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ViewTeacherScreen.scss';
 import TeachersJSON from '../../../assets/teachers/teachers.json';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AdPlaceholderComponent from '../../../components/AdPlaceholderComponent/AdPlaceholderComponent';
@@ -10,6 +10,8 @@ import AdPlaceholderComponent from '../../../components/AdPlaceholderComponent/A
 function ViewTeacherScreen() {
   const { TeacherId } = useParams();
   const [Teacher, setTeacher] = useState(null);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     // Assuming TeachersJSON.teachers is an array
@@ -18,6 +20,7 @@ function ViewTeacherScreen() {
     if (teacher) {
       setTeacher(teacher);
     }
+    else navigate('/notFound');
   }, [TeacherId]);
 
   return (

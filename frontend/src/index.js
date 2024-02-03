@@ -22,13 +22,23 @@ import ViewTestScreen from './screens/TestScreen/ViewTestScreen/ViewTestScreen.j
 import AboutUsScreen from './screens/AboutUsScreen/AboutUsScreen.jsx';
 import ViewTeacherScreen from './screens/TeachersScreen/ViewTeacherScreen/ViewTeacherScreen.jsx';
 import SolutionsScreen from './screens/SolutionsScreen/SolutionsScreen.jsx';
+import TermsAndConditionsScreen from './screens/TermsAndConditionsScreen/TermsAndConditionsScreen.jsx';
+import PrivacyScreen from './screens/PrivacyScreen/PrivacyScreen.jsx';
 
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
+import NotFoundScreen from './screens/NotFoundScreen/NotFoundScreen.jsx';
+
+if (process.env.NODE_ENV === 'Production') {
+  disableReactDevTools();
+}
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<App />}>
     <Route index={true} path='/' element={<HomeScreen />}></Route>
     <Route path='profile' element={<ProfileScreen />}></Route>
     <Route path='aboutUs' element={<AboutUsScreen />}></Route>
+    <Route path='termsAndConditions' element={<TermsAndConditionsScreen />}></Route>
+    <Route path='privacy' element={<PrivacyScreen />}></Route>
     <Route path='test'>
       <Route index={true} element={<Test />}></Route>
       <Route path=":TestId" element={<ViewTestScreen />} />
@@ -55,6 +65,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='solutions'>
       <Route index={true} element={<SolutionsScreen />}></Route>
     </Route>
+    <Route path='*' element={<NotFoundScreen />}></Route>
   </Route>
 ))
 

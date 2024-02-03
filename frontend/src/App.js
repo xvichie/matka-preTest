@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header/Header';
-import { Outlet } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { ThemeProvider, createTheme } from '@mui/material';
 
@@ -19,6 +19,8 @@ import ContactUs from './components/ContactUs/ContactUs';
 import { GlobalLoading, showLoading } from 'react-global-loading';
 import GlobalLoader from './components/GlobalLoader/GlobalLoader';
 import { useAuth0 } from '@auth0/auth0-react';
+
+
 
 
 const getDesignTokens = (mode) => ({
@@ -138,6 +140,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <ScrollRestoration />
         <Header></Header>
         <div style={{ backgroundColor: theme.palette.background.main, width: '100%' }} >
           {/* <Container> */}

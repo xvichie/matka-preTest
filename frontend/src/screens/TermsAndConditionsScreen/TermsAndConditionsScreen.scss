@@ -1,0 +1,50 @@
+$Background-Color: #52389D;
+$Main-Text-Color: #F97432;
+$Subtle-Text-Color: #8b8b8b;
+$Second-Background-Color: #f1f0f3;
+$Ad-Background-Color: #cfcfcf;
+$Big-Text-Subtle-Color: #555555;
+
+.TermsAndConditionsScreen{
+    display: flex;
+    justify-content: center;
+    .TermsAndConditions-Wrapper{
+        width: 85%;
+        .TAC-Label{
+            h1{
+                text-align: center;
+                color: $Main-Text-Color;
+                font-weight: bold;
+                margin: 20px 0;
+            }
+        }
+        .TAC-Content{
+            ul{
+                font-weight: bold;
+                color: $Main-Text-Color;
+                list-style-type: georgian;
+                li{
+                    h4{
+                        font-size: 24px;
+                        color: $Big-Text-Subtle-Color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .TermsAndConditions-Wrapper{
+        width: 95% !important;
+        .TAC-Content{
+            ul{
+                li{
+                    h4{
+                        font-size: 18px !important;
+                    }
+                }
+            }
+        }
+    }
+}

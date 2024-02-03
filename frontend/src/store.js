@@ -11,4 +11,5 @@ export const store = configureStore({
         userTests: userTestsReducer,
         globalSettings: globalSettingsReducer
     },
+    devTools: process.env.REACT_APP_ENV !== 'Production' 
 })

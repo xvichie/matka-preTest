@@ -5,14 +5,17 @@ $Subtle-Text-Color: #ffe5d9;
 
 
 a{
-    text-decoration-style: none;
-    text-decoration: none;
-    color: $Main-Text-Color;
-    width: fit-content !important;
+        text-decoration-style: none;
+        text-decoration: none;
+        color: $Main-Text-Color;
+        width: fit-content !important;
+        transition: all 0.2s ease;
 }
 
-a:hover{
-    h4{
+
+
+h4{
+    a:hover{
         color: #f39468 !important;
         transition: all 0.2s ease;
     }
@@ -34,11 +37,17 @@ a:hover{
         .Footer-Brand{
             h2{
                 color: white;
+                a{
+                    color: $Subtle-Text-Color;
+                }
             }
             a{
                 img.Brand-Alfa{
                     height: 64px;
                 }
+            }
+            h5{
+                color: $Subtle-Text-Color;
             }
         }
         .Footer-Contact{
@@ -65,6 +74,9 @@ a:hover{
 .Subtitle{
     font-size: 16px;
     color: $Subtle-Text-Color;
+    a{
+        color: $Subtle-Text-Color;
+    }
 }
 
 .Contents-Socials{
