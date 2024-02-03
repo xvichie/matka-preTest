@@ -4,6 +4,9 @@ import { Button, FormControl, TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MuiTextField from '@mui/material/TextField';
 import emailjs from '@emailjs/browser';
+import Endpoints from '../../api/Endpoints';
+import { useAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
 
 function ContactUs() {
 
@@ -16,59 +19,91 @@ function ContactUs() {
   const [Email,SetEmail] = useState("");
   const [Message,SetMessage] = useState("");
 
-  const sendEmail = (e) => {
+  const {user} = useAuth0();
+
+  const sendEmail = async (e) => {
+
+    const getEmailConfirmationOfLimits = async () => {
+      try {
+        const response = await axios.post(Endpoints.sendEmail, {
+          params: {
+            email: Email,
+          },
+        });
+  
+        console.log(response);
+        if (response.status === 200) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (error) {
+        // console.error(error);
+        return false;
+      }
+    };
+
+
     e.preventDefault(); // prevents the page from reloading when you hit “Send”
-    const formData = {
-      from_name: Name,
-      message: Message,
-      from_email: Email
-  };
 
-  const hiddenForm = document.createElement('form');
+    let letSendEmail = await getEmailConfirmationOfLimits();
+    // console.log(letSendEmail);
 
-  // Set form attributes
-  hiddenForm.setAttribute('action', '');  // Add your emailjs API endpoint here
-  hiddenForm.setAttribute('method', 'post');
-  hiddenForm.style.display = 'none';
+    if(letSendEmail){
+      const formData = {
+        from_name: Name,
+        message: Message,
+        from_email: Email
+      };
 
-  // Append form fields
-  for (const key in formData) {
-      const input = document.createElement('input');
-      input.setAttribute('type', 'hidden');
-      input.setAttribute('name', key);
-      input.setAttribute('value', formData[key]);
-      hiddenForm.appendChild(input);
-  }
+      const hiddenForm = document.createElement('form');
 
-  document.body.appendChild(hiddenForm);
-    try{
-    emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, 
-      process.env.REACT_APP_EMAILJS_TEMPLATE_ID, 
-      hiddenForm, 
-      process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
-      .then((result) => {
-          if (result.status === 200) {
-            SetTextButtonTest("მესიჯი გაიგზავნა!");
-            SetEmail("");
-            SetName("");
-            SetMessage("");
-            setTimeout(() => {
-              SetTextButtonTest("გაგზავნა");
-            }, 15000);
-          }
-          
-      }, (error) => {
-        console.error('მესიჯი არ გაიგზავნა!', error);
-      });
-    }
-    catch(error)
-    {
-      console.error('მესიჯი არ გაიგზავნა!', error);
-    }
-    finally {
-      // Remove the hidden form from the DOM
-      document.body.removeChild(hiddenForm);
-    }
+      // Set form attributes
+      hiddenForm.setAttribute('action', '');  // Add your emailjs API endpoint here
+      hiddenForm.setAttribute('method', 'post');
+      hiddenForm.style.display = 'none';
+
+      // Append form fields
+      for (const key in formData) {
+          const input = document.createElement('input');
+          input.setAttribute('type', 'hidden');
+          input.setAttribute('name', key);
+          input.setAttribute('value', formData[key]);
+          hiddenForm.appendChild(input);
+      }
+
+      document.body.appendChild(hiddenForm);
+        try{
+        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, 
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID, 
+          hiddenForm, 
+          process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
+          .then((result) => {
+              if (result.status === 200) {
+                SetTextButtonTest("მესიჯი გაიგზავნა!");
+                SetEmail("");
+                SetName("");
+                SetMessage("");
+                setTimeout(() => {
+                  SetTextButtonTest("გაგზავნა");
+                }, 15000);
+              }
+              
+          }, (error) => {
+            console.error('მესიჯი არ გაიგზავნა!', error);
+          });
+        }
+        catch(error)
+        {
+          console.error('მესიჯი არ გაიგზავნა!', error);
+        }
+        finally {
+          // Remove the hidden form from the DOM
+          document.body.removeChild(hiddenForm);
+        }
+      } else{
+        SetTextButtonTest("მესიჯების გაგზავნის დღიური ლიმიტი ამოწურულია");
+      }
   };
 
   return (
