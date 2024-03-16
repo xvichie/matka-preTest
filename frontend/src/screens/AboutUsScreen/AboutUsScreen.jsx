@@ -110,7 +110,7 @@ function AboutUsScreen() {
             </li>
             <li>
               <div className="OurTeam-Label">
-                <h3>ლუკა იაკობიშვილი</h3>
+                <h3>ლუკა იაკობაშვილი</h3>
                 <h6>თბილისის სახელმწიფო სამხატვრო აკადემია</h6>
               </div>
               <div className="OurTeam-Job">
