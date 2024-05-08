@@ -563,7 +563,7 @@ function StartTestComponent({ isLoadingSetter }) {
                                             <MenuItem value={2010}>2010 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
                                             <MenuItem value={2009}>2009 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
                                             <MenuItem value={2008}>2008 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                            {/* <MenuItem value={2007}>2007 წლის ერთიანი ეროვნული გამოცდები</MenuItem> */}
+                                            <MenuItem value={2007}>2007 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
                                             <MenuItem value={2006}>2006 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
                                             <MenuItem value={2005}>2005 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
                                             <MenuItem value={2004}>2023 მაჭარაშვილი ტესტი #1</MenuItem>
