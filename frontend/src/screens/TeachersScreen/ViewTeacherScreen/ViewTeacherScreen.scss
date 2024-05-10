@@ -32,6 +32,7 @@ $Big-Text-Subtle-Color: #555555;
             justify-content: space-between;
             .Teacher-ImageDiv{
                 img{
+                    object-fit: cover;
                     height: 432px;
                     width: 432px;
                     border-radius: 15px;

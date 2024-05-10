@@ -22,7 +22,7 @@ function TeachersScreen() {
                         მასწავლებლები, რომლებსაც რეკომენდირებას ვუწევთ
                     </h1>
                     <h3>
-                        გინდა რომ შენი სახელიც იყოს ამ სიაში? <a href="/">დაგვიკავშირდი აქ</a>
+                        გინდა რომ შენი სახელიც იყოს ამ სიაში? <a target='_blank' href="https://docs.google.com/forms/d/16YalAE6PeyR2UgdWEZVc8-P_5gnCjGsuGasDabQ6uGo/edit?usp=sharing_eip_se_dm&ts=65bccf96">დაგვიკავშირდი აქ</a>
                     </h3>
                 </div>
                 <div className="TeachersScreen-Content">
