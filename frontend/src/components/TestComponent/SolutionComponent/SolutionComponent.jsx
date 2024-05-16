@@ -9,6 +9,9 @@ import { useSpring, animated } from '@react-spring/web';
 import { IconButton, Link } from '@mui/material';
 import ReactPlayer from 'react-player';
 
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+
+
 import "./SolutionComponent.scss";
 import { LinkContainer } from 'react-router-bootstrap';
 import { NavLink } from 'react-bootstrap';
@@ -112,11 +115,20 @@ export default function SolutionComponent({ ButtonIcon, VideoURL, ViewedIn }) {
                                     ამოხსნა
                                 </h1>
                             </div>
-                            <ReactPlayer
-                            className="SolutionBox-VideoPlayer"
-                            url={VideoURL}
-                            controls
-                            ></ReactPlayer>
+                            {
+                                VideoURL.length > 10 
+                                ?
+                                <ReactPlayer
+                                className="SolutionBox-VideoPlayer"
+                                url={VideoURL}
+                                controls
+                                ></ReactPlayer>
+                                :
+                                <div className="SolutionBox-NotFound">
+                                    <SentimentVeryDissatisfiedIcon className='Icon'></SentimentVeryDissatisfiedIcon>
+                                    <h4>სამწუხაროდ, ამოცანა ვერ მოიძებნა</h4>
+                                </div>
+                            }
                             <div className="SolutionBox-Bottom">
                                 <h5>
                                     თეორია გაინტერესებს?

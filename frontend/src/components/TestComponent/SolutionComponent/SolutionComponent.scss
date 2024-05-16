@@ -33,6 +33,25 @@ $Ad-Background-Color: #cfcfcf;
             width: 100% !important;
             height: 80% !important;
         }
+        .SolutionBox-NotFound{
+            width: 100% !important;
+            height: 80% !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid gray;
+            border-radius: 12px;
+            .Icon{
+                height: 192px;
+                width: 192px;
+                color: #F97432;
+            }
+            h4{
+                font-size: 32px;
+                color: #52389D;
+            }
+        }
         .SolutionBox-Bottom{
             width: 100%;
             display: flex;
