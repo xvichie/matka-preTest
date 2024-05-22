@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 
@@ -8,6 +8,38 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
 function Footer() {
+
+    const addVisitorCounter = () => {
+        // Create a script element
+        const script = document.createElement('script');
+        script.src = '//counter.top.ge/counter.js';
+        script.async = true;
+      
+        // Create a div element
+        const div = document.createElement('div');
+        div.id = 'top-ge-counter-container';
+        div.setAttribute('data-site-id', '117400');
+      
+        // Append the div to the body
+        document.body.appendChild(div);
+      
+        // Append the script to the body
+        document.body.appendChild(script);
+      
+        // Cleanup function to remove the script and div
+        return () => {
+          document.body.removeChild(script);
+          document.body.removeChild(div);
+        };
+      };
+
+      useEffect(() => {
+        const cleanup = addVisitorCounter();
+
+        // Cleanup on unmount
+        return cleanup;
+      },[])
+
   return (
     <div className='Footer'>
         <div className="Footer-Wrapper">
