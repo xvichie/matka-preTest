@@ -1,5 +1,6 @@
 import React from 'react'
 import './AboutUsScreen.scss';
+import { Link } from 'react-router-dom';
 
 function AboutUsScreen() {
   return (
@@ -121,7 +122,9 @@ function AboutUsScreen() {
             </li>
           </ul>
           <div className="AboutUs-Companies">
-            <img src={process.env.PUBLIC_URL+'/images/DevelopedByAlfa.png'} alt="" />
+            <Link to={'https://tally.ge'} target='_blank'>
+              <img src={process.env.PUBLIC_URL+'/images/DevelopedByTally.png'} alt="Tally Logo" />
+            </Link>
             <h1>Matka.ge</h1>
           </div>
         </div>
