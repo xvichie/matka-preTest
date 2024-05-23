@@ -50,8 +50,10 @@ h4{
                 color: $Subtle-Text-Color;
             }
             .topge-container{
-                max-height: 32px;
-                max-width: 90px;
+                #top-ge-counter-container{
+                    max-height: 32px;
+                    max-width: 90px;
+                }
             }
         }
         .Footer-Contact{
