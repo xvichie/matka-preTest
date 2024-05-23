@@ -51,8 +51,16 @@ h4{
             }
             .topge-container{
                 #top-ge-counter-container{
-                    max-height: 32px;
-                    max-width: 90px;
+                    max-height: 32px !important;
+                    max-width: 90px !important;
+                    a{
+                        max-height: 32px !important;
+                        max-width: 90px !important;
+                        img{
+                            max-height: 32px !important;
+                            max-width: 90px !important;
+                        }
+                    }
                 }
             }
         }
