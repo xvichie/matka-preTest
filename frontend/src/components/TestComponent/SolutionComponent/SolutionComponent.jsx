@@ -116,7 +116,7 @@ export default function SolutionComponent({ ButtonIcon, VideoURL, ViewedIn }) {
                                 </h1>
                             </div>
                             {
-                                VideoURL.length > 10 
+                                VideoURL && VideoURL.length > 10 
                                 ?
                                 <ReactPlayer
                                 className="SolutionBox-VideoPlayer"
