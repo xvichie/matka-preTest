@@ -63,7 +63,7 @@ function Header() {
                             <NavLink to={'/teachers'} className='Nav-Item'>
                                 <LinkContainer to={'/teachers'}>
                                     <>
-                                        <CoPresentIcon sx={{ mr: 0.5 }}></CoPresentIcon>რეპეტიტორები
+                                        <CoPresentIcon sx={{ mr: 0.5 }}></CoPresentIcon>მასწავლებლები
                                     </>
                                 </LinkContainer>
                             </NavLink>

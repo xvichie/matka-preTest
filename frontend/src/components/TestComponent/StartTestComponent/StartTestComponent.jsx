@@ -25,7 +25,7 @@ function StartTestComponent({ isLoadingSetter }) {
     const dispatch = useDispatch();
 
     const [ErovnuliChechbox,setErovnuliCheckbox] = useState(true);
-    const [TestChechbox,setTestCheckbox] = useState(true);
+    const [TestChechbox,setTestCheckbox] = useState(false);
 
     const testType = useSelector((state) => state.test.testType);
 

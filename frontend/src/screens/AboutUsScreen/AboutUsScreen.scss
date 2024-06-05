@@ -71,13 +71,17 @@ $Big-Text-Subtle-Color: #555555;
             margin: 10px 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 12px;
             align-items: center;
+            .tally{
+                width: 100% !important;
+                height: 100% !important;
+            }
             img{
                 background-color: $Background-Color;
                 border: 10px solid $Main-Text-Color;
                 padding: 10px;
                 border-radius: 20px;
-                width: 95%;
                 transition: all 0.3s ease;
             }
             img:hover{

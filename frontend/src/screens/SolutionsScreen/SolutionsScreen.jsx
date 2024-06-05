@@ -70,7 +70,7 @@ function SolutionsScreen() {
                                                 <MenuItem value={2007}>2007 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
                                                 <MenuItem value={2006}>2006 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
                                                 <MenuItem value={2005}>2005 წლის ერთიანი ეროვნული გამოცდები</MenuItem>
-                                                <MenuItem value={2004}>2023 მაჭარაშვილი ტესტი #1</MenuItem>
+                                                {/* <MenuItem value={2004}>2023 მაჭარაშვილი ტესტი #1</MenuItem>
                                                 <MenuItem value={2003}>2023 მაჭარაშვილი ტესტი #2</MenuItem>
                                                 <MenuItem value={2002}>2023 მაჭარაშვილი ტესტი #3</MenuItem>
                                                 <MenuItem value={2001}>2023 მაჭარაშვილი ტესტი #4</MenuItem>
@@ -94,7 +94,7 @@ function SolutionsScreen() {
                                                 <MenuItem value={1983}>2023 მაჭარაშვილი ტესტი #22</MenuItem>
                                                 <MenuItem value={1982}>2023 მაჭარაშვილი ტესტი #23</MenuItem>
                                                 <MenuItem value={1981}>2023 მაჭარაშვილი ტესტი #24</MenuItem>
-                                                <MenuItem value={1980}>2023 მაჭარაშვილი ტესტი #25</MenuItem>
+                                                <MenuItem value={1980}>2023 მაჭარაშვილი ტესტი #25</MenuItem> */}
                                             </Select>
                     </FormControl>
                     {/* <span style={{width:'20px'}}>

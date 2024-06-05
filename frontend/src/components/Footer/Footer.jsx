@@ -57,7 +57,10 @@ function Footer() {
               <img className='Brand-Alfa' src={process.env.PUBLIC_URL+'images/DevelopedByAlfa.png'} alt="" />
           </Link> */}
           <h5 style={{ fontSize: '12px' }}>
-            2023© Matka.ge <br /> ყველა უფლება დაცულია.
+            2024© Matka.ge <br /> ყველა უფლება დაცულია.
+          </h5>
+          <h5 style={{fontSize: '10px'}}>
+            მათემატიკა, ეროვნულები, აბიტურიენტი
           </h5>
           <div className='topge-container'>
             {/* The counter will be added here */}

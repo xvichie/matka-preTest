@@ -62,7 +62,7 @@ function TheoryScreen() {
                             <strong className='animate-charcter'>ყველა თეორია</strong>
                         </div>
                         <div className="Labels-Bottom">
-                            <strong>აირჩიე სასურველი მიმართულება:</strong>
+                            <strong>აირჩიე მათემატიკის სასურველი მიმართულება:</strong>
                             <br />
                             <br />
                             • ალგებრა
