@@ -9,7 +9,7 @@ const path = require('path');
 const connection = require('./config/db.js');
 const userTests = require('./routes/userTests.js')
 const payment = require('./routes/payment.js');
-const uploadImage = require('./routes/uploadImage.js');
+// const uploadImage = require('./routes/uploadImage.js');
 const sendEmail = require('./routes/sendEmail.js');
 
 const app = express()
@@ -18,9 +18,9 @@ app.use(express.json());
 
 connection();
 
-app.use('/api/userTests', userTests);
+// app.use('/api/userTests', userTests);
 app.use('/api/payment', payment);
-app.use('/api/upload-file-to-cloud-storage', uploadImage);
+// app.use('/api/upload-file-to-cloud-storage', uploadImage);
 app.use('/api/sendEmail', sendEmail);
 
 // const jwtCheck = jwt({
